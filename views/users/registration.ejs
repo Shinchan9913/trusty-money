@@ -15,7 +15,49 @@
     <input type="password" name="password" placeholder="Enter Password" required>
     <br><br>
     <input type="submit" value="Register">
+    <button onclick="signIn();">Sign-in via Google</button>
 </form>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<!-- <script src="g_signin.js"></script> -->
+
+
+
+
+
+<script>
+    function signIn(){
+    let oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth"
+    let form = document.createElement('form')
+    form.setAttribute('method','GET')
+    form.setAttribute('action', oauth2Endpoint)
+
+    let params = {
+        "client_id": "970969653661-279v2rb7f9brd18mag7ocitgi023d594.apps.googleusercontent.com",
+        "redirect_uri":"https://733d-2405-201-680f-d02a-45cb-da3d-56fc-f53e.ngrok-free.app",
+        "response_type":"token",
+        "scope":" https://www.googleapis.com/auth/drive.metadata.readonly",
+        "include_granted_scopes":'true',
+        "state":'pass_through_value'
+    }
+
+    for (var p in params){
+        let input = document.createElement('input')
+        input.setAttribute('type','hidden')
+        input.setAttribute('name',p)
+        input.setAttribute('value',params[p])
+        form.appendChild(input)
+    }
+    document.body.appendChild(form)
+    form.submit()
+
+}
+
+
+
+</script>
+
+
+
 
 <% 
 if(typeof message !== 'undefined'){

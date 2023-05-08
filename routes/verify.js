@@ -1,5 +1,6 @@
-const express = require('express')
-const user_route = express()
+const express = require("express");
+const router = express.Router();
+const user_route = express();
 
 user_route.set('view engine', 'ejs')
 user_route.set('views', './views/users')
@@ -22,25 +23,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage})
 
-// const userController = require('../controllers/userController')
+const userController = require('../controllers/userController');
 
-// user_route.get('/register', userController.loadRegister)
+user_route.get('/', userController.verifyMail);
 
-// user_route.post('/register', upload.single('image'), userController.addUser)
-
-// user_route.get('/verify', userController.verifyMail)
-
-// module.exports = user_route
-
-
-
-
-
-
-
-
-
-
-
-//
-//pata nhi ab is page ki jarurat h ki nhi ek bar dekh lena sir
+module.exports = user_route;
