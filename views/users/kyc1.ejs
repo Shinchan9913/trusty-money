@@ -233,20 +233,19 @@
                     <div class="submission" id="submission">
                         <p>.JPG/ .PNG/ .PDF (Max. 10MB)</p> <br>
 
-
-                        <button class="button_3" href="KYC/form2" type="submit" id="button_3" onclick="submitKYCform1(); Click_fun_owner(event);">Confirm
-                            and
-                            Continue
+                        <a href="/KYC/form/2">
+                        <button class="button_3" href="KYC/form2" type="submit" id="button_3" onclick="submitKYCform1(event); ">
+                        Confirm and Continue
                         </button>
-
-
+                        </a>
                     </div>
 
                 </form>
             </div>
 
             <script>
-                function submitKYCform1() {
+                function submitKYCform1(event) {
+                event.preventDefault();
   // Get references to the forms
   var form1 = document.getElementById("form1");
   var form2 = document.getElementById("form2");
@@ -259,6 +258,8 @@
   var form1Data = new FormData(form1);
   for (var [name, value] of form1Data.entries()) {
     combinedFormData[name] = value;
+    
+    event.target.submit()
   }
 
   // Get data from form2 and add it to the combinedFormData object
