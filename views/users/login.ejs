@@ -1,0 +1,544 @@
+<!-- % include('../layouts/header.ejs') %>
+
+<h1>Login</h1>
+
+% 
+if(typeof message !== 'undefined') {
+    %>
+    <h4>%= message %></h4>
+    %  
+}
+%>
+
+<form action="/login" method="post">
+
+    <input type="email" name="email" placeholder="Enter email">
+    <br><br>
+    <input type="password" name="password" placeholder="Enter password">
+    <br><br>
+    <input type="submit" value="Login">
+</form>
+
+% include('../layouts/footer.ejs') %> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/login.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+    <div class="container_0">
+        <header class="header" id="header">
+            <div class="left">
+                <a href="#">TRUSTY</a>
+                <p>POWERING MONEY</p>
+            </div>
+            <div class="right">
+                <button class="btn1">Login</button>
+                <button class="btn2">Sign Up</button>
+            </div>
+        </header>
+
+        <div class="container_center" id="container_center">
+            <h1>We’re The New Era of Cross-Border Transactions</h1>
+            <p>Trusty is a new “Fintech” company, that facilitates cross-border transaction
+                management. In addition to processing cross border payments for its customers, Trusty also provides
+                reconciliation and transaction management</p>
+            <form action="">
+                <div class="formgroup">
+                    <input type="email" placeholder="Enter your work email"> <br>
+                </div>
+                <button class="btn" id="btn" onclick="create_account()">
+                    <a href="#"> Sign up </a>
+                </button>
+            </form>
+        </div>
+        <img src="Exports\image 528.jpg" alt="" id="dashboard_img">
+
+        <!--Account Creation PoP UP-->
+        <div class="create_account" id="create_account">
+
+            <div class="welcome" id="welcome">
+                <div class="content" id="content">
+                    <a href="#">Trusty</a>
+                    <p>Powering Money</p>
+                    <h1>Welcome Back!</h1>
+                    <h2>Please enter your details</h2>
+                    <div class="form" id="form">
+                        <form action="/login" method="post" id="loginForm">
+                            <input type="email" placeholder="Enter email" name="email"> <br> <br>
+                            <input type="text" name="password" id="" placeholder="Enter Password">
+                        </form>
+                    </div>
+                    <div class="footer" id="footer">
+                        <h3>Or Log-in With</h3>
+                        <div class="account_logo">
+                            <div class="facebook">a</div>
+                            <div class="google">b</div>
+                            <div class="apple">c</div>
+                        </div>
+                        <!-- <a href="KYC_page.html"> --><button class="button" onclick="submitLoginForm()">  Login  </button><!-- </a> -->
+                        <p>Not registered yet?</p>
+                        <button class="button_0" onclick="head_acc_create()"> Register Now</button>
+                    </div>
+             </div>
+            </div>
+            
+            <div class="create" id="create">
+                <div class="content" id="content">
+                    <a href="#">Trusty</a>
+                    <p>Powering Money</p>
+                    <h1>Create Account</h1>
+                    <h2>Please fill the Required Fields</h2>
+                    <div class="form" id="create_form">
+                        <form action="">
+                            <input type="text" placeholder="Name"> <br> <br>
+                            <input type="number" name="" id="" placeholder="Mobile Number">
+                        </form>
+                    </div>
+    
+                    <div class="footer" id="create_footer">
+                        <h3>Or Sign-Up With</h3>
+                        <div class="account_logo">
+                            <div class="facebook">a</div>
+                            <div class="google">b</div>
+                            <div class="apple">c</div>
+                        </div>
+                        <button class="button" onclick="head_to_OTP()">  Next  </button>
+                        <p>Already Registered? <a href="#"> Login Now</a></p>
+                    </div>
+
+                    <div class="otp_verif" id="otp_verif">
+                        <input type="number" placeholder="Enter OTP">
+                        <button class="button_1" onclick="head_to_email()">  Next  </button>
+                        <p>Already Registered? <a href="#"> Login Now</a></p>
+                    </div>
+    
+                    <div class="enter_email" id="enter_email">
+                        <input type="email" placeholder="Enter Email">
+                        <button class="button_2" onclick="head_to_otp()">  Next  </button>
+                        <p>Already Registered? <a href="#"> Login Now</a></p>
+                    </div>
+                    <div class="otp_verif_email" id="otp_verif_email">
+                        <input type="number" placeholder="Enter OTP">
+                        <button class="button_3" onclick="head_to_password()">  Next  </button>
+                        <p>Already Registered? <a href="#"> Login Now</a></p>
+                    </div>
+                    <div class="enter_password" id="enter_password">
+                        <input type="text" placeholder="Set Password">
+                        <input type="text" placeholder="Re-enter Password">
+                         <a href="KYC_page.html"><button class="button_4" onclick=""> Create Account </button></a> 
+                        <p>Already Registered? <a href="#"> Login Now</a></p>
+                    </div>
+            </div>
+            
+            </div>
+            <div class="image">
+                <img src="Exports\create_account.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container_1">
+        <h1>What We Do</h1>
+        <div class="box_1">
+            <div class="box_do">
+                <button class="button_do">1</button>
+                <p>Transparent Pricing</p>
+            </div>
+            <div class="box_do">
+                <button class="button_do">2</button>
+                <p>Money Management</p>
+            </div>
+            <div class="box_do">
+                <button class="button_do">3</button>
+                <p>Clean Process</p>
+            </div>
+            <div class="box_do">
+                <button class="button_do">4</button>
+                <p>Rate alert for maximizing profit</p>
+            </div>
+        </div>
+        <div class="box_15">
+            <video width="725px" height="453px" controls>
+                <source src="C:\Users\RASIKA\Documents\Bandicam\bandicam 2023-05-22 14-50-22-580.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="container_2">
+        <div class="mission">MISSION</div>
+        <div class="text">To be a trustworthy financial partner
+            for its customer in their overseas banking journey.</div>
+        <div class="logo"><img src="#" alt=""></div>
+    </div>
+
+    <div class="container_3">
+        <div class="box_30">
+            <h1>Currency Exchange</h1>
+            <div class="box_31">
+                <h2>0.5%</h2>
+                <p>Flat Transaction Fee</p>
+            </div>
+
+            <div class="block-wrapper">
+                <div class="invoice_block">
+                    <div class="invoice_amount-block">
+                        <div class="amont-wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c414adff9acad79a8c496_Ellipse%201.svg"
+                                loading="lazy" alt="" class="circle-vector" />
+                            <div class="final_amount-wrapper">
+                                <div class="amount-text is-hidden">$3000</div>
+                                <div class="recieve_text">Enter invoice amount</div>
+                                <div id="usd_input_container" class="div-block-2">
+                                    <div class="form-block-2 w-form">
+                                        <form id="price-form" name="email-form" data-name="Email Form" method="get"
+                                            class="form-2">
+                                            <input type="number" class="amount-text w-input" maxlength="256"
+                                                name="Amount-Input" data-name="Amount Input" placeholder="8000"
+                                                id="amount-Input" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flag_wrapper">
+                            <div class="form-block-3 w-form">
+                                <form id="email-form" name="email-form" data-name="Email Form" method="get">
+                                    <div data-hover="false" data-delay="0" fs-selectcustom-element="dropdown"
+                                        class="w-dropdown">
+                                        <!-- <div class="dropdown-toggle w-dropdown-toggle">
+                                            <img loading="lazy" src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632ca8de4aaaa30b0817b03a_US.svg" alt="" class="flag_icon"/>
+                                            <div class="flag-text">USD</div>
+                                            <div class="icon w-icon-dropdown-toggle"></div>
+                                        </div>
+                                        <nav class="dropdown-list w-dropdown-list">
+                                            <select id="field" name="field" data-name="Field" class="nice-select w-select">
+                                                <option value="USD">USD</option>
+                                                <option value="GBP">GBP</option>
+                                                <option value="EUR">EUR</option>
+                                                <option value="CAD">CAD</option>
+                                            </select>
+                                            <a href="#" class="dropdown_link-block is-nothidden w-inline-block">
+                                                <div class="fs-select_link-block-text-2">Select Link</div>
+                                            </a>
+                                            <a id="usd-dropdown-item" href="#" class="dropdown_link-block usd-dropdown-item w-inline-block">
+                                                <img loading="lazy" src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/64129b1196c61265d681dda6_US%20(1).svg" alt=""/>
+                                                <div class="dropdown_country-text">USD</div>
+                                            </a>
+                                            <a id="gbp-dropdown-item" href="#" class="dropdown_link-block w-inline-block">
+                                                <img loading="lazy" src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/64129b10bb057c1fe8cbdf6b_Vector_illustration_of_the_United_Kingdom_flag%201.svg" alt=""/>
+                                                <div class="dropdown_country-text">GBP</div>
+                                            </a>
+                                            <a href="#" class="dropdown_link-block w-inline-block">
+                                                <img loading="lazy" src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/64129b10e9e64b450105cb23_g8.svg" alt=""/>
+                                                <div class="dropdown_country-text">EURO</div>
+                                            </a>
+                                            <a id="cad-dropdown-item" href="#" class="dropdown_link-block w-inline-block">
+                                                <img loading="lazy" src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/64129b10ae08c3025b0f11d8_g8%20(1).svg" alt=""/>
+                                                <div class="dropdown_country-text">CAD</div>
+                                            </a>
+                                        </nav>
+                                        -->
+                                    </div>
+                                </form>
+                                <!-- <div class="w-form-done">
+                                    <div>Thank you! Your submission has been received!</div>
+                                </div>
+                                <div class="w-form-fail">
+                                    <div>Oops! Something went wrong while submitting the form.</div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div id="amount_error" class="incorrect-amount-error">Maximum invoice amount is $10,000</div>-->
+                </div>
+                <div class="live_update-block">
+                    <div class="update_text-vlock">
+                        <div class="icon_wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c3e0918c8cfc5b4aed3d4_Group%2098.svg"
+                                loading="lazy" alt="" class="icon_live" />
+                        </div>
+                        <div class="live_text-block">
+                            <div id="live_rate" data-type="live_rate" class="live_text">82.79 INR</div>
+                        </div>
+                    </div>
+                    <div id="w-node-_949c8a0e-0057-ff87-c5da-253a797cf27f-a12be1b5" class="live_block-text capsule">
+                        <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/63f6f248bcfee41007fa4bd3_Group%201%20(3).svg"
+                            loading="lazy" alt="" />
+                        <div class="live_text-long text-color-white text-size-16">Live FX, Zero margin</div>
+                    </div>
+                </div>
+                <div class="line-divider"></div>
+                <div class="live_update-block">
+                    <div class="update_text-vlock">
+                        <div class="icon_wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c3e09fbd657fb84bb9cec_Group%20101.svg"
+                                loading="lazy" alt="" class="icon_live" />
+                        </div>
+                        <div class="live_text-block">
+                            <div id="converted_value" class="live_text text-weight-bold">
+                                <strong class="bold-text">662,320.00 INR</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="live_update-block">
+                    <div class="update_text-vlock">
+                        <div class="icon_wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c3e096f20783d9adbc411_Group%20100.svg"
+                                loading="lazy" alt="" class="icon_live" />
+                        </div>
+                        <div class="live_text-block">
+                            <div id="platform_fee" class="live_text">2,400.91 INR</div>
+                        </div>
+                    </div>
+                    <div class="live_block-text flex-hor">
+                        <div id="txn_fee_label" class="live_text-long">Transaction fee</div>
+                        <div class="tooltip-icon-block">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/6421c54bae017faa7e7971d4_Icon.svg"
+                                loading="lazy" alt="" />
+                            <div class="tooltip-block">
+                                <div class="tooltip-currency-text">
+                                    1 <span class="pre-country-text">USD</span>
+                                    = <span class="live-forex-text">80.0000</span>
+                                    INR
+                                </div>
+                                <!-- <div class="tooltip-time-text">FX rate @ 24 Aug 2022, 11:44 AM IST</div>  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="live_update-block">
+                    <div class="update_text-vlock">
+                        <div class="icon_wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c3e096f20783d9adbc411_Group%20100.svg"
+                                loading="lazy" alt="" class="icon_live" />
+                        </div>
+                        <div class="live_text-block">
+                            <div id="gst_fee" class="live_text">432.16 INR</div>
+                        </div>
+                    </div>
+                    <div class="live_block-text">
+                        <div class="live_text-long">GST (18% of Txn fee)</div>
+                    </div>
+                </div>
+                <div class="invoice_block">
+                    <div class="invoice_amount-block">
+                        <div class="amont-wrapper">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632c414adff9acad79a8c496_Ellipse%201.svg"
+                                loading="lazy" alt="" class="circle-vector" />
+                            <div class="final_amount-wrapper">
+                                <div class="recieve_text">You’ll receive</div>
+                                <div id="amount_received" class="amount-text">659,486.93</div>
+                            </div>
+                        </div>
+                        <div class="flag_wrapper without-dropdown">
+                            <img src="https://uploads-ssl.webflow.com/6309bef99875884c877fed01/632ca8dce87cc6a74cbb9aaf_IN.svg"
+                                loading="lazy" alt="" class="flag_icon" />
+                            <div class="flag-text">INR</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="live_update-line"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container_4">
+        <h1>Resources</h1>
+        <div class="box_40">
+            <div class="media_scroller">
+                <div class="media_element">
+                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <h2>Lorem, ipsum.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
+                        sed
+                        officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
+                        voluptatibus
+                        amet?</p>
+                </div>
+                <div class="media_element">
+                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <h2>Lorem, ipsum.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
+                        sed
+                        officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
+                        voluptatibus
+                        amet?</p>
+                </div>
+                <div class="media_element">
+                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <h2>Lorem, ipsum.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
+                        sed
+                        officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
+                        voluptatibus
+                        amet?</p>
+                </div>
+                <div class="media_element">
+                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <h2>Lorem, ipsum.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
+                        sed
+                        officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
+                        voluptatibus
+                        amet?</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="container_5">
+        <h1>Testimonials</h1>
+
+        <div class="box_testi">
+            <img src="Exports\Ellipse 11.jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
+                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
+                amet?</p>
+                <h2>Lorem, ipsum.</h2>
+                <h3>Lorem, ipsum.</h3>
+        </div>
+        <div class="box_testi">
+            <img src="Exports\Ellipse 11 (1).jpg" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
+                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
+                amet?</p>
+                <h2>Lorem, ipsum.</h2>
+                <h3>Lorem, ipsum.</h3>
+        </div>
+        <div class="box_testi">
+            <img src="Exports\Ellipse 11 (2).png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
+                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
+                amet?</p>
+                <h2>Lorem, ipsum.</h2>
+                <h3>Lorem, ipsum.</h3>
+        </div>
+    </div>
+
+    <div class="container7">
+        <h1>Frequently Asked Questions</h1>
+        <section class="faq-container">
+            <div class="faq-one">
+
+                <!-- faq question -->
+                <h2 class="faq-page">What is an FAQ Page?</h2>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+            <div class="faq-two">
+
+                <!-- faq question -->
+                <h2 class="faq-page">Why do you need an FAQ page?</h2>
+
+                <!-- faq answer -->
+
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+
+            <div class="faq-three">
+
+                <!-- faq question -->
+                <h2 class="faq-page">Does it improves the user experience of a website?</h2>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
+        </section>
+    </div>
+    <script src="JS\index.js"></script>
+
+    <div class="container6">
+        <div class="box_contact_1" >
+            <a href="#" >TRUSTY</a>
+            <p>POWERING MONEY</p>
+            <div class="box611"> 
+                <p>New Era of Cross-Border Transaction</p>
+            </div>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <div class="follow_links">
+                   <a href=""><img src="Exports\facebook.png" alt=""></a> 
+                   <a href=""><img src="Exports\twitter.png" alt=""></a> 
+                   <a href=""><img src="Exports\linked in.png" alt=""></a> 
+                   <a href=""><img src="Exports\insta.png" alt=""></a> 
+                </div>
+            </div>
+        </div>
+        <div class="box_contact_2" >
+            <h2>Contact us</h2>
+            <form action="">
+
+                <input type="text" placeholder="Name"> <br>
+                <input type="email" placeholder="E-mail"> <br>
+                <input type="text" placeholder="Message"> <br>
+
+                <button class="btn62" >
+                     Contact Us 
+                </button>
+            </form>
+        </div>
+
+        <div class="box_contact_3" >
+            <h2>
+                Email <br>
+                 <a href="">info@trusty.com</a> <br> <br>
+                WhatsApp Number <br>
+                +91 21434 12421 <br>
+            </h2>
+            <p>
+                <div class="links">
+                    <a href="#">Privacy Policy</a> 
+                 <a href="#">Terms and Conditions</a>
+                </div>
+                
+            </p>
+
+
+            
+        </div>
+    </div>
+
+
+</body>
+
+</html>

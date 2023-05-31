@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC_Page</title>
+    <link rel="stylesheet" href="CSS\KYC.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div id="logo"><a href="#">TRUSTY</a></div>
+        <p>POWERING MONEY</p>
+        <div class="container_1">
+            <ul>
+                <li><img src="Exports\icons\home.png" alt=""><a href="index.html" id="home">Home</a></li> <br>
+                <li> <img src="Exports\icons\notif.png" alt=""><a href="#" id="notifications">Notifiations</a></li><br>
+                <li><img src="Exports\icons\exc rate.png" alt=""><a href="#" id="check_exchange_rate">Check Exchange
+                        Rate</a></li><br>
+                <li><img src="Exports\icons\rate alert.png" alt=""><a href="#" id="rate_alert">Rate Alert</a></li><br>
+
+            </ul>
+        </div>
+        <div class="container_2" id="container_2">
+            <ul>
+                <!-- <div class="acc_inf">
+                    <img src="Exports\icons\account image.png" alt="">
+                    <p id="h1"> Name</p>
+                    <p id="h2"> Email</p>
+
+                </div> -->
+                <li><img src="Exports\icons\acc.png" alt=""><a href="accounts.html" id="accounts">Account</a></li><br>
+                <li><img src="Exports\icons\settings.png" alt=""><a href="settings.html" id="Setting">Settings</a></li>
+                <br>
+                <li><img src="Exports\icons\log out.png" alt=""><a href="#" id="Logout">Logout</a></li><br>
+
+            </ul>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="main_body" id="main_body">
+
+        <div class="heading">
+            <div id="back1">
+                <img src="./Exports/images.png" alt="back1" srcset="" onclick="click_back1()">
+            </div>
+            <div id="back2">
+                <img src="./Exports/images.png" alt="back2" srcset="" onclick="click_back2()">
+            </div>
+            <div id="back3">
+                <img src="./Exports/images.png" alt="back3" srcset="" onclick="click_back3()">
+            </div>
+            <div id="back4">
+                <img src="./Exports/images.png" alt="back4" srcset="" onclick="click_back4()">
+            </div>
+            <div class="main_head">
+                <h1>
+                    KYC Verification
+                </h1>
+            </div>
+
+        </div>
+        <script>
+            document.getElementById("back1").style.display = 'none';
+            document.getElementById("back2").style.display = 'none';
+            document.getElementById("back3").style.display = 'none';
+            document.getElementById("back4").style.display = 'none';
+        </script>
+
+        <div class="status_bar">
+
+        </div>
+
+
+
+
+        <div class="no_verification">
+            <div class="headings" id="headings">
+                <h2>
+                    Bussiness PAN Details
+                </h2>
+                <h3>
+                    We require this information to verify your business identity.
+                </h3>
+                <h4>
+                    PAN Number
+                </h4>
+            </div>
+            <div class="form" id="form">
+                <form action="/kyc" method="post">
+                    <input type="text" placeholder="ASDFG1234H"> <br>
+                    <button class="button" type="submit" id="button" onclick="Click_function(event)">
+                        Confirm and Continue
+                    </button>
+                </form>
+            </div>
+
+            <script>
+                function Click_function(event) {
+                    event.preventDefault();
+                    document.getElementById("button_1").style.display = "block";
+                    document.getElementById("button").style.display = "none";
+                    document.getElementById("kyc_completion").style.display = "flex";
+                    document.getElementById("kyc_completion_1").style.display = "block";
+                    document.getElementById("back1").style.display = "block";
+                    event.target.submit();
+                }
+            </script>
+
+            <div class="kyc_completion" id="kyc_completion">
+                <form action="/kyc2" method="post">
+                    <div class="container_3">
+                        Company Name <br>
+                        <input type="text" placeholder="XYZ company name"> <br>
+                        Company Nickname <br><input type="text" placeholder="XYZ company nickname"><br>
+                        GSTIN* <br><select name="GSTIN" id="gstin">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select> <br>
+                        Company Website<input type="text" placeholder="Company Website"> <br>
+                    </div>
+                    <div class="container_4">
+                        CIN <br><input type="text" placeholder="CIN"> <br>
+                        Primary Bussiness <br><select name="Pri_bussiness" id="Pri_bussiness">
+                            <option value="finance">Finance</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="E-Commerce">E-Commerce</option>
+                            <option value="Designing">Designing</option>
+                            <option value="Research">Research</option>
+                            <option value="Coaching">Coaching</option>
+                        </select>
+                    </div>
+                    <div class="kyc_completion_1" id="kyc_completion_1">
+                        <input type="checkbox"> I confirm the details provided above are correct from my side. <br>
+                    </div>
+
+
+                    <button class="button_1" type="submit" id="button_1" onclick="Click_function_KYC(event)">
+                        Confirm and Continue
+                    </button>
+
+                </form>
+            </div>
+
+            <script>
+                function Click_function_KYC(event) {
+                    event.preventDefault();
+                    document.getElementById("button_1").style.display = "none";
+                    document.getElementById("button").style.display = "none";
+                    document.getElementById("kyc_completion").style.display = "none";
+                    document.getElementById("kyc_completion_1").style.display = "none";
+                    document.getElementById("kyc_completion_1").style.display = "none";
+                    document.getElementById("form").style.display = "none";
+                    document.getElementById("headings").style.display = "none";
+                    document.getElementById("headings_KYC").style.display = "block";
+                    document.getElementById("upload").style.display = "flex";
+                    document.getElementById("submission").style.display = "block";
+                    document.getElementById("back1").style.display = "none";
+                    document.getElementById("back2").style.display = "block";
+                    document.getElementById("button_3").style.display = "block";
+                    event.target.submit();
+
+                }
+            </script>
+
+
+            <div class="headings_KYC" id="headings_KYC">
+                <h2>
+                    Bussiness PAN Details
+                </h2>
+                <h3>
+                    We require this information to verify your business identity.
+                </h3>
+                <h4>
+                    Upload soft copy of director’s personal PAN card
+                </h4>
+            </div>
+
+            <div class="upload " id="upload">
+                <form action="/kyc3" method="post">
+                    <div class="container">
+                        <div class="card">
+
+                            <div class="drop_box">
+                                <img src="Exports\image 30.jpg" alt=""> <br>
+                                <header>
+                                    <h6>Upload Directors PAN</h6>
+                                </header>
+                                <p>OR</p>
+                                <input type="file" hidden accept=".doc,.docx,.pdf" id="fileID" style="display:none;">
+                                <button class="btn">Browse...</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="status_line"></div>
+                    <div class="submission" id="submission">
+                        <p>.JPG/ .PNG/ .PDF (Max. 10MB)</p> <br>
+                        <button class="button_3" type="submit" id="button_3" onclick="Click_fun_bank(event)">Confirm and
+                            Continue</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <script>
+                function Click_fun_bank(event) {
+                    event.preventDefault();
+                    /* document.getElementById("button_1").style.display = "none";
+                     document.getElementById("button").style.display = "none";
+                     document.getElementById("kyc_completion").style.display = "none";
+                     document.getElementById("kyc_completion_1").style.display = "none";
+                     document.getElementById("kyc_completion_1").style.display = "none";
+                     document.getElementById("form").style.display = "none";
+                     document.getElementById("headings").style.display = "none"; */
+                    document.getElementById("headings_KYC").style.display = "none";
+                    document.getElementById("upload").style.display = "none";
+                    document.getElementById("submission").style.display = "none";
+                    document.getElementById("company_bank_details_top").style.display = "inline-block";
+                    document.getElementById("button_3").style.display = "none";
+
+                    document.getElementById("back1").style.display = "none";
+                    document.getElementById("back2").style.display = "none";
+                    document.getElementById("back3").style.display = "block";
+                    event.target.submit();
+                }
+            </script>
+
+            <script>
+                function click_back1() {
+                    document.getElementById("button_1").style.display = "none";
+                    document.getElementById("button").style.display = "block";
+                    document.getElementById("kyc_completion").style.display = "none";
+                    document.getElementById("kyc_completion_1").style.display = "none";
+                    document.getElementById("back1").style.display = "none";
+                }
+                function click_back2() {
+
+                    // Click_function();
+                    document.getElementById("button_1").style.display = "block";
+                    document.getElementById("button_3").style.display = "none";
+                    document.getElementById("headings_KYC").style.display = "none"
+                    document.getElementById("upload").style.display = "none";
+                    document.getElementById("kyc_completion").style.display = "flex";
+                    document.getElementById("kyc_completion_1").style.display = "block";
+                    document.getElementById("headings").style.display = "block";
+                    document.getElementById("form").style.display = "block";
+                    document.getElementById("back1").style.display = "block";
+                    document.getElementById("back2").style.display = "none";
+                    document.getElementById("submission").style.display = "none";
+
+                }
+
+                function click_back3() {
+                    // company_bank_details_top
+                    document.getElementById("company_bank_details_top").style.display = "none";
+                    document.getElementById("headings_KYC").style.display = "block";
+                    document.getElementById("button_3").style.display = "block";
+                    document.getElementById("upload").style.display = "block";
+                    document.getElementById("submission").style.display = "block";
+                    document.getElementById("back3").style.display = "none";
+                    document.getElementById("back2").style.display = "block";
+                }
+
+                function click_back4() {
+                    document.getElementById("back4").style.display = "none";
+                    document.getElementById("back3").style.display = "block";
+                    document.getElementById("beneficiary_list_top").style.display = 'none';
+                    document.getElementById("company_bank_details_top").style.display = "block";
+                    document.getElementById("button_4").style.display = "block";
+
+                }
+            </script>
+
+            <div class="company_bank_details_top" id="company_bank_details_top">
+                <div class="headings">
+                    <h2>
+                        Company Bank Details
+                    </h2>
+                    <h3>
+                        We require this information to verify your business identity.
+                    </h3>
+                </div>
+
+                <div class="company_bank_details">
+                    <form action="/kyc3" method="post">
+                        <div class="company_details_1">
+                            <div class="company_bank_details_1">
+                                Customer/Bussiness Name <br>
+                                <input type="text" placeholder="XYZ company name"> <br>
+                                Account Number <br><input type="text" placeholder="XYZ Account Number"><br>
+                                IFSC Code <br><input type="text" placeholder="IFSC Code"> <br>
+                            </div>
+                            <div class="ccompany_bank_details_2">
+                                Bank Name<br><select name="bank_name" id="bank_name">
+                                    <option value="SBI Bank">SBI Bank</option>
+                                    <option value="BOB Bank">BOB Bank</option>
+                                    <option value="Union Bank">Union Bank</option>
+                                    <option value="Axis Bank">Axis Bank</option>
+                                    <option value="HDFC Bank">HDFC Bank</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="company_bank_details_3">
+                            <input type="checkbox"> I confirm the details provided above are correct from my side. <br>
+                            <button class="button_4" type="submit" id="button_4" onclick="Click_fun_owner(event)">
+                                Confirm and Continue
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <script>
+                function Click_fun_owner(event) {
+                    event.preventDefault();
+                    document.getElementById("company_bank_details_top").style.display = "none";
+                    document.getElementById("beneficiary_list_top").style.display = "inline-block";
+                    document.getElementById("back1").style.display = "none";
+                    document.getElementById("back2").style.display = "none";
+                    document.getElementById("back3").style.display = "none";
+                    document.getElementById("back4").style.display = "block";
+                    event.target.submit()
+
+                }
+            </script>
+
+
+
+            <div class="beneficiary_list_top" id="beneficiary_list_top">
+                <div class="headings">
+                    <h2>
+                        Beneficial Owners List
+                    </h2>
+                    <h3>
+                        This is information of Beneficial Owner
+                    </h3>
+                </div>
+
+                <div class="beneficial_list">
+                    <form action="">
+                    <div class="listlist">
+
+
+                        <div class="beneficial_list_1">
+                            <ul>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+
+                            </ul>
+                        </div>
+                        <div class="beneficial_list_2">
+                            <ul>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="beneficial_list_btn">
+                        <button class="button_5" type="submit" onclick="open_dashboard(event)">
+                            Confirm and Continue
+                        </button>
+                    </div>
+                </form>
+                </div>
+
+            </div>
+            <script>
+                function open_dashboard(event) {
+                    event.preventDefault();
+                    document.getElementById("beneficiary_list_top").style.display = "none";
+                    document.getElementById("kycdone_popup").style.display = "block";
+                    document.getElementById("sidebar").style.opacity = "0.6";
+                    document.getElementById("container_2").style.opacity = "0.6";
+                    document.getElementById("main_body").style.opacity = "0.6";
+                    event.target.submit();
+                }
+            </script>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="kycdone_popup" id="kycdone_popup">
+        <img src="Exports\verified_user.png" alt="">
+        <p id="h1">Your KYC is completed successfully.</p>
+        <p id="h2">You will be able to transits after few minutes.</p>
+        <a href="dashboard.html"><button class="button_6"> Go to Dashboard</button></a>
+
+    </div>
+    
+</body>
+
+</html>

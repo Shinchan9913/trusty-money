@@ -1,0 +1,24 @@
+<% include('../layouts/header.ejs') %>
+
+<h1>Dashboard</h1>
+
+<form action="" method="post" enctype="application/x-www-form-urlencoded">
+    <input type="text" name="txnId" placeholder="Enter txn ID" required>
+    <br><br>
+    <input type="number" name="amount" placeholder="amount" required>
+    <br><br>
+    <input type="submit" value="New txn">
+</form>
+
+
+<% 
+if(typeof message !== 'undefined'){
+    %>
+    <p style="color: green;"><%= message %></p>
+    <%
+}
+
+%>
+
+
+<% include('../layouts/footer.ejs') %>

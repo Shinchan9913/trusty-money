@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="/css/account.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="sidebar">
+        <div id="logo"><a href="#">TRUSTY</a></div>
+        <p>POWERING MONEY</p>
+        <div class="container_1">
+            <ul>
+                <li><a href="index.html" id="home">Home</a></li> <br>
+                <li><a href="#" id="notifications">Notifiations</a></li><br>
+                <li><a href="#" id="check_exchange_rate">Check Exchange Rate</a></li><br>
+                <li><a href="#" id="rate_alert">Rate Alert</a></li><br>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container_2">
+        <ul>
+            <li><a href="name" id="name"></a></li> <br>
+            <li><a href="accounts.html" id="accounts">Account</a></li><br>
+            <li><a href="settings.html" id="Setting">Settings</a></li><br>
+            <li><a href="#" id="Logout">Logout</a></li><br>
+
+        </ul>
+    </div>
+    </div>
+     
+    <div class="main_body">
+        <div class="account">
+            <h2>Account</h2> 
+             <div class="personal_details">
+                 <h1>
+                    Personal Details 
+                 </h1>
+                 <div class="info">
+                    <div class="name">
+                        Name <br>
+                        Email <br>
+                        Contact Number <br>
+                    </div>
+                    <div class="distinction">
+                        : <br>
+                        : <br>
+                        : <br>
+
+                    </div>
+
+                    <div class="entry">
+                        <%= user.name %> <br>
+                        <%= user.email %> <br>
+                        <%= user.mobile %> <br>
+                    </div>
+                 </div>
+             </div>
+             <div class="company_details">
+                <h1>
+                    Company Details
+                 </h1>
+                 <div class="info">
+                    <div class="name">
+                        Company Name <br>
+                        Company Nick Name <br>
+                        PAN <br>
+                        CIN <br>
+                        GSTIN <br>
+                        Primary Bussiness <br>
+                        Contact Website <br>
+                    </div>
+                    <div class="distinction">
+                        : <br>
+                        : <br>
+                        : <br>
+                        : <br>
+                        : <br>
+                        : <br>
+                        : <br>
+
+                    </div>
+
+                    <div class="entry">
+                        <%= KYC.companyName %> <br>
+                        <%= KYC.companyNickname %> <br>
+                        <%= KYC.panNumber %> <br>
+                        <%= KYC.CIN %> <br>
+                        <%= KYC.GSTIN %><br>
+                        <%= KYC.primaryBusiness %> <br>
+                        <%= KYC.companyWebsite %> <br>
+                    </div>
+
+             </div>
+        </div>
+        </div>
+        
+        
+        <div class="picture">
+            <div class="image">
+               <img src="Exports\Ellipse 1077.jpg" alt=""> <br>
+               Change Profile Picture
+            </div>
+            <div class="company_bank_details">
+                <h1>
+                    Company Bank Details
+                 </h1>
+                 <div class="info">
+                    <div class="name">
+                        Costumer/Bussiness Name<br>
+                        Bank name <br>
+                        Account Number <br>
+                        IFSC<br>
+                        
+                    </div>
+                    <div class="distinction">
+                        : <br>
+                        : <br>
+                        : <br>
+                        : <br>
+                    </div>
+
+                    <div class="entry">
+                        <%= KYC.businessName %><br>
+                         <br>
+                        <%= KYC.accountNumber %> <br>
+                        <%= KYC.IFSC %><br>
+                    </div>
+
+            </div>
+    </div>
+</body>
+</html>
