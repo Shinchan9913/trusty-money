@@ -42,9 +42,55 @@ const form1 = async(req, res) =>{
     }
 }
 
+const form2 = async(req, res) => {
+    try {
+        res.render('kyc2')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+const form3 = async(req, res) => {
+    try {
+        res.render('kyc3')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+const form3p = async(req, res) => {
+    try {
+        const userId = req.session.user_id;
 
+        // Find the existing KYC document based on the userId
+        const existingKYC = await kyc.findOne({ userId:userId });
+
+        if (!existingKYC) {
+        console.error('No existing KYC document found');
+        return;
+        }
+
+        // Update the KYC document with the new form data
+        existingKYC.businessName = req.body.businessName;
+        existingKYC.accountNumber = req.body.accountNumber;
+        existingKYC.IFSC = req.body.IFSC;
+        existingKYC.bankName = req.body.bankName;
+
+        try {
+        // Save the updated KYC document
+        const updatedKYC = await existingKYC.save();
+        console.log('KYC document updated successfully:', updatedKYC);
+        } catch (error) {
+        console.error('Error saving updated KYC document:', error);
+        }
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 module.exports = {
     loadKYC,
     form1,
+    form2,
+    form3,
+    form3p
 }

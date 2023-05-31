@@ -43,6 +43,9 @@ const kycSchema = new Schema({
   },
   IFSC:{
     type:String,
+  },
+  bankName:{
+    type:String,
   }
 });
 

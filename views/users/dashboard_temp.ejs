@@ -14,62 +14,35 @@
 <body>
     <div class="sidebar" id="sidebar" onclick="main_click()">
         <div id="logo"><a href="#">TRUSTY</a></div>
-        <hr class="hr0">
         <p>POWERING MONEY</p>
-        <hr id="hr1">
         <div class="container_1">
-            <ul>
-                <li class="c_11" >
-                    <a href="index.html" id="home">
-                        <img width="26" src="Exports/icons/home.png">
-                        Home</a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="notif_li" onmouseenter="notif_display()" onmouseout="notif_hide()">
-                        <img width="26" src="Exports/icons/notif.png" alt="">
-                        Notifiations
-                    </a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="exc_rate_li" onmouseenter="exchange_display()" onmouseout="exchange_hide()">
-                        <img width="26" src="Exports/icons/exc rate.png" alt="">
-                        Check Exchange Rate</a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()"">
-                       <img width="26" src="Exports/icons/rate alert.png" alt="">
-                        Rate Alert</a>
-                </li><br>
+            <div class="li" id="home">
+                <img src="Exports\icons\home.png" alt=""><a href="index.html" id="home">Home</a>
+            </div>
+            <div class="li" id="notif_li" onmouseenter="notif_display()" onmouseout="notif_hide()">
+                <img src="Exports\icons\notif.png" alt="">Notifiations<br>
+            </div>
 
-            </ul>
+            <div class="li" id="exc_rate_li" onmouseenter="exchange_display()" onmouseout="exchange_hide()">
+                <img src="Exports\icons\exc rate.png" alt="">Check Exchange Rate<br>
+            </div>
+            <div class="li" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()">
+                <img src="Exports\icons\rate alert.png" alt="">Rate Alert<br>
+            </div>
         </div>
-    </div>
-    <div class="container_2" id="container_2">
-        <hr id="hr2">
-        <ul>
-            <li><a href="name_c2" id="name_c2">
-                <img width="40" src="Exports/icons/account image.png" alt="">
-                    <h2>Lily Lewis</h2>
-                    <p>lilylewis@gmail.com</p>
-            </a></li> <br>
-            <li class="c_22">
-                <a href="accounts.html" id="accounts">
-                <img width="26" src="Exports/icons/acc.png" alt="">
-                Account</a>
-            </li><br>
-            <li class="c_22">
-                <a href="settings.html" id="Setting">
-                    <img width="26" src="Exports/icons/settings.png" alt="">
-                    Settings</a>
-                </li><br>
-            <li class="c_22">
-                <a href="#" id="Logout">
-                    <img width="26" src="Exports/icons/log out.png" alt="">
-                    Logout</a>
-            </li><br>
+        <div class="container_2">
+            <!--<li><img src="" alt=""><a href="name" id="name"></a></li> <br>-->
+            <div class="li" id="account">
+                <img src="Exports\icons\acc.png" alt=""><a href="#" onclick="redirectToAccount()" id="accounts">Account</a>
+            </div>
+            <div class="li" id="settings">
+                <img src="Exports\icons\settings.png" alt=""><a href="settings.html" id="Setting">Settings</a>
+            </div>
+            <div class="li" id="logut">
+                <img src="Exports\icons\log out.png" alt=""><a href="/logout" id="Logout">Logout</a>
+            </div>
 
-        </ul>
-    </div>
+        </div>
     </div>
 
     <div class="main_body" id="main_body">
@@ -79,7 +52,7 @@
                 <h1>Account</h1>
                 <div class="box_1">
                     <img src="" alt="">
-                    <h2>Company Name</h2>
+                    <h2><%= user.name%></h2>
                     <select name="country" id="country">
                         <option value="USA">USA</option>
                         <option value="India">India</option>
@@ -88,10 +61,10 @@
                     <div class="box_11">
                         <div class="formgroup">
                             <div class="label">
-                                <label for="account_no">Account Number</label> <br>
-                                <label for="account_no">Routing Number</label><br>
-                                <label for="account_no">Account Type</label><br>
-                                <label for="account_no">Bank Name</label><br>
+                                <label for="account_no"><%= user.accountNo %></label> <br>
+                                <label for="account_no"><%= user.routingNo %></label><br>
+                                <label for="account_no"><%= user.accountType %></label><br>
+                                <label for="account_no"><%= user.bankName %></label><br>
                             </div>
 
                             <div class="input">
@@ -160,50 +133,23 @@
 
             </div>
             <div class="transaction_drafts">
-                <div class="hr1"></div>
                 <div class="grid_container">
-                    <div class="grid_item" id="grid_item_1"> <input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_2">Transaction ID</div>
-                    <div class="grid_item" id="grid_item_3">Costumer Name</div>
-                    <div class="grid_item" id="grid_item_4">Transaction Initiation Date</div>
-                    <div class="grid_item" id="grid_item_5">Amount</div>
-                    <div class="grid_item" id="grid_item_6">Payment Status</div>
-                    <div class="grid_item" id="grid_item_7"></div>
-                    <div class="grid_item" id="grid_item_8"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_9">9</div>
-                    <div class="grid_item" id="grid_item_10">10</div>
-                    <div class="grid_item" id="grid_item_11">11</div>
-                    <div class="grid_item" id="grid_item_12">12</div>
-                    <div class="grid_item" id="grid_item_13">Completed</div>
-                    <div class="grid_item" id="grid_item_14"><img src="Exports\icons\three-dots-vertical.svg" alt=""> </div>
-                    <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_16">16</div>
-                    <div class="grid_item" id="grid_item_17">17</div>
-                    <div class="grid_item" id="grid_item_18">18</div>
-                    <div class="grid_item" id="grid_item_19">19</div>
-                    <div class="grid_item" id="grid_item_20">20</div>
-                    <div class="grid_item" id="grid_item_21"><img src="Exports\icons\three-dots-vertical.svg" alt=""></div>
-                    <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_23">23</div>
-                    <div class="grid_item" id="grid_item_24">24</div>
-                    <div class="grid_item" id="grid_item_25">25</div>
-                    <div class="grid_item" id="grid_item_26">26</div>
-                    <div class="grid_item" id="grid_item_27">Completed</div>
-                    <div class="grid_item" id="grid_item_28"><img src="Exports\icons\three-dots-vertical.svg" alt=""> </div>
-                    <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_30">30</div>
-                    <div class="grid_item" id="grid_item_31">31</div>
-                    <div class="grid_item" id="grid_item_32">32</div>
-                    <div class="grid_item" id="grid_item_33">33</div>
-                    <div class="grid_item" id="grid_item_34">34</div>
-                    <div class="grid_item" id="grid_item_35"><img src="Exports\icons\three-dots-vertical.svg" alt=""></div>
-                    <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_37">37</div>
-                    <div class="grid_item" id="grid_item_38">38</div>
-                    <div class="grid_item" id="grid_item_39">39</div>
-                    <div class="grid_item" id="grid_item_40">40</div>
-                    <div class="grid_item" id="grid_item_41">41</div>
-                    <div class="grid_item" id="grid_item_42"><img src="Exports\icons\three-dots-vertical.svg" alt=""></div>
+                    <div class="grid_item"> <input type="checkbox" name="" id=""></div>
+                    <div class="grid_item">Transaction ID</div>
+                    <div class="grid_item">Costumer Name</div>
+                    <div class="grid_item">Transaction Initiation Date</div>
+                    <div class="grid_item">Amount</div>
+                    <div class="grid_item">Payment Status</div>
+                    <div class="grid_item"></div>
+                    <% transactions.slice(0, 2).forEach((transaction) => { %>
+                        <div class="grid_item"><input type="checkbox" name="" id=""></div>
+                        <div class="grid_item"><%= transaction.txnId %></div>
+                        <div class="grid_item"><%= transaction.customerName %></div>
+                        <div class="grid_item"><%= transaction.initiationDate %></div>
+                        <div class="grid_item"><%= transaction.amount %></div>
+                        <div class="grid_item"><%= transaction.paymentStatus %></div>
+                        <div class="grid_item"><img src="Exports\icons\three-dots-vertical.svg" alt=""> </div>
+                    <% }) %>
                 </div>
             </div>
             <div class="footer">

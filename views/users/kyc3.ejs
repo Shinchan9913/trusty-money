@@ -113,19 +113,19 @@
                 </div>
 
                 <div class="company_bank_details">
-                    <form action="">
+                    <form action="" id="form3">
                         <div class="company_details_1">
                             <div class="company_bank_details_1">
                                 <div class="input_details_1">
                                     Customer/Bussiness Name <br>
-                                    <input type="text" placeholder="XYZ company name"> <br>
-                                    Account Number <br><input type="text" placeholder="XYZ Account Number"><br>
-                                    IFSC Code <br><input type="text" placeholder="IFSC Code"> <br>
+                                    <input type="text" name="businessName" placeholder="XYZ company name"> <br>
+                                    Account Number <br><input type="text" name="accountNumber" placeholder="XYZ Account Number"><br>
+                                    IFSC Code <br><input type="text" name="IFSC" placeholder="IFSC Code"> <br>
                                 </div>
                             </div>
                             <div class="company_bank_details_2">
                                 <div class="input_details_2">
-                                    Bank Name<br><select name="bank_name" id="bank_name">
+                                    Bank Name<br><select name="bankName" id="bank_name">
                                         <option value="SBI Bank">SBI Bank</option>
                                         <option value="BOB Bank">BOB Bank</option>
                                         <option value="Union Bank">Union Bank</option>
@@ -139,8 +139,8 @@
                         <div class="company_bank_details_3">
                             <input type="checkbox"> I confirm the details provided above are correct from my side. <br>
                         </div>
-                        <button class="button_4" type="submit" id="button_4" onclick="open_dashboard(event)">
-                            Confirm and Continue
+                        <button class="button_4" type="submit" id="button_4" onclick="submitKYCform3(); open_dashboard(event)">
+                            <a href="/dashboard/users">Confirm and Continue</a>
                         </button>
                     </form>
                 </div>
@@ -149,6 +149,35 @@
        
     </div>
 
+    <script>
+        function submitKYCform3() {
+                
+  var form3 = document.getElementById("form3");
+
+  // Create a new JavaScript object to store the combined form data
+  var combinedFormData = {};
+  // Get data from form3 and add it to the combinedFormData object
+  var form3Data = new FormData(form3);
+  for (var [name, value] of form3Data.entries()) {
+    combinedFormData[name] = value;
+  }
+
+  // Create a new XMLHttpRequest object
+  var xhr = new XMLHttpRequest();
+
+  // Set up the request
+  xhr.open("POST", "/KYC/form/3", true);
+
+  // Set the appropriate headers, if needed
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  // Convert the combinedFormData object to JSON
+  var jsonData = JSON.stringify(combinedFormData);
+
+  // Send the JSON data
+  xhr.send(jsonData);
+}
+    </script>
     
 </body>
 </html>

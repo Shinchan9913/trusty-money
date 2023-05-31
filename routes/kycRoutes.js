@@ -13,4 +13,8 @@ router.get('/', auth.isLogin, kycController.loadKYC)
 
 router.post('/form/1', kycController.form1)
 
+router.get('/form/2', auth.isLogin, kycController.form2)
+
+router.get('/form/3', auth.isLogin, kycController.form3)
+router.post('/form/3', kycController.form3p)
 module.exports = router;

@@ -133,7 +133,7 @@ const verifyLogin = async(req, res) =>{
                     if(userData.kycVerificationStatus === "pending"){
                         res.redirect('/KYC')
                     }else{
-                        res.redirect(`/dashboard/users/${userData._id}`)
+                        res.redirect(`/dashboard/users`)
                     }
                 }
             } else {

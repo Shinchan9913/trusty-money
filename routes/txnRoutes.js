@@ -11,8 +11,8 @@ const auth = require('../middleware/auth')
 router.set('view engine', 'ejs')
 router.set('views', './views/users')
 // Map the transactionController.getTransactionsByUserId method to a specific route
-router.get('/users/:userId', auth.isLogin, txnController.loadDashboard)
-router.post('/users/:userId', txnController.newTxn)
+router.get('/users', auth.isLogin, txnController.loadDashboard)
+router.post('/users', txnController.newTxn)
 
 router.get('/transactions', (req, res)=>{
     res.render('txn', { transactions: []} )

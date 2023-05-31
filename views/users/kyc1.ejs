@@ -232,20 +232,20 @@
                     </div>
                     <div class="submission" id="submission">
                         <p>.JPG/ .PNG/ .PDF (Max. 10MB)</p> <br>
-
-                        <a href="/KYC/form/2">
-                        <button class="button_3" href="KYC/form2" type="submit" id="button_3" onclick="submitKYCform1(event); ">
-                        Confirm and Continue
-                        </button>
-                        </a>
+                        
+                            <button class="button_3" id="button_3" onclick="submitKYCform1();">
+                                <a href="/KYC/form/2">Confirm and Continue</a>
+                            </button>
+                        <!-- </a> -->
+                        
                     </div>
 
                 </form>
             </div>
 
             <script>
-                function submitKYCform1(event) {
-                event.preventDefault();
+                function submitKYCform1() {
+                // event.preventDefault();
   // Get references to the forms
   var form1 = document.getElementById("form1");
   var form2 = document.getElementById("form2");
@@ -259,7 +259,7 @@
   for (var [name, value] of form1Data.entries()) {
     combinedFormData[name] = value;
     
-    event.target.submit()
+    // event.target.submit();
   }
 
   // Get data from form2 and add it to the combinedFormData object
@@ -288,6 +288,15 @@
 
   // Send the JSON data
   xhr.send(jsonData);
+  console.log(xhr.status)
+  // Handle the response and redirect to /KYC/form/2
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      window.location.href = "/KYC/form/2";
+    } else {
+      console.log("Error:", xhr.status);
+    }
+  };
 }
 
 

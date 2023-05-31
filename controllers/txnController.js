@@ -27,7 +27,7 @@ const txntable = async (req, res) => {
 
 const loadDashboard = async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.session.user_id;
     const user = await User.findById(userId);
 
     const transactions = await Transaction.find({ userId: userId }).sort({
@@ -42,7 +42,7 @@ const loadDashboard = async (req, res) => {
 };
 
 const newTxn = async (req, res) => {
-  const userId = req.params.userId;
+  const userId = req.session.user_id;
   try {
     console.log(req.body);
     const userData = await User.findById(userId);
