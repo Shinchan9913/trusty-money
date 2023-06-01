@@ -80,6 +80,33 @@
                 <div class="box_1">
                     <img src="" alt="">
                     <h2>Company Name</h2>
+
+                    <script>
+                        // Get the select element
+                        var selectElement = document.getElementById("country");
+                    
+                        // Add an event listener for the change event
+                        selectElement.addEventListener("change", function() {
+                            // Store the selected value
+                            var selectedValue = selectElement.value;
+                    
+                            // Set the selected value as a query parameter in the URL
+                            var url = new URL(window.location.href);
+                            url.searchParams.set("country", selectedValue);
+                    
+                            // Reload the page with the updated URL
+                            window.location.href = url.toString();
+                        });
+                    
+                        // Set the selected option based on the query parameter when the page loads
+                        window.addEventListener("load", function() {
+                            var url = new URL(window.location.href);
+                            var selectedValue = url.searchParams.get("country");
+                            if (selectedValue) {
+                                selectElement.value = selectedValue;
+                            }
+                        });
+                    </script>
                     <select name="country" id="country">
                         <option value="USA">USA</option>
                         <option value="India">India</option>
@@ -103,7 +130,7 @@
 
                         </div>
 
-                        <a href="accounts.html">View more details >></a>
+                        View more details >>
                     </div>
 
                 </div>
@@ -269,6 +296,33 @@
             <div class="left">
                 <input type="text" placeholder="Company Name"> <br>
                 <input type="text" placeholder="Company Contact Number"><br>
+
+                <script>
+                    // Get the select element
+                    var selectElement = document.getElementById("country");
+                
+                    // Add an event listener for the change event
+                    selectElement.addEventListener("change", function() {
+                        // Store the selected value
+                        var selectedValue = selectElement.value;
+                
+                        // Set the selected value as a query parameter in the URL
+                        var url = new URL(window.location.href);
+                        url.searchParams.set("country", selectedValue);
+                
+                        // Reload the page with the updated URL
+                        window.location.href = url.toString();
+                    });
+                
+                    // Set the selected option based on the query parameter when the page loads
+                    window.addEventListener("load", function() {
+                        var url = new URL(window.location.href);
+                        var selectedValue = url.searchParams.get("country");
+                        if (selectedValue) {
+                            selectElement.value = selectedValue;
+                        }
+                    });
+                </script>
                 <select name="Country" id="country">
                     <option value="USA">USA</option>
                     <option value="China">China</option>
@@ -417,6 +471,33 @@
         </div>
         <div class="container-inner04">
             <label for="options" class="select-country-container"></label>
+
+            <script>
+                // Get the select element
+                var selectElement = document.getElementById("country");
+            
+                // Add an event listener for the change event
+                selectElement.addEventListener("change", function() {
+                    // Store the selected value
+                    var selectedValue = selectElement.value;
+            
+                    // Set the selected value as a query parameter in the URL
+                    var url = new URL(window.location.href);
+                    url.searchParams.set("country", selectedValue);
+            
+                    // Reload the page with the updated URL
+                    window.location.href = url.toString();
+                });
+            
+                // Set the selected option based on the query parameter when the page loads
+                window.addEventListener("load", function() {
+                    var url = new URL(window.location.href);
+                    var selectedValue = url.searchParams.get("country");
+                    if (selectedValue) {
+                        selectElement.value = selectedValue;
+                    }
+                });
+            </script>
             <select class="select-country-box">
                 <option value="">USA</option>
                 <option value="0">Britain</option>
