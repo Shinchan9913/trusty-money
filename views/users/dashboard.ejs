@@ -80,6 +80,33 @@
                 <div class="box_1">
                     <img src="" alt="">
                     <h2>Company Name</h2>
+
+                    <script>
+                        // Get the select element
+                        var selectElement = document.getElementById("country");
+                    
+                        // Add an event listener for the change event
+                        selectElement.addEventListener("change", function() {
+                            // Store the selected value
+                            var selectedValue = selectElement.value;
+                    
+                            // Set the selected value as a query parameter in the URL
+                            var url = new URL(window.location.href);
+                            url.searchParams.set("country", selectedValue);
+                    
+                            // Reload the page with the updated URL
+                            window.location.href = url.toString();
+                        });
+                    
+                        // Set the selected option based on the query parameter when the page loads
+                        window.addEventListener("load", function() {
+                            var url = new URL(window.location.href);
+                            var selectedValue = url.searchParams.get("country");
+                            if (selectedValue) {
+                                selectElement.value = selectedValue;
+                            }
+                        });
+                    </script>
                     <select name="country" id="country">
                         <option value="USA">USA</option>
                         <option value="India">India</option>
@@ -103,7 +130,7 @@
 
                         </div>
 
-                        <a href="accounts.html">View more details >></a>
+                        View more details >>
                     </div>
 
                 </div>
@@ -111,37 +138,35 @@
             </div>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
-                <div class="duognut_chart">
-                    <canvas id="myChart" style="width:100%;max-width:50%"></canvas>
+                <div class="payment">
+                    <div class="display">
+                    
+                        <div class="payment_number" id="completed">
+                            <p>Completed</p>
 
-                    <script>
-                        var xValues = ['Conpleated', 'Outstanding', 'In_Progress'];
-                        var yValues = [50, 30, 20];
-                        var barColors = [
-                            "#1B7737",
-                            "#1B00A4",
-                            "#E26714"
-                        ];
+                        </div>
+                        <div class="payment_number" id="outstanding">
+                            <p>Outstanding</p>
 
-                        var chart = new Chart("myChart", {
-                            type: "doughnut",
-                            data: {
-                                labels: xValues,
-                                datasets: [{
-                                    backgroundColor: barColors,
-                                    data: yValues
-                                }]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: ""
-                                }
-                            }
-                        });
-                    </script>
+                        </div>
+                        <div class="payment_number" id="in_progress">
+                            <p>In Progress</p>
 
+                        </div>
+
+                    </div>
+                    <div class="graph">
+                        <script
+                            src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
+                        <script src="JS\script.js"></script>
+                        <link rel="stylesheet" href="CSS/chart.min.css">
+                        <div style="width: 200px; height: 200px;">
+                            <canvas id="usersChart" width="1" height="1"></canvas>
+
+                        </div>
+                    </div>
                 </div>
+               
             </div>
         </div>
 
@@ -271,7 +296,34 @@
             <div class="left">
                 <input type="text" placeholder="Company Name"> <br>
                 <input type="text" placeholder="Company Contact Number"><br>
-                <select name="Country" id="country">
+
+                <script>
+                    // Get the select element
+                    var selectElement = document.getElementById("country_1");
+                
+                    // Add an event listener for the change event
+                    selectElement.addEventListener("change", function() {
+                        // Store the selected value
+                        var selectedValue = selectElement.value;
+                
+                        // Set the selected value as a query parameter in the URL
+                        var url = new URL(window.location.href);
+                        url.searchParams.set("country_1", selectedValue);
+                
+                        // Reload the page with the updated URL
+                        window.location.href = url.toString();
+                    });
+                
+                    // Set the selected option based on the query parameter when the page loads
+                    window.addEventListener("load", function() {
+                        var url = new URL(window.location.href);
+                        var selectedValue = url.searchParams.get("country_1");
+                        if (selectedValue) {
+                            selectElement.value = selectedValue;
+                        }
+                    });
+                </script>
+                <select name="Country" id="country_1">
                     <option value="USA">USA</option>
                     <option value="China">China</option>
                     <option value="India">India</option>
@@ -419,7 +471,34 @@
         </div>
         <div class="container-inner04">
             <label for="options" class="select-country-container"></label>
-            <select class="select-country-box">
+
+            <script>
+                // Get the select element
+                var selectElement = document.getElementById("country_2");
+            
+                // Add an event listener for the change event
+                selectElement.addEventListener("change", function() {
+                    // Store the selected value
+                    var selectedValue = selectElement.value;
+            
+                    // Set the selected value as a query parameter in the URL
+                    var url = new URL(window.location.href);
+                    url.searchParams.set("country_2", selectedValue);
+            
+                    // Reload the page with the updated URL
+                    window.location.href = url.toString();
+                });
+            
+                // Set the selected option based on the query parameter when the page loads
+                window.addEventListener("load", function() {
+                    var url = new URL(window.location.href);
+                    var selectedValue = url.searchParams.get("country_2");
+                    if (selectedValue) {
+                        selectElement.value = selectedValue;
+                    }
+                });
+            </script>
+            <select class="select-country-box" id="country_2">
                 <option value="">USA</option>
                 <option value="0">Britain</option>
                 <option value="1">India</option>
