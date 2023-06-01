@@ -2,7 +2,11 @@ const express = require('express')
 const user_route = express()
 const session = require('express-session')
 
-user_route.use(session({secret:"sessionSecret"}))
+user_route.use(session({
+    secret: "sessionSecret",
+    resave: false,
+    saveUninitialized: true
+}));
 
 const auth = require("../middleware/auth")
 

@@ -14,18 +14,6 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    accountNo:{
-        type:String,
-    },
-    routingNo:{
-        type:String,
-    },
-    accountType:{
-        type:String,
-    },
-    bankName:{
-        type:String,
-    },
     password:{
         type:String,
         required: true
@@ -44,8 +32,14 @@ const userSchema = new mongoose.Schema({
     kycVerificationStatus:{
         type:String,
         default:'pending',
-    }
-
+    },
+    bankAccounts: [{
+        country: String,
+        vbAccountNumber: String,
+        routingNumber: String,
+        accountType: String,
+        bankName: String,
+    }],
 });
 
 module.exports = mongoose.model('User', userSchema)
