@@ -299,7 +299,7 @@
 
                 <script>
                     // Get the select element
-                    var selectElement = document.getElementById("country");
+                    var selectElement = document.getElementById("country_1");
                 
                     // Add an event listener for the change event
                     selectElement.addEventListener("change", function() {
@@ -308,7 +308,7 @@
                 
                         // Set the selected value as a query parameter in the URL
                         var url = new URL(window.location.href);
-                        url.searchParams.set("country", selectedValue);
+                        url.searchParams.set("country_1", selectedValue);
                 
                         // Reload the page with the updated URL
                         window.location.href = url.toString();
@@ -317,13 +317,13 @@
                     // Set the selected option based on the query parameter when the page loads
                     window.addEventListener("load", function() {
                         var url = new URL(window.location.href);
-                        var selectedValue = url.searchParams.get("country");
+                        var selectedValue = url.searchParams.get("country_1");
                         if (selectedValue) {
                             selectElement.value = selectedValue;
                         }
                     });
                 </script>
-                <select name="Country" id="country">
+                <select name="Country" id="country_1">
                     <option value="USA">USA</option>
                     <option value="China">China</option>
                     <option value="India">India</option>
@@ -474,7 +474,7 @@
 
             <script>
                 // Get the select element
-                var selectElement = document.getElementById("country");
+                var selectElement = document.getElementById("country_2");
             
                 // Add an event listener for the change event
                 selectElement.addEventListener("change", function() {
@@ -483,7 +483,7 @@
             
                     // Set the selected value as a query parameter in the URL
                     var url = new URL(window.location.href);
-                    url.searchParams.set("country", selectedValue);
+                    url.searchParams.set("country_2", selectedValue);
             
                     // Reload the page with the updated URL
                     window.location.href = url.toString();
@@ -492,13 +492,13 @@
                 // Set the selected option based on the query parameter when the page loads
                 window.addEventListener("load", function() {
                     var url = new URL(window.location.href);
-                    var selectedValue = url.searchParams.get("country");
+                    var selectedValue = url.searchParams.get("country_2");
                     if (selectedValue) {
                         selectElement.value = selectedValue;
                     }
                 });
             </script>
-            <select class="select-country-box">
+            <select class="select-country-box" id="country_2">
                 <option value="">USA</option>
                 <option value="0">Britain</option>
                 <option value="1">India</option>
