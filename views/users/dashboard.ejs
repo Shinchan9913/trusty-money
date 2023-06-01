@@ -111,37 +111,35 @@
             </div>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
-                <div class="duognut_chart">
-                    <canvas id="myChart" style="width:100%;max-width:50%"></canvas>
+                <div class="payment">
+                    <div class="display">
+                    
+                        <div class="payment_number" id="completed">
+                            <p>Completed</p>
 
-                    <script>
-                        var xValues = ['Conpleated', 'Outstanding', 'In_Progress'];
-                        var yValues = [50, 30, 20];
-                        var barColors = [
-                            "#1B7737",
-                            "#1B00A4",
-                            "#E26714"
-                        ];
+                        </div>
+                        <div class="payment_number" id="outstanding">
+                            <p>Outstanding</p>
 
-                        var chart = new Chart("myChart", {
-                            type: "doughnut",
-                            data: {
-                                labels: xValues,
-                                datasets: [{
-                                    backgroundColor: barColors,
-                                    data: yValues
-                                }]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: ""
-                                }
-                            }
-                        });
-                    </script>
+                        </div>
+                        <div class="payment_number" id="in_progress">
+                            <p>In Progress</p>
 
+                        </div>
+
+                    </div>
+                    <div class="graph">
+                        <script
+                            src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
+                        <script src="JS\script.js"></script>
+                        <link rel="stylesheet" href="CSS/chart.min.css">
+                        <div style="width: 200px; height: 200px;">
+                            <canvas id="usersChart" width="1" height="1"></canvas>
+
+                        </div>
+                    </div>
                 </div>
+               
             </div>
         </div>
 
