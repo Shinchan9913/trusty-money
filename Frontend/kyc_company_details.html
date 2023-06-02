@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>company bank details</title>
+    <link rel="stylesheet" href="CSS\kyc_company_details.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar" onclick="main_click()">
+        <div id="logo"><a href="#">TRUSTY</a></div>
+        <hr class="hr0">
+        <p>POWERING MONEY</p>
+        <hr id="hr1">
+        <div class="container_1">
+            <ul>
+                <li class="c_11">
+                    <a href="index.html" id="home">
+                        <img width="26" src="Exports/icons/home.png">
+                        Home</a>
+                </li><br>
+                <li class="c_11">
+                    <a href="#" id="notif_li" onmouseenter="notif_display()" onmouseout="notif_hide()">
+                        <img width="26" src="Exports/icons/notif.png" alt="">
+                        Notifiations
+                    </a>
+                </li><br>
+                <li class="c_11">
+                    <a href="#" id="exc_rate_li" onmouseenter="exchange_display()" onmouseout="exchange_hide()">
+                        <img width="26" src="Exports/icons/exc rate.png" alt="">
+                        Check Exchange Rate</a>
+                </li><br>
+                <li class="c_11">
+                    <a href="#" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()"">
+                           <img width=" 26" src="Exports/icons/rate alert.png" alt="">
+                        Rate Alert</a>
+                </li><br>
+
+            </ul>
+        </div>
+    </div>
+    <div class="container_2" id="container_2">
+        <hr id="hr2">
+        <ul>
+            <li><a href="name_c2" id="name_c2">
+                    <img width="40" src="Exports/icons/account image.png" alt="">
+                    <h2>Lily Lewis</h2>
+                    <p>lilylewis@gmail.com</p>
+                </a></li> <br>
+            <li class="c_22">
+                <a href="accounts.html" id="accounts">
+                    <img width="26" src="Exports/icons/acc.png" alt="">
+                    Account</a>
+            </li><br>
+            <li class="c_22">
+                <a href="settings.html" id="Setting">
+                    <img width="26" src="Exports/icons/settings.png" alt="">
+                    Settings</a>
+            </li><br>
+            <li class="c_22">
+                <a href="#" id="Logout">
+                    <img width="26" src="Exports/icons/log out.png" alt="">
+                    Logout</a>
+            </li><br>
+
+        </ul>
+    </div>
+    </div>
+
+    <div class="main_body">
+
+        <div class="heading">
+    
+            <div class="main_head">
+                <h1>
+                    KYC Verification
+                </h1>
+            </div>
+
+        </div>
+
+
+        <div class="status_bar">
+            <div class="status_name">
+                <p id="Business_PAN_Verification">Business PAN Verification</p>
+                <p id="Beneficial_Owner_PAN_Verification">Beneficial Owner PAN Verification</p>
+                <p id="Beneficial_Owner_List">Beneficial Owner List</p>
+                <p id="Company_Bank_Details">Company Bank Details</p>
+            </div>
+            <div class="line_status">
+                <div class="button_circle" id="button_circle_1"></div>
+                <div class="button_status" id="button_status_1"></div>
+                <div class="button_circle" id="button_circle_2"></div>
+                <div class="button_status" id="button_status_2"></div>
+                <div class="button_circle" id="button_circle_3"></div>
+                <div class="button_status" id="button_status_3"></div>
+                <div class="button_circle" id="button_circle_4"></div>
+            </div>
+        </div>
+
+
+
+        <div class="verification">
+            <div class="company_bank_details_top" id="company_bank_details_top">
+                <div class="headings">
+                    <h2>
+                        Company Bank Details
+                    </h2>
+                    <h3>
+                        We require this information to verify your business identity.
+                    </h3>
+                </div>
+
+                <div class="company_bank_details">
+                    <form action="">
+                        <div class="company_details_1">
+                            <div class="company_bank_details_1">
+                                <div class="input_details_1">
+                                    Customer/Bussiness Name <br>
+                                    <input type="text" placeholder="XYZ company name"> <br>
+                                    Account Number <br><input type="text" placeholder="XYZ Account Number"><br>
+                                    IFSC Code <br><input type="text" placeholder="IFSC Code"> <br>
+                                </div>
+                            </div>
+                            <div class="company_bank_details_2">
+                                <div class="input_details_2">
+                                    Bank Name<br><select name="bank_name" id="bank_name">
+                                        <option value="SBI Bank">SBI Bank</option>
+                                        <option value="BOB Bank">BOB Bank</option>
+                                        <option value="Union Bank">Union Bank</option>
+                                        <option value="Axis Bank">Axis Bank</option>
+                                        <option value="HDFC Bank">HDFC Bank</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="company_bank_details_3">
+                            <input type="checkbox"> I confirm the details provided above are correct from my side. <br>
+                        </div>
+                        <button class="button_4" type="submit" id="button_4" onclick="open_dashboard(event)">
+                            Confirm and Continue
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    
+</body>
+</html>
