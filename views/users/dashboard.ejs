@@ -80,33 +80,6 @@
                 <div class="box_1">
                     <img src="" alt="">
                     <h2>Company Name</h2>
-
-                    <script>
-                        // Get the select element
-                        var selectElement = document.getElementById("country");
-                    
-                        // Add an event listener for the change event
-                        selectElement.addEventListener("change", function() {
-                            // Store the selected value
-                            var selectedValue = selectElement.value;
-                    
-                            // Set the selected value as a query parameter in the URL
-                            var url = new URL(window.location.href);
-                            url.searchParams.set("country", selectedValue);
-                    
-                            // Reload the page with the updated URL
-                            window.location.href = url.toString();
-                        });
-                    
-                        // Set the selected option based on the query parameter when the page loads
-                        window.addEventListener("load", function() {
-                            var url = new URL(window.location.href);
-                            var selectedValue = url.searchParams.get("country");
-                            if (selectedValue) {
-                                selectElement.value = selectedValue;
-                            }
-                        });
-                    </script>
                     <select name="country" id="country">
                         <option value="USA">USA</option>
                         <option value="India">India</option>
@@ -120,22 +93,54 @@
                                 <label for="account_no">Account Type</label><br>
                                 <label for="account_no">Bank Name</label><br>
                             </div>
-
                             <div class="input">
-                                <input type="number">
-                                <input type="number">
-                                <input type="text">
-                                <input type="text">
+                                <input id="in_acc_no" type="number" readonly>
+                                <input id="in_rou_no" type="number" readonly>
+                                <input id="in_acc_ty" type="text" readonly>
+                                <input id="in_ban_na" type="text" readonly>
                             </div>
-
                         </div>
-
-                        View more details >>
+                        <a href="accounts.html">View more details >></a>
                     </div>
-
                 </div>
-
             </div>
+        
+            <script>
+                const storedOption = localStorage.getItem('selectedOption');
+                const selectElement1 = document.getElementById('country');
+                if (storedOption) {
+                  selectElement1.value = storedOption;
+                }
+                function updateInputValues() {
+                  const country = selectElement1.value;
+                  let accNo, rouNo, accType, banName;
+                  if (country === 'USA') {
+                    accNo = '0123123123';
+                    rouNo = '123321332';
+                    accType = 'Business Account';
+                    banName = 'Wells Fargo';
+                  } else if (country === 'India') {
+                    accNo = '9876543210';
+                    rouNo = '456789123';
+                    accType = 'Savings Account';
+                    banName = 'ICICI Bank';
+                  } else if (country === 'China') {
+                    accNo = '4561237890';
+                    rouNo = '789456321';
+                    accType = 'Current Account';
+                    banName = 'Bank of China';
+                  }
+                  document.getElementById('in_acc_no').value = accNo;
+                  document.getElementById('in_rou_no').value = rouNo;
+                  document.getElementById('in_acc_ty').value = accType;
+                  document.getElementById('in_ban_na').value = banName;
+                }
+                updateInputValues();
+                selectElement1.addEventListener('change', function(event) {
+                  localStorage.setItem('selectedOption', event.target.value);
+                  window.location.reload();
+                });
+            </script>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
                 <div class="payment">
