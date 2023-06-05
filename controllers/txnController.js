@@ -2,7 +2,9 @@ const Transaction = require("../models/txnModel");
 const User = require("../models/userModel");
 const inv = require("../middleware/invoice");
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+
 
 const getTransactionsByUserId = async (req, res) => {
   try {
@@ -35,15 +37,75 @@ const loadDashboard = async (req, res) => {
     const transactions = await Transaction.find({ userId: userId }).sort({
       date: -1,
     }); // Sort by date in descending order (most recent first)
-    console.log(transactions);
-    res.render("dashboard", { user, transactions });
+    // console.log(transactions);
+    res.render("dashboard", { user: user, transactions: transactions });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred" });
   }
 };
 
+const saveInvoice = async (req, res) => {
+  try {
+    console.log("Save invoice called!!!")
+    const userId = req.session.user_id;
+    console.log(userId)
+    if(!req.transactionId){
+      const transactionId = uuidv4(); // Generate a UUID for the transaction
+      console.log('Generated transactionId:', transactionId);
+      req.transactionId = transactionId;
+    }
+    // Store transaction data in the database
+    const txn = new Transaction({
+      userId: userId,
+      txnId:req.transactionId,
+      amount: req.body.amount,
+      companyName: req.body.companyName,
+      companyContact: req.body.companyContact,
+      companyEmail: req.body.companyEmail,
+      expectedDate: req.body.dueDate,
+      country: req.body.country,
+      description: req.body.description,
+      isDraft: req.body.is_draft,
+      RBIpurposeCode: req.body.RBIpurposeCode
+    });
 
+    const txnData = await txn.save();
+
+    console.log(txnData)
+
+    // Get the uploaded files
+    const files = req.files;
+    const transactionId = req.transactionId;
+
+    if (files && files['additionalDocuments']) {
+      const additionalDocumentsFiles = files['additionalDocuments'];
+
+      additionalDocumentsFiles.forEach((file) => {
+        // Handle each additionalDocuments file
+        // For example, move the file to the desired directory
+        const additionalDocumentsPath = path.join(__dirname, '../public/additionalDocuments', transactionId, file.filename);
+        fs.renameSync(file.path, additionalDocumentsPath);
+        // You can also save the file path to the database if needed
+      }); }
+      
+      const user = await User.findById(userId)
+      console.log(user)
+       // Generate PDF and store it in the public/invoice directory
+      inv.generateInvoicePdf(txnData, (pdfPath) => {
+      if (pdfPath) {
+        console.log('PDF saved:', pdfPath);
+        // You can also save the PDF path to the database if needed
+      } else {
+        console.error('Error generating PDF');
+      }
+        res.redirect('/dashboard/users')
+      })
+  } catch (error) {
+    console.log(error.message)
+    res.send("An error occured, Save invoice failed")
+  }
+}
 
 // Define routes
 const newTxn = async (req, res) => {
@@ -95,7 +157,8 @@ const newTxn = async (req, res) => {
       }); }
     // Rest of the code to respond to the client or redirect to a different page
     // ...
-    res.render('dashboard')
+    const user = await User.findById(userId)
+    res.render('dashboard', {user: user})
     // res.send('Files uploaded successfully.');
   } catch (error) {
     console.log(error);
@@ -227,4 +290,5 @@ module.exports = {
   txntable,
   generateInvoice,
   newTxnWhatsApp,
+  saveInvoice,
 };

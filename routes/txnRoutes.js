@@ -15,6 +15,8 @@ router.use(bodyParser.json());
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       const transactionId = uuidv4(); // Generate a UUID for the transaction
+      console.log('Generated transactionId:', transactionId);
+
       const invoicePath = path.join(__dirname, '../public/invoice', transactionId);
       const additionalDocumentsPath = path.join(__dirname, '../public/additionalDocuments', transactionId);
   
@@ -58,6 +60,10 @@ router.post('/users/shareViaWhatsApp', upload.fields([
 router.get('/transactions', (req, res)=>{
     res.render('txn', { transactions: []} )
 })
+
+router.post('/users/save-invoice', upload.fields([
+  { name: 'additionalDocuments'}
+]), txnController.saveInvoice)
 
 router.post('/transactions', txnController.txntable);
 
