@@ -497,10 +497,12 @@ color: #FFFFFF;
   padding: 18% 5%;
 
 }
+
 .graph-outer{
   position: relative;
   top: 5%;
-  left: 5%;
+  left: 4%;
+  display: inline-block;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 600;
@@ -512,6 +514,19 @@ color: #FFFFFF;
 
 }
 
+#you-save-upto-ammount{
+  position: relative;
+  display: inline-block;
+  top: 5%;
+  left: 4.5%;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  color: #000000;
+}
 .main_body_status {
   position: relative;
   width: 100%;
