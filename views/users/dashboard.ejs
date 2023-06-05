@@ -53,12 +53,12 @@
                     <p>lilylewis@gmail.com</p>
             </a></li> <br>
             <li class="c_22">
-                <a href="accounts.html" id="accounts">
+                <a href="/myAccount" id="accounts">
                 <img width="26" src="/Exports/icons/acc.png" alt="">
                 Account</a>
             </li><br>
             <li class="c_22">
-                <a href="settings.html" id="Setting">
+                <a href="/settings" id="Setting">
                     <img width="26" src="/Exports/icons/settings.png" alt="">
                     Settings</a>
                 </li><br>
@@ -107,11 +107,12 @@
                             }
                         });
                     </script>
-                    <select name="country" id="country">
-                        <option value="USA">USA</option>
-                        <option value="India">India</option>
-                        <option value="China">China</option>
-                    </select>
+                    <select id="countrySelectDash" onchange="displayAccountDetailsDash()">
+                        <option value="">Select Country</option>
+                        <% user.bankAccounts.forEach(function(account) { %>
+                          <option value="<%= account.country %>"><%= account.country %></option>
+                        <% }); %>
+                      </select>
                     <div class="box_11">
                         <div class="formgroup">
                             <div class="label">
@@ -121,11 +122,7 @@
                                 <label for="account_no">Bank Name</label><br>
                             </div>
 
-                            <div class="input">
-                                <input type="number">
-                                <input type="number">
-                                <input type="text">
-                                <input type="text">
+                            <div class="input" id="accountDetailsDash">
                             </div>
 
                         </div>
@@ -134,8 +131,31 @@
                     </div>
 
                 </div>
-
-            </div>
+                </div>
+                <script>
+                    const user = <%- user %>
+                    function displayAccountDetailsDash() {
+                      console.log("Fun called!!")
+                      const countrySelect = document.getElementById('countrySelectDash');
+                      const accountDetails = document.getElementById('accountDetailsDash');
+                      const selectedCountry = countrySelect.value;
+                  
+                      // Clear previous account details
+                      accountDetails.innerHTML = '';
+                  
+                      // Find the selected account details
+                      <% user.bankAccounts.forEach(function(account) { %>
+                        if ("<%= account.country %>" === selectedCountry) {
+                          accountDetails.innerHTML += `
+                            <p><%= account.vbAccountNumber %></p>
+                            <p><%= account.routingNumber %></p>
+                            <p><%= account.accountType %></p>
+                            <p><%= account.bankName %></p>
+                          `;
+                        }
+                      <% }); %>
+                    }
+                  </script>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
                 <div class="payment">
@@ -158,7 +178,7 @@
                     <div class="graph">
                         <script
                             src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
-                        <script src="JS\script.js"></script>
+                        <script src="/js/script.js"></script>
                         <link rel="stylesheet" href="CSS/chart.min.css">
                         <div style="width: 200px; height: 200px;">
                             <canvas id="usersChart" width="1" height="1"></canvas>
@@ -289,110 +309,139 @@
     <div class="payment_request" id="payment_request">
         <h1>
             <div class="h1con">Payment Request</div>
-            <img src="./Exports/close.jpg" alt="" onclick="close_popup()" id="close_image">
+            <img src="/Exports/close.jpg" alt="" onclick="close_popup()" id="close_image">
         </h1>
+        <form action="/dashboard/users" method="post" id="paymentRequest" enctype="multipart/form-data">
+            <div class="form">
+                <div class="left">
+                    <input type="text" name="companyName" placeholder="Company Name"> <br>
+                    <input type="text" name="companyContact" placeholder="Company Contact Number"><br>
 
-        <div class="form">
-            <div class="left">
-                <input type="text" placeholder="Company Name"> <br>
-                <input type="text" placeholder="Company Contact Number"><br>
-
-                <script>
-                    // Get the select element
-                    var selectElement = document.getElementById("country_1");
-                
-                    // Add an event listener for the change event
-                    selectElement.addEventListener("change", function() {
-                        // Store the selected value
-                        var selectedValue = selectElement.value;
-                
-                        // Set the selected value as a query parameter in the URL
-                        var url = new URL(window.location.href);
-                        url.searchParams.set("country_1", selectedValue);
-                
-                        // Reload the page with the updated URL
-                        window.location.href = url.toString();
-                    });
-                
-                    // Set the selected option based on the query parameter when the page loads
-                    window.addEventListener("load", function() {
-                        var url = new URL(window.location.href);
-                        var selectedValue = url.searchParams.get("country_1");
-                        if (selectedValue) {
-                            selectElement.value = selectedValue;
-                        }
-                    });
-                </script>
-                <select name="Country" id="country_1">
-                    <option value="USA">USA</option>
-                    <option value="China">China</option>
-                    <option value="India">India</option>
-                </select> <br>
-                <select name="RBI" id="RBI" aria-placeholder="RBI Purpose Code" onclick="rbi_code_popup()">
-                    <!-- <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option> -->
-                </select> <br>
+                    <script>
+                        // Get the select element
+                        var selectElement = document.getElementById("country_1");
+                    
+                        // Add an event listener for the change event
+                        selectElement.addEventListener("change", function() {
+                            // Store the selected value
+                            var selectedValue = selectElement.value;
+                    
+                            // Set the selected value as a query parameter in the URL
+                            var url = new URL(window.location.href);
+                            url.searchParams.set("country_1", selectedValue);
+                    
+                            // Reload the page with the updated URL
+                            window.location.href = url.toString();
+                        });
+                    
+                        // Set the selected option based on the query parameter when the page loads
+                        window.addEventListener("load", function() {
+                            var url = new URL(window.location.href);
+                            var selectedValue = url.searchParams.get("country_1");
+                            if (selectedValue) {
+                                selectElement.value = selectedValue;
+                            }
+                        });
+                    </script>
+                    <select id="countrySelect" onchange="displayAccountDetails()">
+                        <option value="">Select Country</option>
+                        <% user.bankAccounts.forEach(function(account) { %>
+                          <option value="<%= account.country %>"><%= account.country %></option>
+                        <% }); %>
+                    </select>
+                    <br>
+                    <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code" onclick="rbi_code_popup()">
+                        <!-- <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option> -->
+                    </select> <br>
 
                 <div class="virtual_bank_account">
 
                     <div class="box_11">
                         <div class="formgroup">
                             <div class="label_1">
-                                <label for="account_no">Account Number</label> <br>
+                                <label for="account_no">Account Number</label><br>
                                 <label for="account_no">Routing Number</label><br>
                                 <label for="account_no">Account Type</label><br>
                                 <label for="account_no">Bank Name</label><br>
                             </div>
 
-                            <div class="input">
-                                <input type="number">
-                                <input type="number">
-                                <input type="text">
-                                <input type="text">
-                            </div>
+                            <div class="input" id="accountDetails"></div>
 
                         </div>
 
                         <a href="accounts.html">View more details >></a>
                     </div>
-
+                    
                 </div>
 
             </div>
-
             <div class="right">
-                <input type="email" placeholder="Company E-Mail"> <br>
-                <input type="date" placeholder="Expected Date" onclick="ja"> <br>
-                <input type="number" placeholder="Enter Amount"> <br>
+                <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
+                <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
+                <input type="number" name="amount" placeholder="Enter Amount"> <br>
                 <div class="description">
-                    <input type="text" placeholder="Description">
+                    <input type="text" name="description" placeholder="Description">
                 </div>
-
             </div>
         </div>
-
+        <input type="hidden" name="isDraft" id="isDraft" value="true">
         <div class="save_drafts">
-            <a href="#">Save Drafts</a>
+            <button onclick="setDraftStatus(true); submitForm()">Save Drafts</button> 
         </div>
-
+        
         <div class="buttons_1">
-            <button class="button_11">Upload Invoice</button>
-            <button class="button_12">Additional Documents</button>
+            <input type="file" name="uploadInvoice" value="Upload Invoice">
+            <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
             <button class="button_13" onclick="arise4()">Set as Recurring Payment</button>
         </div>
-
+        
         <div class="buttons_2">
-            <button class="button_21" id="button_21" onclick="share()">
+            <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share() ">
                 Share
             </button>
-            <button class="button_22">
+            <button class="button_22" onclick="setDraftStatus(false); submitForm()">
                 Save
             </button>
         </div>
+        </form>
     </div>
-
+    <script>
+        function displayAccountDetails() {
+          const countrySelect = document.getElementById('countrySelect');
+          const accountDetails = document.getElementById('accountDetails');
+          const selectedCountry = countrySelect.value;
+      
+          // Clear previous account details
+          accountDetails.innerHTML = '';
+      
+          // Find the selected account details
+          <% user.bankAccounts.forEach(function(account) { %>
+            if ("<%= account.country %>" === selectedCountry) {
+              accountDetails.innerHTML += `
+                <p><%= account.vbAccountNumber %></p>
+                <p><%= account.routingNumber %></p>
+                <p><%= account.accountType %></p>
+                <p><%= account.bankName %></p>
+              `;
+            }
+          <% }); %>
+        }
+        
+        function setDraftStatus(isDraft){
+            const draftInput = document.getElementById('isDraft')
+            draftInput.value = isDraft.toString();
+        }
+        function submitForm() {
+            document.getElementById('paymentRequest').submit();
+        }
+        function submitFormWhatsApp() {
+            document.getElementById('paymentRequest').action = "/dashboard/users/shareViaWhatsApp"
+            document.getElementById('paymentRequest').submit();
+        }
+    </script>
 
     <!--<div class="share" id="share">
         <button class="button_email">
@@ -572,7 +621,7 @@
             Share details via mail
         </div>
         <div class="two">
-            Share details via Whatsapp
+            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button> 
         </div>
     </div>
 

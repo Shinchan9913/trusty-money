@@ -1,6 +1,8 @@
 const Transaction = require("../models/txnModel");
 const User = require("../models/userModel");
 const inv = require("../middleware/invoice");
+const path = require('path');
+const fs = require('fs')
 
 const getTransactionsByUserId = async (req, res) => {
   try {
@@ -41,34 +43,162 @@ const loadDashboard = async (req, res) => {
   }
 };
 
+
+
+// Define routes
 const newTxn = async (req, res) => {
-  const userId = req.session.user_id;
   try {
-    console.log(req.body);
-    const userData = await User.findById(userId);
-    console.log("user found", req.body.amount);
+    const userId = req.session.user_id;
+    console.log(userId)
+    // Store transaction data in the database
     const txn = new Transaction({
-      userId: userData._id,
-      txnId: req.body.txnId,
+      userId: userId,
+      txnId:req.transactionId,
       amount: req.body.amount,
-      customerName: req.body.customerName
+      companyName: req.body.companyName,
+      companyContact: req.body.companyContact,
+      companyEmail: req.body.companyEmail,
+      expectedDate: req.body.expectedDate,
+      country: req.body.country,
+      description: req.body.description,
+      isDraft: req.body.isDraft,
+      RBIpurposeCode: req.body.RBIpurposeCode
     });
-    // if (!txn.txnId || !txn.amount) {
-    //     return res.status(400).json({ error: 'txnId and amount fields are required' });
-    // }
 
     const txnData = await txn.save();
-    // res.send(txnData)
-    if (txnData) {
-      res.render("home", { message: "Txn created succesfully", userId });
-    } else {
-      res.render("home", { message: "Could not create txn", userId });
+
+    console.log(txnData)
+
+    // Get the uploaded files
+    const files = req.files;
+    const transactionId = req.transactionId;
+
+    if (files && files['uploadInvoice']) {
+      const uploadInvoiceFile = files['uploadInvoice'][0];
+      // Handle the uploadInvoice file
+      // For example, move the file to the desired directory
+      const uploadInvoicePath = path.join(__dirname, '../public/invoice', transactionId, uploadInvoiceFile.filename);
+      fs.renameSync(uploadInvoiceFile.path, uploadInvoicePath);
+      // You can also save the file path to the database if needed
     }
-    // console.log(userId)
-    // res.render('home')
+
+    // Check if additionalDocuments file exists
+    if (files && files['additionalDocuments']) {
+      const additionalDocumentsFiles = files['additionalDocuments'];
+
+      additionalDocumentsFiles.forEach((file) => {
+        // Handle each additionalDocuments file
+        // For example, move the file to the desired directory
+        const additionalDocumentsPath = path.join(__dirname, '../public/additionalDocuments', transactionId, file.filename);
+        fs.renameSync(file.path, additionalDocumentsPath);
+        // You can also save the file path to the database if needed
+      }); }
+    // Rest of the code to respond to the client or redirect to a different page
+    // ...
+    res.render('dashboard')
+    // res.send('Files uploaded successfully.');
   } catch (error) {
     console.log(error);
+    res.status(500).send('Internal Server Error');
   }
+};
+
+const newTxnWhatsApp = async (req, res) => {
+  try {
+    const userId = req.session.user_id;
+    console.log(userId)
+    // Store transaction data in the database
+    const txn = new Transaction({
+      userId: userId,
+      txnId:req.transactionId,
+      amount: req.body.amount,
+      companyName: req.body.companyName,
+      companyContact: req.body.companyContact,
+      companyEmail: req.body.companyEmail,
+      expectedDate: req.body.expectedDate,
+      country: req.body.country,
+      description: req.body.description,
+      isDraft: req.body.isDraft,
+      RBIpurposeCode: req.body.RBIpurposeCode
+    });
+
+    const txnData = await txn.save();
+
+    console.log(txnData)
+
+    // Generate the WhatsApp message with the transaction data
+    const message = generateWhatsAppMessage(txnData);
+
+    // Open a new WhatsApp window with the message
+    
+    // Get the uploaded files
+    const files = req.files;
+    const transactionId = req.transactionId;
+    
+    if (files && files['uploadInvoice']) {
+      const uploadInvoiceFile = files['uploadInvoice'][0];
+      // Handle the uploadInvoice file
+      // For example, move the file to the desired directory
+      const uploadInvoicePath = path.join(__dirname, '../public/invoice', transactionId, uploadInvoiceFile.filename);
+      fs.renameSync(uploadInvoiceFile.path, uploadInvoicePath);
+      // You can also save the file path to the database if needed
+    }
+
+    // Check if additionalDocuments file exists
+    if (files && files['additionalDocuments']) {
+      const additionalDocumentsFiles = files['additionalDocuments'];
+
+      additionalDocumentsFiles.forEach((file) => {
+        // Handle each additionalDocuments file
+        // For example, move the file to the desired directory
+        const additionalDocumentsPath = path.join(__dirname, '../public/additionalDocuments', transactionId, file.filename);
+        fs.renameSync(file.path, additionalDocumentsPath);
+        // You can also save the file path to the database if needed
+      }); }
+      // Rest of the code to respond to the client or redirect to a different page
+      // ...
+      res.render('shareViaWhatsapp', { urlW:shareViaWhatsApp(message), urlE:shareViaEmail(message)})
+      // shareViaWhatsApp(message);
+      // res.render('dashboard')
+      // res.send('Files uploaded successfully.');
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+// Function to generate the WhatsApp message with transaction data
+const generateWhatsAppMessage = (txnData) => {
+  // Extract the desired fields from the transaction data
+  const {
+    amount,
+    companyName,
+    companyContact,
+    companyEmail,
+    expectedDate,
+    country,
+    description
+  } = txnData;
+
+  // Construct the message using the extracted fields
+  const message = `New Transaction:\n\nAmount: ${amount}\nCompany: ${companyName}\nContact: ${companyContact}\nEmail: ${companyEmail}\nExpected Date: ${expectedDate}\nCountry: ${country}\nDescription: ${description}`;
+
+  return message;
+};
+
+const shareViaEmail = (message) => {
+  const emailUrl = `mailto:?subject=New Transaction&body=${encodeURIComponent(message)}`
+  return emailUrl
+}
+
+// Function to open a new WhatsApp window with the message
+const shareViaWhatsApp = (message) => {
+  // Construct the WhatsApp URL with the encoded message
+  const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+
+  // Open a new window with the WhatsApp URL
+  // window.open(whatsappUrl, '_blank');
+  return whatsappUrl;
 };
 
 const generateInvoice = async (req, res) => {
@@ -96,4 +226,5 @@ module.exports = {
   newTxn,
   txntable,
   generateInvoice,
+  newTxnWhatsApp,
 };

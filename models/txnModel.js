@@ -9,7 +9,6 @@ const TransactionSchema = new Schema({
   },
   txnId: {
     type: String,
-    required:true,
   },
   amount: {
     type: Number,
@@ -19,8 +18,29 @@ const TransactionSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  customerName:{
+  companyName:{
     type: String,
+  },
+  companyContact:{
+    type: String,
+  },
+  companyEmail:{
+    type: String,
+  },
+  expectedDate:{
+    type: Date,
+  },
+  country:{
+    type:String
+  },
+  description:{
+    type:String
+  },
+  isDraft:{
+    type:String,
+  },
+  RBIpurposeCode:{
+    type:String,
   },
   paymentStatus:{
     type:String,
