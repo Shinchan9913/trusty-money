@@ -160,31 +160,42 @@
                     
                         <div class="payment_number" id="completed">
                             <p>Completed</p>
-
+                            <big>₹ 50,000</big>
                         </div>
                         <div class="payment_number" id="outstanding">
                             <p>Outstanding</p>
-
+                            <big>₹ 30,000</big>
                         </div>
                         <div class="payment_number" id="in_progress">
                             <p>In Progress</p>
-
+                            <big>₹ 20,000</big>
                         </div>
 
                     </div>
-                    <div class="graph">
+                     <div class="graph">
                         <script
                             src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
                         <script src="/js/script.js"></script>
                         <link rel="stylesheet" href="CSS/chart.min.css">
-                        <div style="width: 200px; height: 200px;">
+                        <div style="width: 185px; height: 185px;">
+                            <div class="graph-inner">
+                                <p>Total</p>
+                                <p id="graph-inner-total">₹1,00,000</p>
+                            </div>
                             <canvas id="usersChart" width="1" height="1"></canvas>
-
                         </div>
+                        <p class="graph-outer">You saved upto ₹</p><p id="you-save-upto-ammount">1980.00</p>
                     </div>
                 </div>
                
             </div>
+            <script>
+                var inner_total = document.getElementById('graph-inner-total').innerHTML;
+                var numericalValue = Number(inner_total.replace(/[^0-9.-]+/g,""));
+                var outer_ammount = document.getElementById('you-save-upto-ammount');
+                outer_ammount.innerHTML = 0.025*numericalValue;
+                console.log(inner_total)
+            </script>
         </div>
 
         <div class="main_body_status" id="main_body_status" onclick="main_click()">
