@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <script src="/js/dashboard.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -478,24 +479,22 @@
             </div>
         </div>
         <form id="invoiceForm" method="post" action="/dashboard/users/save-invoice" enctype="multipart/form-data">
-        <div class="container-inner02">
+            <div class="container-inner02">
                 <label for="invoice_no" id="l_invoice_no">Invoice No.:</label>
                 <input type="text" id="inovice_no" name="invoiceNo">
                 <br>
                 <label for="rbi_purpose_code" id="l_rbi_purpose_code">RBI Purpose Code:</label>
-                <!-- <form>
                     <label for="options" class="select-container"></label>
-                    <select id="options" class="select-box" onclick="rbi_code_popup2()"> -->
-                        <!-- <option value="option1">Option 1</option>
+                    <select id="options" class="select-box" onclick="rbi_code_popup2()">
+                        <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option> -->
-                    <!-- </select>
-                    <i class="fa fa-asterisk" id="fa-asterisk1"></i>
+                        <option value="option3">Option 3</option>
+                    </select>
+                    <i class="fa fa-asterisk" id="fa-asterisk1" ></i>
                     <div class="icon-container">
-                        <i class="fa fa-caret-down" id="fa-caret-down1"></i>
+                        <i class="fa fa-caret-down" id="fa-caret-down1" onclick="rbi_code_popup2()"></i>
                     </div>
                     <br>
-                </form> -->
                 <label for="inovice_date" id="invoice_date">Invoice Date:</label>
                 <input type="date" id="invoiceDate" name="invoiceDate" class="select-date-input">
                 <i class="fa fa-asterisk" id="fa-asterisk2"></i>
@@ -504,11 +503,10 @@
                 <input type="date" id="dueDate" name="dueDate" class="select-date-input2">
                 <i class="fa fa-asterisk" id="fa-asterisk3"></i>
                 <br>
-            <!-- </form> -->
-        </div>
-        <div class="container-inner03">
-            <h3 class="heading_bill">Bill to</h3>
-            <!-- <form class="bill-form-cont" id="billForm"> -->
+            </div>
+            <div class="container-inner03">
+                <h3 class="heading_bill">Bill to</h3>
+                <!-- <form class="bill-form-cont" id="billForm"> -->
                 <input type="text" id="name" name="name" placeholder="Name">
                 <br>
                 <input type="text" id="company_name" name="companyName" placeholder="Company Name">
@@ -527,75 +525,71 @@
             </div>
             <div class="container-inner04">
                 <label for="options" class="select-country-container"></label>
-
-            <select class="select-country-box" name="country" id="country_2">
+                <select class="select-country-box" name="country" id="country_2">
                 <option value="">USA</option>
                 <option value="0">Britain</option>
                 <option value="1">India</option>
                 <option value="2">France</option>
                 <option value="2">Japan</option>
-            </select>
-            <div class="icon-container">
-                <i class="fa fa-caret-down" id="fa-caret-down2"></i>
-            </div>
-            <div class="container-inner14">
-                <p>virtual Bank Account</p> <!--A copy button needs to be added-->
-                <div class="box_11">
-                    <div class="formgroup">
-                        <div class="label_1">
-                            <label for="account_no">Account Number</label> <br>
-                            <label for="account_no">Routing Number</label><br>
-                            <label for="account_no">Account Type</label><br>
-                            <label for="account_no">Bank Name</label><br>
-                        </div>
-                        
-                        <div class="input">
-                            <input type="number">
-                            <input type="number">
-                            <input type="text">
-                            <input type="text">
-                        </div>
-                        
+                </select>
+                <div class="icon-container">
+                    <i class="fa fa-caret-down" id="fa-caret-down2"></i>
+                </div>
+                <div class="container-inner14">
+                    <p>virtual Bank Account</p> <!--A copy button needs to be added-->
+                    <div class="box_11">
+                        <div class="formgroup">
+                            <div class="label_1">
+                                <label for="account_no">Account Number</label> <br>
+                                <label for="account_no">Routing Number</label><br>
+                                <label for="account_no">Account Type</label><br>
+                                <label for="account_no">Bank Name</label><br>
+                            </div>
+                            
+                            <div class="input">
+                                <input type="number">
+                                <input type="number">
+                                <input type="text">
+                                <input type="text">
+                            </div>
+                        </div>    
+                        <a href="accounts.html">View more details >></a>
                     </div>
-                    
-                    <a href="accounts.html">View more details >></a>
                 </div>
             </div>
-        </div>
-        <div class="container-inner05">
-            <table>
-                <tr>
-                    <th id="th1">Description</th>
-                    <th id="th2">Quantity</th>
-                    <th id="th3">Amount</th>
-                </tr>
-                <tr>
-                    <td id="td1"><input type="text" id="discrpition_value"></td>
-                    <td id="td2"><input type="number" id="quantity_value"></td>
-                    <td id="td3"><input type="text" id="amount_value"></td>
-                </tr>
-            </table>
-            <div class="container-inner15">
-                <p class="para_total">Total</p>
-                <p class="rupee">&#8377</p>
-                <p class="rupee2">&#8377</p>
-                <p class="rupee-amount">0.00</p>
-            </div>
-            <input type="hidden" name="is_draft" id="is_draft" value="true">
+            <div class="container-inner05">
+                <table>
+                    <tr>
+                        <th id="th1">Description</th>
+                        <th id="th2">Quantity</th>
+                        <th id="th3">Amount</th>
+                    </tr>
+                    <tr>
+                        <td id="td1"><input type="text" id="discrpition_value"></td>
+                        <td id="td2"><input type="number" id="quantity_value"></td>
+                        <td id="td3"><input type="text" id="amount_value"></td>
+                    </tr>
+                </table>
+                <div class="container-inner15">
+                    <p class="para_total">Total</p>
+                    <p class="rupee">&#8377</p>
+                    <p class="rupee2">&#8377</p>
+                    <p class="rupee-amount">0.00</p>
+                </div>
+                <input type="hidden" name="is_draft" id="is_draft" value="true">
 
-            <a href="" class="add_new_entry">Add new entry</a>
-            <a href="" class="save_a_draft">Save as Draft</a>
-        </div>
+                <a href="" class="add_new_entry">Add new entry</a>
+                <a href="" class="save_a_draft">Save as Draft</a>
+            </div>
         <hr>
         <div class="container-inner06">
             <div class="container-inner16">
                 <button id="download_invoice">Download Invoice</button>
-                <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
+                <input class="additional_documents" type="file" name="additionalDocuments" value="Additional Documents" multiple>
                 <button id="set_as_recurring_payment" onclick="arise4() , change()">Set as Recurring Payment</button>
             </div>
             <button id="share" onclick="share(),change()">Share</button>
             <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
-            
         </div>
     </form>
     </div>

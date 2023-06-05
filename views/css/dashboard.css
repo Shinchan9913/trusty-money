@@ -1334,7 +1334,7 @@ h1 img {
 
 .heading_company_details {
   position: absolute;
-  width: 219px;
+  width: 222px;
   height: 36px;
   left: calc(50% - 219px/2 - 281px);
   top: calc(50% - 36px/2 - 459px);
@@ -1578,7 +1578,7 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 .heading_bill {
   position: absolute;
-  width: 75px;
+  width: 76px;
   height: 36px;
   left: calc(50% - 75px/2 - 354px);
   top: calc(50% - 36px/2 - 191px);
@@ -1674,7 +1674,7 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 #fa-asterisk4 {
   position: relative;
-  top: -200px;
+  top: 200px;
   left: 329px;
   font-size: 7px;
   color: red;
@@ -1682,32 +1682,32 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 #fa-asterisk5 {
   position: relative;
-  top: -155px;
-  left: 320px;
+  top: 245px;
+  left: 319px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk6 {
   position: relative;
-  top: -110px;
-  left: 311px;
+  top: 289px;
+  left: 308px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk7 {
   position: relative;
-  top: -65px;
-  left: 302px;
+  top: 333px;
+  left: 298px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk8 {
   position: relative;
-  top: -20px;
-  left: 293px;
+  top: 379px;
+  left: 287px;
   font-size: 7px;
   color: red;
 }
@@ -1828,18 +1828,18 @@ th {
   width: 206px;
   height: 57px;
   left: calc(50% - 205px/2 + 292px);
-  top: calc(50% - 57px/2 + 293.5px);
+  top: calc(50% - 57px/2 + 297.5px);
   padding-left: 20px;
   border: 1px solid #000000;
 }
 
 .para_total {
   position: relative;
-  width: 56px;
-  height: 36px;
+  width: 58px;
+  height: 22px;
   /* left: calc(50% - 56px/2 - 50.5px);
 top: calc(50% - 36px/2 - 30px); */
-  top: -17px;
+  top: 15px;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 600;
@@ -1856,12 +1856,12 @@ top: calc(50% - 36px/2 - 30px); */
 
 .rupee {
   position: relative;
-  width: 73px;
-  height: 36px;
+  width: 12px;
+  height: 20px;
   /* left: calc(50% - 73px/2 + 333px);
 top: calc(50% - 36px/2 + 225px);
  */
-  top: -80px;
+  top: -6px;
   left: 74px;
   font-family: 'Lato';
   font-style: normal;
@@ -1879,11 +1879,11 @@ top: calc(50% - 36px/2 + 225px);
 
 .rupee-amount {
   position: relative;
-  width: 73px;
-  height: 36px;
+  width: 52px;
+  height: 24px;
   /* left: calc(50% - 73px/2 + 333px);
 top: calc(50% - 36px/2 + 0px); */
-  top: -207px;
+  top: -51px;
   left: 95px;
   font-family: 'Lato';
   font-style: normal;
@@ -1903,7 +1903,7 @@ top: calc(50% - 36px/2 + 0px); */
   position: relative;
   width: 139px;
   height: 36px;
-  left: 673px;
+  left: 670px;
   top: 660px;
 
   font-family: 'Lato';
@@ -1989,7 +1989,7 @@ button {
 
   color: #073F9E;
   background-color: #fff;
-
+  cursor: pointer;
   /* Inside auto layout */
 
   flex: none;
@@ -1997,10 +1997,39 @@ button {
   flex-grow: 0;
 }
 
-#additional_documents {
+.additional_documents{
   box-sizing: border-box;
-
   /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 215px;
+  height: 40px;
+  
+  /* Inside auto layout */
+  cursor: pointer;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.additional_documents::-webkit-file-upload-button{
+  visibility: hidden;
+}
+.additional_documents::before{
+  box-sizing: border-box;
+  content: 'Additional documents';
+  /* Auto layout */
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 22px;
+  color: #073F9E;
+  background-color: #fff;
 
   display: flex;
   flex-direction: row;
@@ -2011,12 +2040,12 @@ button {
 
   width: 215px;
   height: 40px;
-
   border: 1px solid #073F9E;
   border-radius: 92px;
-
+  
   /* Inside auto layout */
-
+  -webkit-user-select: none;
+  cursor: pointer;
   flex: none;
   order: 1;
   flex-grow: 0;
@@ -2033,10 +2062,11 @@ button {
   align-items: center;
   padding: 14px 42px;
   gap: 7px;
-
+  
   width: 235px;
   height: 40px;
 
+  
   border: 1px solid #073F9E;
   border-radius: 92px;
 }
@@ -2136,7 +2166,7 @@ button#save {
   width: 300px;
   height: 25px;
   left: calc(50% - 316px/2 - 205.5px);
-  top: calc(50% - 0px/2 + 15px);
+  top: calc(50% - 0px/2 + 20.5px);
   border: none;
   border-bottom: 1px solid #828282;
 }
@@ -2147,7 +2177,7 @@ button#save {
   width: 110px;
   height: 25px;
   left: calc(50% - 124px/2 + 304.5px);
-  top: calc(50% - 0px/2 + 15px);
+  top: calc(50% - 0px/2 + 21.5px);
   border: none;
   border-bottom: 1px solid #828282;
 }
@@ -2156,6 +2186,7 @@ button#save {
   border: none;
   outline: none;
   width: 150px;
+  height: 25px;
   border-bottom: 1px solid #828282;
   position: relative;
   left: 17px;
@@ -2164,12 +2195,12 @@ button#save {
 
 .rupee2 {
   position: relative;
-  width: 73px;
-  height: 36px;
+  width: 14px;
+  height: 23px;
   /* left: calc(50% - 73px/2 + 333px);
 top: calc(50% - 36px/2 + 225px);
  */
-  top: -190px;
+  top: -75.5px;
   left: 10px;
   font-family: 'Lato';
   font-style: normal;
