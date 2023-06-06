@@ -370,6 +370,9 @@ color: #FFFFFF;
 
 .payment_overview h1{
   position: relative;
+  display: flex;
+  flex-direction: row;
+  float: left;
   top: 2%;
   font-family: 'Lato';
   font-style: normal;
@@ -386,7 +389,44 @@ color: #FFFFFF;
     line-height: 29px;
     color: #073F9E;
 }
-
+.options_payment_overview{
+  display: flex;
+  flex-direction: row;
+  float: right;
+  box-sizing: border-box;
+}
+.options_payment_overview select{
+  position: relative;
+  left: -30%;
+  appearance: none;
+  width: 118px;
+  height: 32px; 
+  line-height: 1;
+  border: 0;
+  background: url(/Exports/expand-arrow--v1.png) no-repeat right #FFFFFF;
+  border: 1px solid #E1E1E1;
+  border-radius: 6px;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  margin-right: 10%;
+  padding-left: 6%; 
+  -webkit-appearance: none;
+  background-position-x: 100%;
+  outline: none;
+}
+/* 
+.options_payment_overview img{
+  width: 17%;
+  height: 10%;
+  position: relative;
+  margin-top: 5.5%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  left: -17%;
+  border-left: 2px solid #E1E1E1;  
+} */
 .payment{
   position: relative;
   display: flex;

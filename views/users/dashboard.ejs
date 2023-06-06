@@ -156,27 +156,85 @@
                   </script>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
+                <div class="options_payment_overview">
+                    <select name="we-mo-ye" id="we-mo-ye" onchange="changeGraph()">
+                        <option value="week">Weekly</option>
+                        <option value="month">Monthly</option>
+                        <option value="year">Yearly</option>
+                    </select>
+                    <script>
+                        // window.addEventListener('load', function() {
+                        //     const select = document.getElementById('we-mo-ye');
+                        //     select.value = "month"; 
+                        //     changeGraph(); 
+                        // });
+                        // let com_acc, outs, inpro, total, outer_ammount;
+                        // function changeGraph(){
+                        //     const occation = document.getElementById('we-mo-ye').value;
+                        //     if(occation === 'week'){
+                        //         com_acc = 70000;
+                        //         outs = 80000;
+                        //         inpro = 50000;
+                        //         total = com_acc + outs + inpro;
+                        //         outer_ammount = total*0.025;
+                        //     }
+                        //     else if(occation === 'month'){
+                        //         com_acc = 80000;
+                        //         outs = 75000;
+                        //         inpro = 53000;
+                        //         total = com_acc + outs + inpro;
+                        //         outer_ammount = total*0.025;
+                        //     }
+                        //     else if(occation === 'year'){
+                        //         com_acc = 45000;
+                        //         outs = 25000;
+                        //         inpro = 75000;
+                        //         total = com_acc + outs + inpro;
+                        //         outer_ammount = total*0.025;
+                        //     }
+                        //     com_acc = formatCurrency(com_acc);
+                        //     outs = formatCurrency(outs);
+                        //     inpro = formatCurrency(inpro);
+                        //     total = formatCurrency(total);
+                        //     outer_ammount =formatCurrency(outer_ammount);
+                        //     document.getElementById('completed_ammount').innerHTML = com_acc;
+                        //     document.getElementById('outstanding_amount').innerHTML = outs;
+                        //     document.getElementById('in_progress_amount').innerHTML =inpro;
+                        //     document.getElementById('graph-inner-total').innerHTML = total;
+                        //     document.getElementById('you-save-upto-ammount').innerHTML= outer_ammount;
+                        // }   
+                        // function formatCurrency(value) {
+                        //     const formattedValue = value.toLocaleString('en-IN', {
+                        //         style: 'currency',
+                        //         currency: 'INR',
+                        //         minimumFractionDigits: 0,
+                        //         maximumFractionDigits: 0,
+                        //     });
+                        //     return formattedValue.replace(/^(\D+)/, '₹ ');
+                        // }
+                    </script>
+                    <!-- <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/> -->
+                </div>
                 <div class="payment">
                     <div class="display">
                     
                         <div class="payment_number" id="completed">
                             <p>Completed</p>
-                            <big>₹ 50,000</big>
+                            <big id="completed_ammount">₹ 50,000</big>
                         </div>
                         <div class="payment_number" id="outstanding">
                             <p>Outstanding</p>
-                            <big>₹ 30,000</big>
+                            <big id="outstanding_amount">₹ 30,000</big>
                         </div>
                         <div class="payment_number" id="in_progress">
                             <p>In Progress</p>
-                            <big>₹ 20,000</big>
+                            <big id="in_progress_amount">₹ 20,000</big>
                         </div>
 
                     </div>
                      <div class="graph">
                         <script
                             src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
-                        <script src="/js/script.js"></script>
                         <link rel="stylesheet" href="CSS/chart.min.css">
                         <div style="width: 185px; height: 185px;">
                             <div class="graph-inner">
@@ -185,18 +243,160 @@
                             </div>
                             <canvas id="usersChart" width="1" height="1"></canvas>
                         </div>
-                        <p class="graph-outer">You saved upto ₹</p><p id="you-save-upto-ammount">1980.00</p>
+                        <p class="graph-outer">You saved upto </p><p id="you-save-upto-ammount">₹ 1980.00</p>
+                        <script>
+                            window.addEventListener('load', function () {
+                                const select = document.getElementById('we-mo-ye');
+                                select.value = "month";
+                                changeGraph();
+                            });
+
+                            let com_acc, outs, inpro, total, outer_ammount;
+                            var x, y, z;
+
+                            function changeGraph() {
+                                const occation = document.getElementById('we-mo-ye').value;
+                                if (occation === 'week') {
+                                com_acc = 70000;
+                                outs = 80000;
+                                inpro = 50000;
+                                } else if (occation === 'month') {
+                                com_acc = 10000;
+                                outs = 75000;
+                                inpro = 53000;
+                                } else if (occation === 'year') {
+                                com_acc = 45000;
+                                outs = 25000;
+                                inpro = 75000;
+                                }
+                                total = com_acc + outs + inpro;
+                                outer_ammount = total * 0.025;
+
+                                x = (com_acc / total) * 100;
+                                y = (outs / total) * 100;
+                                z = (inpro / total) * 100;
+
+                                com_acc = formatCurrency(com_acc);
+                                outs = formatCurrency(outs);
+                                inpro = formatCurrency(inpro);
+                                total = formatCurrency(total);
+                                outer_ammount = formatCurrency(outer_ammount);
+
+                                document.getElementById('completed_ammount').innerHTML = com_acc;
+                                document.getElementById('outstanding_amount').innerHTML = outs;
+                                document.getElementById('in_progress_amount').innerHTML = inpro;
+                                document.getElementById('graph-inner-total').innerHTML = total;
+                                document.getElementById('you-save-upto-ammount').innerHTML = outer_ammount;
+
+                                updateChart(x, y, z);
+                            }
+
+                            function formatCurrency(value) {
+                                const formattedValue = value.toLocaleString('en-IN', {
+                                style: 'currency',
+                                currency: 'INR',
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0,
+                                });
+                                return formattedValue.replace(/^(\D+)/, '₹ ');
+                            }
+
+                            Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
+                            Chart.controllers.RoundedDoughnut = Chart.controllers.doughnut.extend({
+                                draw: function (ease) {
+                                var ctx = this.chart.ctx;
+                                var easingDecimal = ease || 1;
+                                var arcs = this.getMeta().data;
+                                Chart.helpers.each(arcs, function (arc, i) {
+                                    arc.transition(easingDecimal).draw();
+
+                                    var pArc = arcs[i === 0 ? arcs.length - 1 : i - 1];
+                                    var pColor = pArc._view.backgroundColor;
+
+                                    var vm = arc._view;
+                                    var radius = (vm.outerRadius + vm.innerRadius) / 2;
+                                    var thickness = (vm.outerRadius - vm.innerRadius) / 2;
+                                    var startAngle = Math.PI - vm.startAngle - Math.PI / 2;
+                                    var angle = Math.PI - vm.endAngle - Math.PI / 2;
+
+                                    ctx.save();
+                                    ctx.translate(vm.x, vm.y);
+
+                                    ctx.fillStyle = i === 0 ? vm.backgroundColor : pColor;
+                                    ctx.beginPath();
+                                    ctx.arc(radius * Math.sin(startAngle), radius * Math.cos(startAngle), thickness, 0, 2 * Math.PI);
+                                    ctx.fill();
+
+                                    ctx.fillStyle = vm.backgroundColor;
+                                    ctx.beginPath();
+                                    ctx.arc(radius * Math.sin(angle), radius * Math.cos(angle), thickness, 0, 2 * Math.PI);
+                                    ctx.fill();
+
+                                    ctx.restore();
+                                });
+                                }
+                            });
+                            let chart = null;
+
+                            function updateChart(x, y, z) {
+                            var data = [x, y, z];
+
+                            if (chart !== null) {
+                                // If a chart already exists, destroy it before creating a new one
+                                chart.destroy();
+                            }
+
+                            chart = new Chart(document.getElementById('usersChart'), {
+                                type: 'RoundedDoughnut',
+                                data: {
+                                    labels: [
+                                        'Completed',
+                                        'Outstanding',
+                                        'In Progress'
+                                    ],
+                                datasets: [
+                                    {
+                                    data: data,
+                                    backgroundColor: [
+                                        '#1B7737',
+                                        '#1B00A4',
+                                        '#E26714',
+                                    ],
+                                    // label: [
+                                    //     "Completed",
+                                    //     "Outstanding",
+                                    //     "In Progress"
+                                    // ],
+                                    borderWidth: 0
+                                    },
+                                ]
+                                },
+                                options: {
+                                cutoutPercentage: 70,
+                                legend:{
+                                    labels:{
+                                        fontSize:0,
+                                        padding:0,
+                                    }
+                                }
+                                },
+                            });
+                            }
+                            document.getElementById('we-mo-ye').addEventListener('change', function () {
+                                changeGraph();
+                            });
+                        </script>
                     </div>
                 </div>
                
             </div>
-            <script>
+            <!-- <script>
                 var inner_total = document.getElementById('graph-inner-total').innerHTML;
                 var numericalValue = Number(inner_total.replace(/[^0-9.-]+/g,""));
                 var outer_ammount = document.getElementById('you-save-upto-ammount');
                 outer_ammount.innerHTML = 0.025*numericalValue;
                 console.log(inner_total)
-            </script>
+            </script> -->
         </div>
 
         <div class="main_body_status" id="main_body_status" onclick="main_click()">
