@@ -19,7 +19,7 @@
         <hr id="hr1">
         <div class="container_1">
             <ul>
-                <li class="c_11" >
+                <li class="c_11">
                     <a href="index.html" id="home">
                         <img width="26" src="/Exports/icons/home.png">
                         Home</a>
@@ -37,7 +37,7 @@
                 </li><br>
                 <li class="c_11">
                     <a href="#" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()"">
-                       <img width="26" src="/Exports/icons/rate alert.png" alt="">
+                       <img width=" 26" src="/Exports/icons/rate alert.png" alt="">
                         Rate Alert</a>
                 </li><br>
 
@@ -48,20 +48,20 @@
         <hr id="hr2">
         <ul>
             <li><a href="name_c2" id="name_c2">
-                <img width="40" src="/Exports/icons/account image.png" alt="">
+                    <img width="40" src="/Exports/icons/account image.png" alt="">
                     <h2>Lily Lewis</h2>
                     <p>lilylewis@gmail.com</p>
-            </a></li> <br>
+                </a></li> <br>
             <li class="c_22">
                 <a href="/myAccount" id="accounts">
-                <img width="26" src="/Exports/icons/acc.png" alt="">
-                Account</a>
+                    <img width="26" src="/Exports/icons/acc.png" alt="">
+                    Account</a>
             </li><br>
             <li class="c_22">
                 <a href="/settings" id="Setting">
                     <img width="26" src="/Exports/icons/settings.png" alt="">
                     Settings</a>
-                </li><br>
+            </li><br>
             <li class="c_22">
                 <a href="#" id="Logout">
                     <img width="26" src="/Exports/icons/log out.png" alt="">
@@ -84,22 +84,22 @@
                     <script>
                         // Get the select element
                         var selectElement = document.getElementById("country");
-                    
+
                         // Add an event listener for the change event
-                        selectElement.addEventListener("change", function() {
+                        selectElement.addEventListener("change", function () {
                             // Store the selected value
                             var selectedValue = selectElement.value;
-                    
+
                             // Set the selected value as a query parameter in the URL
                             var url = new URL(window.location.href);
                             url.searchParams.set("country", selectedValue);
-                    
+
                             // Reload the page with the updated URL
                             window.location.href = url.toString();
                         });
-                    
+
                         // Set the selected option based on the query parameter when the page loads
-                        window.addEventListener("load", function() {
+                        window.addEventListener("load", function () {
                             var url = new URL(window.location.href);
                             var selectedValue = url.searchParams.get("country");
                             if (selectedValue) {
@@ -110,9 +110,11 @@
                     <select id="countrySelectDash" onchange="displayAccountDetailsDash()">
                         <option value="">Select Country</option>
                         <% user.bankAccounts.forEach(function(account) { %>
-                          <option value="<%= account.country %>"><%= account.country %></option>
-                        <% }); %>
-                      </select>
+                            <option value="<%= account.country %>">
+                                <%= account.country %>
+                            </option>
+                            <% }); %>
+                    </select>
                     <div class="box_11">
                         <div class="formgroup">
                             <div class="label">
@@ -128,36 +130,36 @@
                         <a href="accounts.html">View more details >></a>
                     </div>
                 </div>
-                </div>
-                <script>
-                    const user = <%- user %>
+            </div>
+            <script>
+                const user = <%- user %>
                     function displayAccountDetailsDash() {
-                      console.log("Fun called!!")
-                      const countrySelect = document.getElementById('countrySelectDash');
-                      const accountDetails = document.getElementById('accountDetailsDash');
-                      const selectedCountry = countrySelect.value;
-                  
-                      // Clear previous account details
-                      accountDetails.innerHTML = '';
-                  
+                        console.log("Fun called!!")
+                        const countrySelect = document.getElementById('countrySelectDash');
+                        const accountDetails = document.getElementById('accountDetailsDash');
+                        const selectedCountry = countrySelect.value;
+
+                        // Clear previous account details
+                        accountDetails.innerHTML = '';
+
                       // Find the selected account details
-                      <% user.bankAccounts.forEach(function(account) { %>
+                      <% user.bankAccounts.forEach(function (account) { %>
                         if ("<%= account.country %>" === selectedCountry) {
-                          accountDetails.innerHTML += `
+                                accountDetails.innerHTML += `
                             <p><%= account.vbAccountNumber %></p>
                             <p><%= account.routingNumber %></p>
                             <p><%= account.accountType %></p>
                             <p><%= account.bankName %></p>
                           `;
-                        }
+                            }
                       <% }); %>
                     }
-                  </script>
+            </script>
             <div class="payment_overview">
                 <h1>Payment Overview</h1>
                 <div class="payment">
                     <div class="display">
-                    
+
                         <div class="payment_number" id="completed">
                             <p>Completed</p>
                             <big>₹ 50,000</big>
@@ -172,7 +174,7 @@
                         </div>
 
                     </div>
-                     <div class="graph">
+                    <div class="graph">
                         <script
                             src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
                         <script src="/js/script.js"></script>
@@ -184,16 +186,17 @@
                             </div>
                             <canvas id="usersChart" width="1" height="1"></canvas>
                         </div>
-                        <p class="graph-outer">You saved upto ₹</p><p id="you-save-upto-ammount">1980.00</p>
+                        <p class="graph-outer">You saved upto ₹</p>
+                        <p id="you-save-upto-ammount">1980.00</p>
                     </div>
                 </div>
-               
+
             </div>
             <script>
                 var inner_total = document.getElementById('graph-inner-total').innerHTML;
-                var numericalValue = Number(inner_total.replace(/[^0-9.-]+/g,""));
+                var numericalValue = Number(inner_total.replace(/[^0-9.-]+/g, ""));
                 var outer_ammount = document.getElementById('you-save-upto-ammount');
-                outer_ammount.innerHTML = 0.025*numericalValue;
+                outer_ammount.innerHTML = 0.025 * numericalValue;
                 console.log(inner_total)
             </script>
         </div>
@@ -228,35 +231,40 @@
                     <div class="grid_item" id="grid_item_11">11</div>
                     <div class="grid_item" id="grid_item_12">12</div>
                     <div class="grid_item" id="grid_item_13">Completed</div>
-                    <div class="grid_item" id="grid_item_14"><img src="/Exports\icons\three-dots-vertical.svg" alt=""> </div>
+                    <div class="grid_item" id="grid_item_14"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    </div>
                     <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_16">16</div>
                     <div class="grid_item" id="grid_item_17">17</div>
                     <div class="grid_item" id="grid_item_18">18</div>
                     <div class="grid_item" id="grid_item_19">19</div>
                     <div class="grid_item" id="grid_item_20">20</div>
-                    <div class="grid_item" id="grid_item_21"><img src="/Exports\icons\three-dots-vertical.svg" alt=""></div>
+                    <div class="grid_item" id="grid_item_21"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    </div>
                     <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_23">23</div>
                     <div class="grid_item" id="grid_item_24">24</div>
                     <div class="grid_item" id="grid_item_25">25</div>
                     <div class="grid_item" id="grid_item_26">26</div>
                     <div class="grid_item" id="grid_item_27">Completed</div>
-                    <div class="grid_item" id="grid_item_28"><img src="/Exports\icons\three-dots-vertical.svg" alt=""> </div>
+                    <div class="grid_item" id="grid_item_28"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    </div>
                     <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_30">30</div>
                     <div class="grid_item" id="grid_item_31">31</div>
                     <div class="grid_item" id="grid_item_32">32</div>
                     <div class="grid_item" id="grid_item_33">33</div>
                     <div class="grid_item" id="grid_item_34">34</div>
-                    <div class="grid_item" id="grid_item_35"><img src="/Exports\icons\three-dots-vertical.svg" alt=""></div>
+                    <div class="grid_item" id="grid_item_35"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    </div>
                     <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_37">37</div>
                     <div class="grid_item" id="grid_item_38">38</div>
                     <div class="grid_item" id="grid_item_39">39</div>
                     <div class="grid_item" id="grid_item_40">40</div>
                     <div class="grid_item" id="grid_item_41">41</div>
-                    <div class="grid_item" id="grid_item_42"><img src="/Exports\icons\three-dots-vertical.svg" alt=""></div>
+                    <div class="grid_item" id="grid_item_42"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    </div>
                 </div>
             </div>
             <div class="footer">
@@ -317,7 +325,7 @@
     <div class="payment_request" id="payment_request">
         <h1>
             <div class="h1con">Payment Request</div>
-            <img src="/Exports/close.jpg" alt="" onclick="close_popup()" id="close_image">
+            <img src="./Exports\close.jpg" alt="" onclick="close_popup()" id="close_image">
         </h1>
         <form action="/dashboard/users" method="post" id="paymentRequest" enctype="multipart/form-data">
             <div class="form">
@@ -328,22 +336,22 @@
                     <script>
                         // Get the select element
                         var selectElement = document.getElementById("country_1");
-                    
+
                         // Add an event listener for the change event
-                        selectElement.addEventListener("change", function() {
+                        selectElement.addEventListener("change", function () {
                             // Store the selected value
                             var selectedValue = selectElement.value;
-                    
+
                             // Set the selected value as a query parameter in the URL
                             var url = new URL(window.location.href);
                             url.searchParams.set("country_1", selectedValue);
-                    
+
                             // Reload the page with the updated URL
                             window.location.href = url.toString();
                         });
-                    
+
                         // Set the selected option based on the query parameter when the page loads
-                        window.addEventListener("load", function() {
+                        window.addEventListener("load", function () {
                             var url = new URL(window.location.href);
                             var selectedValue = url.searchParams.get("country_1");
                             if (selectedValue) {
@@ -354,91 +362,115 @@
                     <select id="countrySelect" onchange="displayAccountDetails()">
                         <option value="">Select Country</option>
                         <% user.bankAccounts.forEach(function(account) { %>
-                          <option value="<%= account.country %>"><%= account.country %></option>
-                        <% }); %>
+                            <option value="<%= account.country %>">
+                                <%= account.country %>
+                            </option>
+                            <% }); %>
                     </select>
                     <br>
-                    <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code" onclick="rbi_code_popup()">
+                    <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code"
+                        onclick="rbi_code_popup()">
                         <!-- <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option> -->
                     </select> <br>
 
-                <div class="virtual_bank_account">
+                    <div class="virtual_bank_account">
 
-                    <div class="box_11">
-                        <div class="formgroup">
-                            <div class="label_1">
-                                <label for="account_no">Account Number</label><br>
-                                <label for="account_no">Routing Number</label><br>
-                                <label for="account_no">Account Type</label><br>
-                                <label for="account_no">Bank Name</label><br>
+                        <div class="box_11">
+                            <div class="formgroup">
+                                <div class="label_1">
+                                    <label for="account_no">Account Number</label><br>
+                                    <label for="account_no">Routing Number</label><br>
+                                    <label for="account_no">Account Type</label><br>
+                                    <label for="account_no">Bank Name</label><br>
+                                </div>
+
+                                <div class="input" id="accountDetails"></div>
+
                             </div>
 
-                            <div class="input" id="accountDetails"></div>
-
+                            <a href="accounts.html">View more details >></a>
                         </div>
 
-                        <a href="accounts.html">View more details >></a>
                     </div>
-                    
-                </div>
 
-            </div>
-            <div class="right">
-                <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
-                <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
-                <input type="number" name="amount" placeholder="Enter Amount"> <br>
-                <div class="description">
-                    <input type="text" name="description" placeholder="Description">
+                </div>
+                <div class="right">
+                    <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
+                    <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
+                    <input type="number" name="amount" placeholder="Enter Amount"> <br>
+                    <div class="description">
+                        <input type="text" name="description" placeholder="Description">
+                    </div>
                 </div>
             </div>
-        </div>
-        <input type="hidden" name="isDraft" id="isDraft" value="true">
-        <div class="save_drafts">
-            <button onclick="setDraftStatus(true); submitForm()">Save Drafts</button> 
-        </div>
-        
-        <div class="buttons_1">
-            <input type="file" name="uploadInvoice" value="Upload Invoice">
-            <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
-            <button class="button_13" onclick="arise4()">Set as Recurring Payment</button>
-        </div>
-        
-        <div class="buttons_2">
-            <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share() ">
-                Share
-            </button>
-            <button class="button_22" onclick="setDraftStatus(false); submitForm()">
-                Save
-            </button>
-        </div>
+            <input type="hidden" name="isDraft" id="isDraft" value="true">
+            <div class="save_drafts">
+                <button onclick="setDraftStatus(true); submitForm()">Save Drafts</button>
+            </div>
+
+            <div class="buttons_1">
+                <input type="file" name="uploadInvoice" value="Upload Invoice">
+                <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
+                <select name="frequency" id="frequencySelect">
+                    <option value="">Set as Recurring payment</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div id="customFrequencyInput" style="display: none;">
+                    <label for="customDays">Custom Days:</label>
+                    <input type="number" name="customDays" id="customDays">
+                </div>
+            </div>
+
+            <div class="buttons_2">
+                <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share() ">
+                    Share
+                </button>
+                <button class="button_22" onclick="setDraftStatus(false); submitForm()">
+                    Save
+                </button>
+            </div>
         </form>
     </div>
     <script>
+
+        const frequencySelect = document.getElementById('frequencySelect');
+        const customFrequencyInput = document.getElementById('customFrequencyInput');
+        
+        frequencySelect.addEventListener('change', () => {
+            if (frequencySelect.value === 'custom') {
+            customFrequencyInput.style.display = 'block';
+            } else {
+            customFrequencyInput.style.display = 'none';
+            }
+        });
         function displayAccountDetails() {
-          const countrySelect = document.getElementById('countrySelect');
-          const accountDetails = document.getElementById('accountDetails');
-          const selectedCountry = countrySelect.value;
-      
-          // Clear previous account details
-          accountDetails.innerHTML = '';
-      
+            const countrySelect = document.getElementById('countrySelect');
+            const accountDetails = document.getElementById('accountDetails');
+            const selectedCountry = countrySelect.value;
+
+            // Clear previous account details
+            accountDetails.innerHTML = '';
+
           // Find the selected account details
-          <% user.bankAccounts.forEach(function(account) { %>
+          <% user.bankAccounts.forEach(function (account) { %>
             if ("<%= account.country %>" === selectedCountry) {
-              accountDetails.innerHTML += `
+                    accountDetails.innerHTML += `
                 <p><%= account.vbAccountNumber %></p>
                 <p><%= account.routingNumber %></p>
                 <p><%= account.accountType %></p>
                 <p><%= account.bankName %></p>
               `;
-            }
+                }
           <% }); %>
         }
-        
-        function setDraftStatus(isDraft){
+
+        function setDraftStatus(isDraft) {
             const draftInput = document.getElementById('isDraft')
             draftInput.value = isDraft.toString();
         }
@@ -472,13 +504,20 @@
         <div class="container-inner01">
             <h3 class="heading_company_details">Company Details</h3>
             <div class="container-inner11">
-                <p class="first_con_para"><%= user.name %><br></p>
-                <p class="second_con_para"><%= user.email %>></p>
-                <p class="third_con_para"><%= user.mobile %></p>
+                <p class="first_con_para">
+                    <%= user.name %><br>
+                </p>
+                <p class="second_con_para">
+                    <%= user.email %>>
+                </p>
+                <p class="third_con_para">
+                    <%= user.mobile %>
+                </p>
             </div>
         </div>
-        <form id="invoiceForm" method="post" action="/dashboard/users/save-invoice" enctype="multipart/form-data">
-        <div class="container-inner02">
+
+        <form id="invoiceForm" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+            <div class="container-inner02">
                 <label for="invoice_no" id="l_invoice_no">Invoice No.:</label>
                 <input type="text" id="inovice_no" name="invoiceNo">
                 <br>
@@ -486,10 +525,10 @@
                 <!-- <form>
                     <label for="options" class="select-container"></label>
                     <select id="options" class="select-box" onclick="rbi_code_popup2()"> -->
-                        <!-- <option value="option1">Option 1</option>
+                <!-- <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                         <option value="option3">Option 3</option> -->
-                    <!-- </select>
+                <!-- </select>
                     <i class="fa fa-asterisk" id="fa-asterisk1"></i>
                     <div class="icon-container">
                         <i class="fa fa-caret-down" id="fa-caret-down1"></i>
@@ -504,11 +543,11 @@
                 <input type="date" id="dueDate" name="dueDate" class="select-date-input2">
                 <i class="fa fa-asterisk" id="fa-asterisk3"></i>
                 <br>
-            <!-- </form> -->
-        </div>
-        <div class="container-inner03">
-            <h3 class="heading_bill">Bill to</h3>
-            <!-- <form class="bill-form-cont" id="billForm"> -->
+                <!-- </form> -->
+            </div>
+            <div class="container-inner03">
+                <h3 class="heading_bill">Bill to</h3>
+                <!-- <form class="bill-form-cont" id="billForm"> -->
                 <input type="text" id="name" name="name" placeholder="Name">
                 <br>
                 <input type="text" id="company_name" name="companyName" placeholder="Company Name">
@@ -528,112 +567,138 @@
             <div class="container-inner04">
                 <label for="options" class="select-country-container"></label>
 
-            <select class="select-country-box" name="country" id="country_2">
-                <option value="">USA</option>
-                <option value="0">Britain</option>
-                <option value="1">India</option>
-                <option value="2">France</option>
-                <option value="2">Japan</option>
-            </select>
-            <div class="icon-container">
-                <i class="fa fa-caret-down" id="fa-caret-down2"></i>
-            </div>
-            <div class="container-inner14">
-                <p>virtual Bank Account</p> <!--A copy button needs to be added-->
-                <div class="box_11">
-                    <div class="formgroup">
-                        <div class="label_1">
-                            <label for="account_no">Account Number</label> <br>
-                            <label for="account_no">Routing Number</label><br>
-                            <label for="account_no">Account Type</label><br>
-                            <label for="account_no">Bank Name</label><br>
+                <select class="select-country-box" name="country" id="country_2">
+                    <option value="">USA</option>
+                    <option value="0">Britain</option>
+                    <option value="1">India</option>
+                    <option value="2">France</option>
+                    <option value="2">Japan</option>
+                </select>
+                <div class="icon-container">
+                    <i class="fa fa-caret-down" id="fa-caret-down2"></i>
+                </div>
+                <div class="container-inner14">
+                    <p>virtual Bank Account</p> <!--A copy button needs to be added-->
+                    <div class="box_11">
+                        <div class="formgroup">
+                            <div class="label_1">
+                                <label for="account_no">Account Number</label> <br>
+                                <label for="account_no">Routing Number</label><br>
+                                <label for="account_no">Account Type</label><br>
+                                <label for="account_no">Bank Name</label><br>
+                            </div>
+
+                            <div class="input">
+                                <input type="number">
+                                <input type="number">
+                                <input type="text">
+                                <input type="text">
+                            </div>
+
                         </div>
-                        
-                        <div class="input">
-                            <input type="number">
-                            <input type="number">
-                            <input type="text">
-                            <input type="text">
-                        </div>
-                        
+
+                        <a href="accounts.html">View more details >></a>
                     </div>
-                    
-                    <a href="accounts.html">View more details >></a>
                 </div>
             </div>
-        </div>
-        <div class="container-inner05">
-            <table>
-                <tr>
-                    <th id="th1">Description</th>
-                    <th id="th2">Quantity</th>
-                    <th id="th3">Amount</th>
-                </tr>
-                <tr>
-                    <td id="td1"><input type="text" id="discrpition_value"></td>
-                    <td id="td2"><input type="number" id="quantity_value"></td>
-                    <td id="td3"><input type="text" id="amount_value"></td>
-                </tr>
-            </table>
-            <div class="container-inner15">
-                <p class="para_total">Total</p>
-                <p class="rupee">&#8377</p>
-                <p class="rupee2">&#8377</p>
-                <p class="rupee-amount">0.00</p>
-            </div>
-            <input type="hidden" name="is_draft" id="is_draft" value="true">
+            <div class="container-inner05">
+                <table>
+                    <tr>
+                        <th id="th1">Description</th>
+                        <th id="th2">Quantity</th>
+                        <th id="th3">Amount</th>
+                    </tr>
+                    <tr>
+                        <td id="td1"><input type="text" id="discrpition_value"></td>
+                        <td id="td2"><input type="number" id="quantity_value"></td>
+                        <td id="td3"><input type="text" id="amount_value"></td>
+                    </tr>
+                </table>
+                <div class="container-inner15">
+                    <p class="para_total">Total</p>
+                    <p class="rupee">&#8377</p>
+                    <p class="rupee2">&#8377</p>
+                    <p class="rupee-amount">0.00</p>
+                </div>
+                <input type="hidden" name="is_draft" id="is_draft" value="true">
 
-            <a href="" class="add_new_entry">Add new entry</a>
-            <a href="" class="save_a_draft">Save as Draft</a>
-        </div>
-        <hr>
-        <div class="container-inner06">
-            <div class="container-inner16">
-                <button id="download_invoice">Download Invoice</button>
-                <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
-                <button id="set_as_recurring_payment" onclick="arise4() , change()">Set as Recurring Payment</button>
+                <a href="" class="add_new_entry">Add new entry</a>
+                <a href="" class="save_a_draft">Save as Draft</a>
             </div>
-            <button id="share" onclick="share(),change()">Share</button>
-            <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
-            
-        </div>
-    </form>
+            <hr>
+            <div class="container-inner06">
+                <div class="container-inner16">
+                    <button id="download_invoice" onclick="downloadInvoice(event)"><a href="/dashboard/users">Download Invoice</a></button>
+                    <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
+                    <button id="set_as_recurring_payment" onclick="arise4() , change()">Set as Recurring
+                        Payment</button>
+                </div>
+                <button id="share" onclick="share(),change()">Share</button>
+                <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
+
+            </div>
+        </form>
     </div>
     <script>
-        const user = <%- user %>
-        function draftStat(isDraft){
-            const draftInput = document.getElementById('is_draft')
-            draftInput.value = isDraft.toString();
-        }
+        // const user = %- user %>
+            function draftStat(isDraft) {
+                const draftInput = document.getElementById('is_draft')
+                draftInput.value = isDraft.toString();
+            }
         function saveInvoice() {
             console.log("saveinvoice called")
-            event.preventDefault();
+            // event.preventDefault();
             const invoiceForm = document.getElementById('invoiceForm');
             // const billForm = document.getElementById('billForm');
             invoiceForm.action = '/dashboard/users/save-invoice'
             invoiceForm.submit();
-            
+
         }
 
+        function downloadInvoice(event) {
+            console.log("Download invoice called!")
+            event.preventDefault()
+            const invoiceForm = document.getElementById('invoiceForm')
+            const formData = new FormData(invoiceForm)
+            // invoiceForm.action = '/dashboard/users/download-invoice'
+            // invoiceForm.submit();
+
+            fetch('/dashboard/users/download-invoice', {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    // Handle successful response
+                    console.log('Form data submitted successfully');
+                } else {
+                    // Handle error response
+                    console.error('Error submitting form data');
+                }
+            })
+                .catch(error => {
+                    // Handle network or fetch API errors
+                    console.error('Error submitting form data:', error);
+                });
+        }
 
         // Get the select element
         var selectElement = document.getElementById("country_2");
-    
+
         // Add an event listener for the change event
-        selectElement.addEventListener("change", function() {
+        selectElement.addEventListener("change", function () {
             // Store the selected value
             var selectedValue = selectElement.value;
-    
+
             // Set the selected value as a query parameter in the URL
             var url = new URL(window.location.href);
             url.searchParams.set("country_2", selectedValue);
-    
+
             // Reload the page with the updated URL
             window.location.href = url.toString();
         });
-    
+
         // Set the selected option based on the query parameter when the page loads
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
             var url = new URL(window.location.href);
             var selectedValue = url.searchParams.get("country_2");
             if (selectedValue) {
@@ -647,7 +712,7 @@
             Share details via mail
         </div>
         <div class="two">
-            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button> 
+            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button>
         </div>
     </div>
 
@@ -748,8 +813,8 @@
             Remittences (recipts) by residents under international bidding process
         </div>
     </div>
-
-    <div class="rec_pay_pop" id="rec_pay_pop">
+    
+    <!-- <div class="rec_pay_pop" id="rec_pay_pop">
         <h3>Set Recurring Payment</h3>
         <div class="items">
             <div class="one">Everyday</div>
@@ -765,7 +830,7 @@
                 </select>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--sidebar popups-->
 
@@ -837,11 +902,11 @@
                 <input type="number" placeholder="83.00">
             </div>
         </div>
-        
+
         <div class="img">
             <img id="plus" src="/Exports\Sidebar_icons\plus.png" alt="">
         </div>
-        
+
     </div>
 
 

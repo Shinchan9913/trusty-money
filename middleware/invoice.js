@@ -27,7 +27,7 @@ async function generatePdf(transaction, callback) {
     await page.setContent(html);
 
     const pdfBuffer = await page.pdf({ format: 'A4' });
-
+    console.log("await browser close")
     await browser.close();
 
     callback(pdfBuffer);

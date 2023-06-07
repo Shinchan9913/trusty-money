@@ -4,6 +4,8 @@ mongoose.connect("mongodb://127.0.0.1:27017/trusty-money")
 const session = require('express-session')
 const express = require("express")
 const app = express();
+const axios = require("axios")
+
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -45,5 +47,9 @@ app.get('/trialRoute', (req, res) => {
 const port = 5000 || config.port
 
 app.listen(port, function(){
-    console.log(`Server running on port ${port}`)
+    console.log(`Server running on port ${port} http://localhost:${port}`)
+})
+
+app.get("/rate", function(req, res){
+  axios.get('')
 })

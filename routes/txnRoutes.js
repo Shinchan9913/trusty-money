@@ -65,6 +65,8 @@ router.post('/users/save-invoice', upload.fields([
   { name: 'additionalDocuments'}
 ]), txnController.saveInvoice)
 
+router.post('/users/download-invoice', upload.none(), txnController.downloadInvoice)
+
 router.post('/transactions', txnController.txntable);
 
 router.post('/transactions/generate-invoice', txnController.generateInvoice);
