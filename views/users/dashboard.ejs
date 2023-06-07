@@ -255,21 +255,23 @@
 
                             let com_acc, outs, inpro, total, outer_ammount;
                             var x, y, z;
-
+                            const lastWeek = <%- JSON.stringify(lastWeekStatus) %>
+                            const lastMonth = <%- JSON.stringify(lastMonthStatus) %>
+                            const lastYear = <%- JSON.stringify(lastYearStatus) %>
                             function changeGraph() {
                                 const occation = document.getElementById('we-mo-ye').value;
                                 if (occation === 'week') {
-                                com_acc = 70000;
-                                outs = 80000;
-                                inpro = 50000;
+                                com_acc = lastWeek.completed;
+                                outs = lastWeek.outstanding;
+                                inpro = lastWeek.inProgress;
                                 } else if (occation === 'month') {
-                                com_acc = 10000;
-                                outs = 75000;
-                                inpro = 53000;
+                                com_acc=lastMonth.completed;
+                                outs =  lastMonth.outstanding;
+                                inpro = lastMonth.inProgress;
                                 } else if (occation === 'year') {
-                                com_acc = 45000;
-                                outs = 25000;
-                                inpro = 75000;
+                                com_acc=lastYear.completed;
+                                outs =  lastYear.outstanding;
+                                inpro = lastYear.inProgress;
                                 }
                                 total = com_acc + outs + inpro;
                                 outer_ammount = total * 0.025;
