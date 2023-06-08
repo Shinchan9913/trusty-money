@@ -1333,21 +1333,30 @@ h1 img {
   margin: 50px auto;
   border: 2px solid black;
   width: 877px;
-  height: 1138px;
+  min-height: 1138px;
   background: #FFFFFF;
   border-radius: 11px;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 2%;
 }
-
+.container-inner-invoice{
+  box-sizing: border-box;
+  border-radius: 2px solid red;
+  width: 100%;
+  min-height: 1150px;
+  padding-bottom: 20%;
+}
 .container_inner01 {
   border: 2px solid black;
 }
 
 .heading_invoice {
-  position: absolute;
+  position: relative;
   width: 196px;
   height: 36px;
   left: calc(50% - 196px/2 + 297.5px);
-  top: calc(50% - 36px/2 - 515px);
+  top: 50px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1371,13 +1380,23 @@ h1 img {
   margin-right: 600px;
   margin-bottom: 63px;
 }
+.container-inner01{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
+  top: 100px;
+  width: 35%;
+  height: 220px;
+
+}
 
 .heading_company_details {
-  position: absolute;
+  position: relative;
   width: 222px;
   height: 36px;
-  left: calc(50% - 219px/2 - 281px);
-  top: calc(50% - 36px/2 - 459px);
+  left: 0px;
+  top: 0px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1395,11 +1414,11 @@ h1 img {
 }
 
 .first_con_para {
-  position: absolute;
+  position: relative;
   width: 171px;
   height: 84px;
-  left: calc(50% - 171px/2 - 308px);
-  top: calc(50% - 84px/2 - 381px);
+  left: 0px;
+  margin-top: 7%;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1411,11 +1430,11 @@ h1 img {
 }
 
 .second_con_para {
-  position: absolute;
+  position: relative;
   width: 164px;
   height: 28px;
-  left: calc(50% - 164px/2 - 311.5px);
-  top: calc(50% - 28px/2 - 314px);
+  left: 0px;
+  margin-top: 0px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1429,11 +1448,11 @@ h1 img {
 }
 
 .third_con_para {
-  position: absolute;
+  position: relative;
   width: 134px;
   height: 28px;
-  left: calc(50% - 134px/2 - 326.5px);
-  top: calc(50% - 28px/2 - 274px);
+  left: 0px;
+  margin-top: 20px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1445,13 +1464,25 @@ h1 img {
 
   color: #000000;
 }
-
+#invoiceForm{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  position: relative;
+  width: 51%;
+  height: 150px;
+  top: 170px;
+  /* padding: 10px; */
+}
 #l_invoice_no {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
   width: 126px;
   height: 28px;
-  left: calc(50% - 126px/2 + 46.5px);
-  top: calc(50% - 28px/2 - 392px);
+  left: 0;
+  top: 0;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1465,23 +1496,29 @@ h1 img {
 }
 
 #inovice_no {
+  display: flex;
+  flex-direction: column;
+  float: right;
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 196px;
   height: 28px;
-  left: calc(50% - 196px/2 + 297.5px);
-  top: calc(50% - 28px/2 - 396px);
+  left: 0;
+  top: 0px;
   border: none;
   border-bottom: 1.4746px solid #A0A0A0;
 }
 
 #l_rbi_purpose_code {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
   width: 196px;
   height: 28px;
-  left: calc(50% - 196px/2 + 81.5px);
-  top: calc(50% - 28px/2 - 354px);
+  left: 0;
+  top: 15px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1495,14 +1532,17 @@ h1 img {
 }
 
 .select-box {
+  display: flex;
+  flex-direction: column;
+  float: right;
   box-sizing: border-box;
   outline: none;
   appearance: none;
-  position: absolute;
+  position: relative;
   width: 196px;
   height: 23px;
-  left: calc(50% - 196px/2 + 297.5px);
-  top: calc(50% - 23px/2 - 350.5px);
+  left: 0;
+  top: 15px;
 
   /* Gray 3 */
   border: none;
@@ -1511,25 +1551,28 @@ h1 img {
 
 #fa-caret-down1 {
   position: relative;
-  top: 169px;
-  left: 807px;
-  font-size: 20px;
+  top: -7px;
+  left: 182px;
+  font-size: 23px;
 }
 
 #fa-asterisk1 {
   position: relative;
   font-size: 7px;
-  top: 179px;
-  left: 824px;
+  top: 15px;
+  left: 198px;
   color: red;
 }
 
 #invoice_date {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
   width: 139px;
   height: 28px;
-  left: calc(50% - 139px/2 + 53px);
-  top: calc(50% - 28px/2 - 314px);
+  left: 0;
+  top: 10px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1542,13 +1585,14 @@ h1 img {
 }
 
 .select-date-input {
+  float: right;
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 196px;
   height: 23px;
-  left: calc(50% - 196px/2 + 297.5px);
-  top: calc(50% - 23px/2 - 310.5px);
+  left: 0;
+  top: 10px;
   appearance: none;
 
   padding: 0 10px 0 1px;
@@ -1568,18 +1612,20 @@ input[type=date]:focus::-webkit-datetime-edit {
 #fa-asterisk2 {
   position: relative;
   font-size: 7px;
-  top: 160px;
-  left: 824px;
+  top: 0px;
+  left: 255px;
   color: red;
 }
 
 #due_date {
-
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
   width: 109px;
   height: 28px;
-  left: calc(50% - 109px/2 + 38px);
-  top: calc(50% - 28px/2 - 274px);
+  left: -139px;
+  top: 25px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1593,13 +1639,14 @@ input[type=date]:focus::-webkit-datetime-edit {
 }
 
 .select-date-input2 {
+  float: right;
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 196px;
   height: 23px;
-  left: calc(50% - 196px/2 + 297.5px);
-  top: calc(50% - 23px/2 - 270.5px);
+  left: 0;
+  top: 0;
 
   padding: 0 10px 0 1px;
 
@@ -1611,17 +1658,26 @@ input[type=date]:focus::-webkit-datetime-edit {
 #fa-asterisk3 {
   position: relative;
   font-size: 7px;
-  top: 182px;
-  left: 824px;
+  top: 17px;
+  left: 146px;
   color: red;
 }
-
+.container-inner03{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
+  width: 37.2%;
+  height: 226px;
+  top: 210px;
+  left: -35%;
+}
 .heading_bill {
   position: absolute;
   width: 76px;
   height: 36px;
-  left: calc(50% - 75px/2 - 354px);
-  top: calc(50% - 36px/2 - 191px);
+  left: 0;
+  top: 0;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1640,11 +1696,11 @@ input[type=date]:focus::-webkit-datetime-edit {
 #name {
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 294px;
   height: 29px;
-  left: calc(50% - 294px/2 - 246.5px);
-  top: calc(50% - 29px/2 - 144.5px);
+  left: 0;
+  top: 45px;
 
   /* Gray 3 */
   border: none;
@@ -1654,11 +1710,11 @@ input[type=date]:focus::-webkit-datetime-edit {
 #company_name {
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 294px;
   height: 29px;
-  left: calc(50% - 294px/2 - 246.5px);
-  top: calc(50% - 29px/2 - 99.5px);
+  left: 0;
+  margin-top: 40px;
 
   /* Gray 3 */
   border: none;
@@ -1668,11 +1724,11 @@ input[type=date]:focus::-webkit-datetime-edit {
 #address {
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 294px;
   height: 29px;
-  left: calc(50% - 294px/2 - 246.5px);
-  top: calc(50% - 29px/2 - 55.5px);
+  left: 0;
+  margin-top: 0px;
 
   /* Gray 3 */
   border: none;
@@ -1682,11 +1738,11 @@ input[type=date]:focus::-webkit-datetime-edit {
 #phone {
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 294px;
   height: 29px;
-  left: calc(50% - 294px/2 - 246.5px);
-  top: calc(50% - 29px/2 - 11.5px);
+  left: 0;
+  margin-top: 0px;
 
   /* Gray 3 */
   border: none;
@@ -1696,11 +1752,11 @@ input[type=date]:focus::-webkit-datetime-edit {
 #bill_to_email {
   box-sizing: border-box;
   outline: none;
-  position: absolute;
+  position: relative;
   width: 294px;
   height: 29px;
-  left: calc(50% - 294px/2 - 246.5px);
-  top: calc(50% - 29px/2 + 34.5px);
+  left: 0;
+  margin-top: 0px;
 
   /* Gray 3 */
   border: none;
@@ -1714,42 +1770,51 @@ input[type=date]:focus::-webkit-datetime-edit {
 
 #fa-asterisk4 {
   position: relative;
-  top: 200px;
-  left: 329px;
+  top: 20px;
+  left: 285px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk5 {
   position: relative;
-  top: 245px;
-  left: 319px;
+  top: -25px;
+  left: 285px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk6 {
   position: relative;
-  top: 289px;
-  left: 308px;
+  top: -25px;
+  left: 285px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk7 {
   position: relative;
-  top: 333px;
-  left: 298px;
+  top: -25px;
+  left: 285px;
   font-size: 7px;
   color: red;
 }
 
 #fa-asterisk8 {
   position: relative;
-  top: 379px;
-  left: 287px;
+  top: -25px;
+  left: 285px;
   font-size: 7px;
   color: red;
+}
+
+.container-inner04{
+  display: flex;
+  flex-direction: column;
+  float: right;
+  position: relative;
+  width: 45%;
+  height: 210px;
 }
 
 .select-country-box {
@@ -1762,13 +1827,12 @@ input[type=date]:focus::-webkit-datetime-edit {
   justify-content: center;
   align-items: center;
   padding: 16.9102px 19.8803px;
-  gap: 9.93px;
 
-  position: absolute;
+  position: relative;
   width: 354px;
   height: 48px;
-  left: calc(50% - 354px/2 + 217.5px);
-  top: calc(50% - 48px/2 - 105px);
+  left: 0;
+  top: 0;
   appearance: none;
   /* Gray 3 */
   border: none;
@@ -1776,20 +1840,23 @@ input[type=date]:focus::-webkit-datetime-edit {
 }
 
 #fa-caret-down2 {
+  display: flex;
+  flex-direction: column;
+  float: right;
   position: relative;
-  top: 235px;
-  left: 807px;
+  top: -33px;
+  left: -10px;
   font-size: 20px;
 }
 
 .container-inner14 {
   box-sizing: border-box;
   border: 1px solid blue;
-  position: absolute;
+  position: relative;
   width: 354px;
-  height: 165px;
-  left: calc(50% - 354px/2 + 217.5px);
-  top: calc(50% - 165px/2 + 15px);
+  height: 180px;
+  left: 0;
+  top: 0%;
 
   background: linear-gradient(113.11deg, #1B54B4 0.19%, #76A9FF 100%);
   border-radius: 12px;
@@ -1800,7 +1867,7 @@ table {
 
   box-sizing: border-box;
 
-  position: absolute;
+  position: relative;
   width: 789px;
   height: 99px;
   left: calc(50% - 789px/2 + 1px);
@@ -1821,14 +1888,14 @@ td {
 }
 
 #th1,
-#td1 {
+.td1 {
   width: 48%;
 }
 
 #th2,
 #th3,
-#td2,
-#td3 {
+.td2,
+.td3 {
   width: 26%;
 }
 
@@ -1841,12 +1908,25 @@ th {
 
 }
 
+td{
+  padding: 0px;
+  padding-bottom: 10px;
+}
+.container-inner05{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  position: relative;
+  top: 50px;
+  margin-top: 0px;
+}
+
 .add_new_entry {
-  position: absolute;
+  position: relative;
   width: 137px;
   height: 17px;
   left: calc(50% - 137px/2 - 312px);
-  top: calc(50% - 17px/2 + 290.5px);
+  margin-top: -40px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1857,18 +1937,37 @@ th {
   text-decoration: none;
   display: flex;
   align-items: center;
+  border: none;
+  color: #073F9E;
+}
+.remove_entry {
+  position: relative;
+  width: 137px;
+  height: 17px;
+  left: calc(50% - 137px/2 - 315px);
+  margin-top: 10px;
 
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 17px;
+  /* identical to box height, or 81% */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border: none;
   color: #073F9E;
 }
 
 .container-inner15 {
   box-sizing: border-box;
 
-  position: absolute;
-  width: 206px;
+  position: relative;
+  width: 205px;
   height: 57px;
-  left: calc(50% - 205px/2 + 292px);
-  top: calc(50% - 57px/2 + 297.5px);
+  left: calc(50% - 205px/2 + 293px);
+  margin-top: -1px;
   padding-left: 20px;
   border: 1px solid #000000;
 }
@@ -1923,7 +2022,7 @@ top: calc(50% - 36px/2 + 225px);
   height: 24px;
   /* left: calc(50% - 73px/2 + 333px);
 top: calc(50% - 36px/2 + 0px); */
-  top: -51px;
+  top: -28px;
   left: 95px;
   font-family: 'Lato';
   font-style: normal;
@@ -1943,8 +2042,8 @@ top: calc(50% - 36px/2 + 0px); */
   position: relative;
   width: 139px;
   height: 36px;
-  left: 670px;
-  top: 660px;
+  left: 625px;
+  margin-top: 30px;
 
   font-family: 'Lato';
   font-style: normal;
@@ -1961,15 +2060,22 @@ top: calc(50% - 36px/2 + 0px); */
   color: #073F9E;
 }
 
-hr {
-  position: absolute;
+#hr-after-table {
+  position: relative;
   width: 870px;
   height: 0px;
   left: calc(50% - 877px/2 + 1px);
-  top: calc(55% - 0px/2 + 320px);
-
+  top: 100px;
+  margin-top: 1px;
   opacity: 0.6;
   border: 1px dashed #000000;
+}
+
+.container-inner06{
+  position: relative;
+  top: 150px;
+  box-sizing: border-box;
+  border: 1 px solid salmon;
 }
 
 .container-inner16 {
@@ -1979,11 +2085,11 @@ hr {
   padding: 0px;
   gap: 24px;
 
-  position: absolute;
+  position: relative;
   width: 638px;
   height: 40px;
-  left: 100px;
-  top: 982px;
+  left: 50px;
+  top: 0%;
 }
 
 #download_invoice {
@@ -2110,7 +2216,12 @@ button {
   border: 1px solid #073F9E;
   border-radius: 92px;
 }
-
+.container-inner26{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 50px;
+}
 #share {
   box-sizing: border-box;
 
@@ -2118,17 +2229,18 @@ button {
 
   display: flex;
   flex-direction: row;
+  float:left;
   justify-content: center;
   align-items: center;
   padding: 15px 70px;
   gap: 12px;
 
-  position: absolute;
+  position: relative;
   width: 285px;
   height: 51px;
   left: calc(50% - 285px/2 - 159px);
-  top: calc(50% - 51px/2 + 500.5px);
-
+  margin-top: 20px;
+  margin-bottom: 43px;
   background: #FFFFFF;
   border: 1px solid #073F9E;
   border-radius: 148px;
@@ -2137,16 +2249,18 @@ button {
 #save {
   display: flex;
   flex-direction: row;
+  float: left;
   justify-content: center;
   align-items: center;
   padding: 15px 70px;
   gap: 12px;
 
-  position: absolute;
+  position: relative;
   width: 285px;
   height: 51px;
-  left: calc(50% - 285px/2 + 144px);
-  top: calc(50% - 51px/2 + 500.5px);
+  margin-top: 20px;
+  margin-bottom: 43px;
+  left: 15%;
 
   background: #073F9E;
   border-radius: 148px;
@@ -2200,29 +2314,29 @@ button#save {
   flex-grow: 0;
 }
 
-#discrpition_value {
-  position: absolute;
-  outline: none;
-  width: 300px;
-  height: 25px;
-  left: calc(50% - 316px/2 - 205.5px);
-  top: calc(50% - 0px/2 + 20.5px);
+.discrpition_value {
   border: none;
+  outline: none;
+  width: 320px;
+  height: 25px;
   border-bottom: 1px solid #828282;
+  position: relative;
+  left: 17px;
+  top: 12px;
 }
 
-#amount_value {
-  position: absolute;
-  outline: none;
-  width: 110px;
-  height: 25px;
-  left: calc(50% - 124px/2 + 304.5px);
-  top: calc(50% - 0px/2 + 21.5px);
+.amount_value {
   border: none;
+  outline: none;
+  width: 120px;
+  height: 25px;
   border-bottom: 1px solid #828282;
+  position: relative;
+  left: 40px;
+  top: 1px;
 }
 
-#quantity_value {
+.quantity_value {
   border: none;
   outline: none;
   width: 150px;
@@ -2230,7 +2344,8 @@ button#save {
   border-bottom: 1px solid #828282;
   position: relative;
   left: 17px;
-  top: 5px;
+  top: 12px;
+  appearance: none;
 }
 
 .rupee2 {
@@ -2240,15 +2355,14 @@ button#save {
   /* left: calc(50% - 73px/2 + 333px);
 top: calc(50% - 36px/2 + 225px);
  */
-  top: -75.5px;
-  left: 10px;
+  top: 24px;
+  left: 20px;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 36px;
   /* identical to box height, or 138% */
-
   display: flex;
   align-items: center;
   text-align: center;
