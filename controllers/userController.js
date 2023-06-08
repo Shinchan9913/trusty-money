@@ -5,7 +5,7 @@ const config = require("../config/config");
 const urlencode = require("urlencode");
 const kyc = require("../models/kycModel");
 
-const sendVerificationMail = async (name, email) => {
+const sendVerificationMail = async (req, name, email) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -171,7 +171,7 @@ const loadKYC = async (req, res) => {
 
 const showEmailForm = async (req, res) => {
   try {
-    res.render("login=email");
+    res.render("signup");
   } catch (error) {
     console.log(error.message);
   }
@@ -229,26 +229,95 @@ const userLogout = async (req, res) => {
 };
 
 const submitEmail = async (req, res) => {
+    const {email, name} = req.body
+    req.session.email = email
+    req.session.name = name
+    if(name && email){
+        sendVerificationMail(req, name, email)
+        res.redirect('/signup/verifyEmailOTP')
+    }
+    else{
+        res.render("signup", {message: "Please fill all fields"})
+    }
+}
+
+const loadEmailOTP = async (req, res) => {
+    try {
+        res.render("login=otpverificationbyemail")
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const submitEmailOTP = async (req, res) => {
   try {
     // Retrieve OTP from Session or Database
     const savedOTP = req.session.otp; // Assuming you are using express-session middleware
-
+    console.log(savedOTP)
     // Get user input from the request body
     const otp = req.body.otp;
-
+    console.log(otp)
     // Compare user input with saved OTP
     if (otp === savedOTP) {
       // OTP is valid
       // Perform further actions (e.g., account activation, password reset, etc.)
-      res.render("");
+    //   res.send("Otp is correct")
+        res.redirect('/signup/mobile-form')
     } else {
       // OTP is invalid
-      res.render("verification-failure");
+    //   res.send("verification-failure");
+        res.render('login=otpverificationbyemail', {message: "Invalid OTP"})
     }
   } catch (error) {
     console.log(error.message);
   }
 };
+
+const showMobileForm = async (req, res) => {
+    try {
+        res.render('login=mobilenumber')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const submitMobile = async (req, res) => {
+    try {
+        const mobile = req.body.mobile
+        req.session.mobile = mobile
+
+        const motp = generateOTP(6)
+        req.session.motp = motp
+        console.log(`Your Mobile OTP is ${motp}`)
+        res.redirect('/signup/verifyMobileOTP')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const loadMobileOTP = async (req, res) => {
+    try {
+        res.render("login=otpverification")
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const submitMobileOTP = async (req, res) => {
+    try {
+        const savedmotp = req.session.motp
+        const motp = req.body.motp
+        if(motp === savedmotp){
+            res.redirect('/signup/password')
+        }
+        else{
+            res.render('login=otpverification', {message: "Invalid OTP"})
+        }
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 function generateOTP(length) {
   const chars = "0123456789";
@@ -258,6 +327,41 @@ function generateOTP(length) {
   }
   return otp;
 }
+
+const showPasswordForm = async (req, res) => {
+    try {
+        res.render('login=password_set')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const submitPasswordForm = async (req, res) => {
+    try {
+        const pass = req.body.password
+        const hashedPass = await hashPass(pass)
+        const user = new User({
+            name: req.session.name,
+            email: req.session.email,
+            mobile: req.session.mobile,
+            password: hashedPass,
+            is_admin:0,
+            is_verified:1
+        })
+        const userData = await user.save()
+
+        if(userData){
+            res.redirect('/login')
+        }
+        else{
+            res.render('signup', {message: "Registration Failed."})
+        }
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+
 
 module.exports = {
   loadRegister,
@@ -275,4 +379,12 @@ module.exports = {
   showEmailForm,
   landingLoad,
   submitEmail,
+  loadEmailOTP,
+  submitEmailOTP,
+  showMobileForm,
+  submitMobile,
+  loadMobileOTP,
+  submitMobileOTP,
+  showPasswordForm,
+  submitPasswordForm,
 };

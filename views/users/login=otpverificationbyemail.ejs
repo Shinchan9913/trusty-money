@@ -1,88 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/login.css" />
     <script>
-        // window.addEventListener('load', function create_account(){
-        //     document.getElementById("create_account").style.display= "flex";
-        //     document.getElementById("header").style.opacity="0.6";
-        //     document.getElementById("container_center").style.opacity="0.6";
-        //     document.getElementById("dashboard_img").style.opacity="0.6";
-        // })
+      // window.addEventListener('load', function create_account(){
+      //     document.getElementById("create_account").style.display= "flex";
+      //     document.getElementById("header").style.opacity="0.6";
+      //     document.getElementById("container_center").style.opacity="0.6";
+      //     document.getElementById("dashboard_img").style.opacity="0.6";
+      // })
 
-        window.addEventListener('load', function (){
-            document.getElementById("create_account").style.display= "flex";
-            document.getElementById("welcome").style.display= "none";
-            document.getElementById("create").style.display= "flex";
-            document.getElementById("otp_verif").style.display= "block";
-            document.getElementById("create_form").style.display="none";
-            document.getElementById("create_footer").style.display="none";
-        })
+      window.addEventListener("load", function () {
+        document.getElementById("create_account").style.display = "flex";
+        document.getElementById("welcome").style.display = "none";
+        document.getElementById("create").style.display = "flex";
+        document.getElementById("otp_verif").style.display = "block";
+        document.getElementById("create_form").style.display = "none";
+        document.getElementById("create_footer").style.display = "none";
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        body{
-            background-image: url(/Exports/image\ 529.png);
-        }
+      body {
+        background-image: url(/Exports/image\ 529.png);
+      }
     </style>
-<div class="create_account" id="create_account">
-
-            <div class="welcome" id="welcome">
-                <div class="content" id="content">
-                    <a href="#">Trusty</a>
-                    <p>Powering Money</p>
-                    <h1>Welcome Back!</h1>
-                    <h2>Please enter your details</h2>
-                    <div class="form" id="form">
-                        <form action="">
-                            <input type="email" placeholder="Enter email"> <br> <br>
-                            <input type="text" name="" id="" placeholder="Enter Password">
-                        </form>
-                        <p onclick="forgot_password()"> Forgot Password?</p>
-                    </div>
-                    <div class="footer" id="footer">
-                        <h3>Or Log-in With</h3>
-                        <div class="account_logo">
-                            <div class="facebook">a</div>
-                            <div class="google">b</div>
-                            <div class="apple">c</div>
-                        </div>
-                        <a href="/users/kyc.ejs"><button class="button">  Login  </button></a>
-                        <p>Not registered yet?</p>
-                        <button class="button_0" onclick="head_acc_create()"> Register Now</button>
-                    </div>
-             </div>
-            </div> 
-            
-            <div class="create" id="create">
-                <div class="content" id="content">
-                    <a href="#">Trusty</a>
-                    <p>Powering Money</p>
-                    <h1 id="h1">Create Account</h1>
-                    <h2 id="h2">Please fill the Required Fields</h2>
-                    <div class="form" id="create_form">
-                        <form action="">
-                            <input type="text" placeholder="Name"> <br> <br>
-                            <input type="number" name="" id="" placeholder="Mobile Number">
-                        </form>
-                    </div>
-
-                    <div class="otp_verif" id="otp_verif">
-                        <input type="number" placeholder="Enter OTP">
-                        <a href="login=mobilenumber.html"><button class="button_1" onclick="head_to_email()"> Next </button></a>
-                        <p>Already Registered? <a href="login1.html"> Login Now</a></p>
-                    </div>
+    <div class="create_account" id="create_account">
+      <div class="welcome" id="welcome">
+        <div class="content" id="content">
+          <a href="#">Trusty</a>
+          <p>Powering Money</p>
+          <h1>Welcome Back!</h1>
+          <h2>Please enter your details</h2>
+          <div class="form" id="form">
+            <form action="">
+              <input type="email" placeholder="Enter email" /> <br />
+              <br />
+              <input type="text" name="" id="" placeholder="Enter Password" />
+            </form>
+            <p onclick="forgot_password()">Forgot Password?</p>
+          </div>
+          <div class="footer" id="footer">
+            <h3>Or Log-in With</h3>
+            <div class="account_logo">
+              <div class="facebook">a</div>
+              <div class="google">b</div>
+              <div class="apple">c</div>
             </div>
-            
-            </div>
-            <div class="image">
-                <img src="\Exports\create_account.jpg" alt="">
-            </div>
+            <a href="/users/kyc.ejs"><button class="button">Login</button></a>
+            <p>Not registered yet?</p>
+            <button class="button_0" onclick="head_acc_create()">
+              Register Now
+            </button>
+          </div>
         </div>
-</body>
+      </div>
+
+      <div class="create" id="create">
+        <div class="content" id="content">
+          <a href="#">Trusty</a>
+          <p>Powering Money</p>
+          <h1 id="h1">Create Account</h1>
+          <h2 id="h2">Please fill the Required Fields</h2>
+          <div class="form" id="create_form">
+            <form action="">
+              <input type="text" placeholder="Name" /> <br />
+              <br />
+              <input type="number" name="" id="" placeholder="Mobile Number" />
+            </form>
+          </div>
+
+          <div class="otp_verif" id="otp_verif">
+            <form
+              action="/signup/email-otp"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <input type="number" name="otp" placeholder="Enter OTP" />
+              <% if(typeof message !== 'undefined'){ %>
+              <p style="color: red"><%= message %></p>
+              <% } %>
+              <button class="button_1" type="submit" onclick="head_to_email()">
+                Next
+              </button>
+            </form>
+            <p>Already Registered? <a href="login1.html"> Login Now</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img src="\Exports\create_account.jpg" alt="" />
+      </div>
+    </div>
+  </body>
 </html>

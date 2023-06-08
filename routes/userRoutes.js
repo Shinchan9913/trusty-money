@@ -41,15 +41,21 @@ user_route.get('/verify', userController.verifyMail)
 
 user_route.get('/', auth.isLogout, userController.landingLoad)
 user_route.get('/login',auth.isLogout, userController.loginLoad)
+user_route.post('/login', userController.verifyLogin)
 
 //register
 user_route.get('/signup', auth.isLogout, userController.showEmailForm)
-user_route.post('/signup/email-otp', auth.isLogout, userController.submitEmail)
-
-
+user_route.post('/signup/email-form', userController.submitEmail)
+user_route.get('/signup/verifyEmailOTP', auth.isLogout, userController.loadEmailOTP)
+user_route.post('/signup/email-otp', upload.none(),userController.submitEmailOTP)
+user_route.get('/signup/mobile-form', auth.isLogout, userController.showMobileForm)
+user_route.post('/signup/mobile-form', userController.submitMobile)
+user_route.get('/signup/verifyMobileOTP', auth.isLogout, userController.loadMobileOTP)
+user_route.post('/signup/verifyMobileOTP', userController.submitMobileOTP)
+user_route.get('/signup/password', auth.isLogout, userController.showPasswordForm)
+user_route.post('/signup/password', userController.submitPasswordForm)
 // user_route.post('/signup', userController)
 
-user_route.post('/login', userController.verifyLogin)
 
 user_route.get('/dashboard', auth.isLogin, userController.loadHome)
 

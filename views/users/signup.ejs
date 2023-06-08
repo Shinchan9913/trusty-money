@@ -58,9 +58,12 @@
                 <h1 id="h1">Create Account</h1>
                 <h2 id="h2">Please fill the Required Fields</h2>
                 <div class="form" id="create_form">
-                    <form action="">
-                        <input type="text" placeholder="Name"> <br> <br>
-                        <input type="email" name="" id="" placeholder="Email">
+                    <form action="/signup/email-form" method="post" id="emailForm">
+                        <input type="text" name="name" placeholder="Name"> <br> <br>
+                        <input type="email" name="email" id="" placeholder="Email">
+                        <% if(typeof message !== 'undefined'){ %>
+                            <p style="color: red"><%= message %></p>
+                        <% } %>
                     </form>
                 </div>
 
@@ -71,8 +74,14 @@
                         <div class="google">b</div>
                         <div class="apple">c</div>
                     </div>
-                    <button class="button" onclick="head_to_OTP()"> <a href="/users/login=otpverificationbyemail.html"> Next </a></button> <br>
+                    <button class="button" onclick="submitForm(); head_to_OTP()">Next</button> <br>
                     <p>Already Registered? <a href="login1.html"> Login Now</a></p>
+                    <script>
+                        function submitForm(){
+                            var emailForm = document.getElementById("emailForm")
+                            emailForm.submit()
+                        }
+                    </script>
                 </div>
         </div>
         

@@ -44,7 +44,8 @@ const TransactionSchema = new Schema({
   },
   paymentStatus:{
     type:String,
-    default: "Pending"
+    enum: ["InProgress", "Outstanding", "Completed", "Cancelled"],
+    default: "Outstanding"
   }
 
 });
