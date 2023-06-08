@@ -1310,7 +1310,7 @@ video{
     font-size: x-small;
 }
 
-.enter_email, .forgot_password{
+.enter_mob_num, .forgot_password{
     position: relative;
     display: none;
     width: 58%;
@@ -1319,7 +1319,7 @@ video{
     top: 15%;
     justify-content: center;
 }
-.enter_email input{
+.enter_mob_num input{
     position: relative;
     display: flex;
     justify-content: center;
@@ -1353,7 +1353,7 @@ video{
     border: none;
 }
 
-.enter_email a{
+.enter_mob_num a{
     font-size: x-small;
 }
 
