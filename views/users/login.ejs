@@ -1,27 +1,3 @@
-<!-- % include('../layouts/header.ejs') %>
-
-<h1>Login</h1>
-
-% 
-if(typeof message !== 'undefined') {
-    %>
-    <h4>%= message %></h4>
-    %  
-}
-%>
-
-<form action="/login" method="post">
-
-    <input type="email" name="email" placeholder="Enter email">
-    <br><br>
-    <input type="password" name="password" placeholder="Enter password">
-    <br><br>
-    <input type="submit" value="Login">
-</form>
-
-% include('../layouts/footer.ejs') %> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,9 +7,9 @@ if(typeof message !== 'undefined') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <link rel="stylesheet" href="/css/login.css">
-    <script src="/js/login.js"></script>
+    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-
 </head>
 
 <body>
@@ -41,6 +17,7 @@ if(typeof message !== 'undefined') {
         <header class="header" id="header">
             <div class="left">
                 <a href="#">TRUSTY</a>
+                <hr>
                 <p>POWERING MONEY</p>
             </div>
             <div class="right">
@@ -54,19 +31,19 @@ if(typeof message !== 'undefined') {
             <p>Trusty is a new “Fintech” company, that facilitates cross-border transaction
                 management. In addition to processing cross border payments for its customers, Trusty also provides
                 reconciliation and transaction management</p>
-            <form action="">
+            <form action="noaction.php">
                 <div class="formgroup">
                     <input type="email" placeholder="Enter your work email"> <br>
                 </div>
                 <button class="btn" id="btn" onclick="create_account()">
-                    <a href="#"> Sign up </a>
+                    <a href="/users/login1.html"> SignUp </a>
                 </button>
             </form>
         </div>
-        <img src="Exports\image 528.jpg" alt="" id="dashboard_img">
+        <img src="\Exports\image 528.jpg" alt="" id="dashboard_img">
 
-        <!--Account Creation PoP UP-->
-        <div class="create_account" id="create_account">
+        <!-- Account Creation PoP UP -->
+        <!-- <div class="create_account" id="create_account">
 
             <div class="welcome" id="welcome">
                 <div class="content" id="content">
@@ -75,10 +52,11 @@ if(typeof message !== 'undefined') {
                     <h1>Welcome Back!</h1>
                     <h2>Please enter your details</h2>
                     <div class="form" id="form">
-                        <form action="/login" method="post" id="loginForm">
-                            <input type="email" placeholder="Enter email" name="email"> <br> <br>
-                            <input type="text" name="password" id="" placeholder="Enter Password">
+                        <form action="">
+                            <input type="email" placeholder="Enter email"> <br> <br>
+                            <input type="text" name="" id="" placeholder="Enter Password">
                         </form>
+                        <p onclick="forgot_password()"> Forgot Password?</p>
                     </div>
                     <div class="footer" id="footer">
                         <h3>Or Log-in With</h3>
@@ -87,19 +65,19 @@ if(typeof message !== 'undefined') {
                             <div class="google">b</div>
                             <div class="apple">c</div>
                         </div>
-                        <!-- <a href="KYC_page.html"> --><button class="button" onclick="submitLoginForm()">  Login  </button><!-- </a> -->
+                        <a href="/users/kyc.ejs"><button class="button">  Login  </button></a>
                         <p>Not registered yet?</p>
                         <button class="button_0" onclick="head_acc_create()"> Register Now</button>
                     </div>
              </div>
-            </div>
+            </div> 
             
             <div class="create" id="create">
                 <div class="content" id="content">
                     <a href="#">Trusty</a>
                     <p>Powering Money</p>
-                    <h1>Create Account</h1>
-                    <h2>Please fill the Required Fields</h2>
+                    <h1 id="h1">Create Account</h1>
+                    <h2 id="h2">Please fill the Required Fields</h2>
                     <div class="form" id="create_form">
                         <form action="">
                             <input type="text" placeholder="Name"> <br> <br>
@@ -114,7 +92,7 @@ if(typeof message !== 'undefined') {
                             <div class="google">b</div>
                             <div class="apple">c</div>
                         </div>
-                        <button class="button" onclick="head_to_OTP()">  Next  </button>
+                        <button class="button" onclick="head_to_OTP()">  Next  </button> <br>
                         <p>Already Registered? <a href="#"> Login Now</a></p>
                     </div>
 
@@ -140,32 +118,38 @@ if(typeof message !== 'undefined') {
                          <a href="KYC_page.html"><button class="button_4" onclick=""> Create Account </button></a> 
                         <p>Already Registered? <a href="#"> Login Now</a></p>
                     </div>
+
+                    <div class="forgot_password" id="forgot_password">
+                        <p> An OTP is sent to your mobile no.</p>
+                        <input type="number" placeholder="Enter OTP">
+                        <button class="forgot">Next</button>
+                    </div>
             </div>
             
             </div>
             <div class="image">
-                <img src="Exports\create_account.jpg" alt="">
+                <img src="\Exports\create_account.jpg" alt="">
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="container_1">
         <h1>What We Do</h1>
         <div class="box_1">
-            <div class="box_do">
-                <button class="button_do">1</button>
+            <div class="box_11">
+                <p id="wwd-1">1</p>
                 <p>Transparent Pricing</p>
             </div>
-            <div class="box_do">
-                <button class="button_do">2</button>
+            <div class="box_12">
+                <p id="wwd-2">2</p>
                 <p>Money Management</p>
             </div>
-            <div class="box_do">
-                <button class="button_do">3</button>
+            <div class="box_13">
+                <p id="wwd-3">3</p>
                 <p>Clean Process</p>
             </div>
-            <div class="box_do">
-                <button class="button_do">4</button>
+            <div class="box_14">
+                <p id="wwd-4">4</p>
                 <p>Rate alert for maximizing profit</p>
             </div>
         </div>
@@ -177,10 +161,12 @@ if(typeof message !== 'undefined') {
     </div>
 
     <div class="container_2">
-        <div class="mission">MISSION</div>
-        <div class="text">To be a trustworthy financial partner
+        <div class="container_21">
+            <div class="mission">MISSION</div>
+            <div class="text">To be a trustworthy financial partner
             for its customer in their overseas banking journey.</div>
-        <div class="logo"><img src="#" alt=""></div>
+        </div>
+        <div class="logo"><img src="\Exports\Mask group.jpg" alt=""></div>
     </div>
 
     <div class="container_3">
@@ -361,40 +347,44 @@ if(typeof message !== 'undefined') {
         <div class="box_40">
             <div class="media_scroller">
                 <div class="media_element">
-                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <img src="\Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
                     <h2>Lorem, ipsum.</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
                         sed
                         officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
                         voluptatibus
                         amet?</p>
+                    <a href="">Read more</a>
                 </div>
                 <div class="media_element">
-                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <img src="\Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
                     <h2>Lorem, ipsum.</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
                         sed
                         officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
                         voluptatibus
                         amet?</p>
+                    <a href="">Read more</a>
                 </div>
                 <div class="media_element">
-                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <img src="\Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
                     <h2>Lorem, ipsum.</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
                         sed
                         officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
                         voluptatibus
                         amet?</p>
+                        <a href="">Read more</a>
                 </div>
                 <div class="media_element">
-                    <img src="Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
+                    <img src="\Exports\Brand_Bites_thenorthface_Thumbnail_Website_Grid_1000x709px.png.jpg" alt="">
                     <h2>Lorem, ipsum.</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste
                         sed
                         officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora
                         voluptatibus
                         amet?</p>
+                    <a href="">Read more</a>
                 </div>
 
             </div>
@@ -407,29 +397,33 @@ if(typeof message !== 'undefined') {
     <div class="container_5">
         <h1>Testimonials</h1>
 
-        <div class="box_testi">
-            <img src="Exports\Ellipse 11.jpg" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
-                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
-                amet?</p>
-                <h2>Lorem, ipsum.</h2>
-                <h3>Lorem, ipsum.</h3>
-        </div>
-        <div class="box_testi">
-            <img src="Exports\Ellipse 11 (1).jpg" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
-                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
-                amet?</p>
-                <h2>Lorem, ipsum.</h2>
-                <h3>Lorem, ipsum.</h3>
-        </div>
-        <div class="box_testi">
-            <img src="Exports\Ellipse 11 (2).png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, animi natus accusamus iste sed
-                officiis, officia id voluptates vel maxime quis fugit ex odit nemo. Optio eveniet tempora voluptatibus
-                amet?</p>
-                <h2>Lorem, ipsum.</h2>
-                <h3>Lorem, ipsum.</h3>
+        <div class="container_51">
+            <div class="box_50 box_5">
+                <img src="\Exports\Ellipse 11.jpg" alt="">
+                <!-- <i class="fa fa-quote-right"></i> -->
+                <img class="quote" src="\Exports\quote.png" alt="" width="30">
+                <p class="about_5"> This is a representative figure. Final amount will be determined once your gold is valued.</p>
+                <hr>
+                <p class="name_5">Kathryn Murphy</p>
+                <p class="occ_5">Designer</p>
+
+            </div>
+            <div class="box_51 box_5">
+                <img src="\Exports\Ellipse 11 (1).jpg" alt="">
+                <img class="quote" src="\Exports\quote.png" alt="" width="30">
+                <p class="about_5">This is a representative figure. Final amount will be determined once your gold is valued. This is a representative figure. Final amount will.</p>
+                <hr>
+                <p class="name_5">Jerome Bell</p>
+                <p class="occ_5">Developer</p>
+            </div>
+            <div class="box_52 box_5">
+                <img src="\Exports\Ellipse 11 (2).png" alt="">
+                <img class="quote" src="\Exports\quote.png" alt="" width="30">
+                <p class="about_5"> This is a representative figure. Final amount will be determined once your gold is valued.</p>
+                <hr>
+                <p class="name_5">Albert Flores</p>
+                <p class="occ_5">Farmer</p>
+            </div>
         </div>
     </div>
 
@@ -483,30 +477,67 @@ if(typeof message !== 'undefined') {
             </div>
             <hr class="hr-line">
 
+            <div class="faq-four">
+
+                <!-- faq question -->
+                <h2 class="faq-page">Does it improves the user experience of a website?</h2>
+
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi, illum facere
+                        necessitatibus cum aliquam id illo omnis maxime, totam soluta voluptate amet ut sit ipsum
+                        aperiam.
+                        Perspiciatis, porro!</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+
         </section>
+        <script>
+            
+            var faq = document.getElementsByClassName("faq-page");
+            var i;
+
+            for (i = 0; i < faq.length; i++) {
+                faq[i].addEventListener("click", function () {
+                    /* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+                    this.classList.toggle("active");
+
+                    /* Toggle between hiding and showing the active panel */
+                    var body = this.nextElementSibling;
+                    if (body.style.display === "block") {
+                        body.style.display = "none";
+                    } else {
+                        body.style.display = "block";
+                    }
+                });
+            }
+
+        </script>
     </div>
-    <script src="JS\index.js"></script>
 
     <div class="container6">
         <div class="box_contact_1" >
-            <a href="#" >TRUSTY</a>
-            <p>POWERING MONEY</p>
+            <a href="#" id="trusty61">TRUSTY</a>
+            <hr>
+            <p id="pw-mo">POWERING MONEY</p>
             <div class="box611"> 
-                <p>New Era of Cross-Border Transaction</p>
+                <p>New Era of<br> Cross-Border Transaction</p>
             </div>
             <div class="follow">
                 <h3>Follow Us</h3>
                 <div class="follow_links">
-                   <a href=""><img src="Exports\facebook.png" alt=""></a> 
-                   <a href=""><img src="Exports\twitter.png" alt=""></a> 
-                   <a href=""><img src="Exports\linked in.png" alt=""></a> 
-                   <a href=""><img src="Exports\insta.png" alt=""></a> 
+                   <a href=""><img src="\Exports\facebook.png" alt=""></a> 
+                   <a href=""><img src="\Exports\twitter.png" alt=""></a> 
+                   <a href=""><img src="\Exports\linked in.png" alt=""></a> 
+                   <a href=""><img src="\Exports\insta.png" alt=""></a> 
                 </div>
             </div>
         </div>
         <div class="box_contact_2" >
-            <h2>Contact us</h2>
-            <form action="">
+            <h2>Contact us</h2><br>
+            <form action="noaction.php">
 
                 <input type="text" placeholder="Name"> <br>
                 <input type="email" placeholder="E-mail"> <br>
@@ -521,23 +552,18 @@ if(typeof message !== 'undefined') {
         <div class="box_contact_3" >
             <h2>
                 Email <br>
-                 <a href="">info@trusty.com</a> <br> <br>
+                 <a href="">info@trusty.com</a> <br><br>
                 WhatsApp Number <br>
                 +91 21434 12421 <br>
             </h2>
             <p>
-                <div class="links">
+                <div class="links_bc3">
                     <a href="#">Privacy Policy</a> 
                  <a href="#">Terms and Conditions</a>
                 </div>
-                
             </p>
-
-
-            
         </div>
     </div>
-
 
 </body>
 
