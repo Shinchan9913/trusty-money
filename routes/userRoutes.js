@@ -35,12 +35,19 @@ const userController = require('../controllers/userController')
 
 user_route.get('/register', auth.isLogout, userController.loadRegister)
 
-user_route.post('/register', upload.single('image'), userController.addUser)
+// user_route.post('/register', upload.single('image'), userController.addUser)
 
 user_route.get('/verify', userController.verifyMail)
 
-user_route.get('/', auth.isLogout, userController.loginLoad)
+user_route.get('/', auth.isLogout, userController.landingLoad)
 user_route.get('/login',auth.isLogout, userController.loginLoad)
+
+//register
+user_route.get('/signup', auth.isLogout, userController.showEmailForm)
+user_route.post('/signup/email-otp', auth.isLogout, userController.submitEmail)
+
+
+// user_route.post('/signup', userController)
 
 user_route.post('/login', userController.verifyLogin)
 

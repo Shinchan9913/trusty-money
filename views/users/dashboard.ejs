@@ -64,7 +64,7 @@
                     Settings</a>
             </li><br>
             <li class="c_22">
-                <a href="#" id="Logout">
+                <a href="/logout" id="Logout">
                     <img width="26" src="/Exports/icons/log out.png" alt="">
                     Logout</a>
             </li><br>
@@ -110,11 +110,13 @@
                     </script>
                     <select id="countrySelectDash" onchange="displayAccountDetailsDash()">
                         <option value="">Select Country</option>
-                        <% user.bankAccounts.forEach(function(account) { %>
-                            <option value="<%= account.country %>">
+                        <% if (user && user.bankAccounts) { %>
+                            <% user.bankAccounts.forEach(function(account) { %>
+                              <option value="<%= account.country %>">
                                 <%= account.country %>
-                            </option>
-                            <% }); %>
+                              </option>
+                            <% }) %>
+                          <% } %>                        
                     </select>
                     <div class="box_11">
                         <div class="formgroup">
@@ -144,16 +146,18 @@
                         accountDetails.innerHTML = '';
 
                       // Find the selected account details
-                      <% user.bankAccounts.forEach(function (account) { %>
-                        if ("<%= account.country %>" === selectedCountry) {
-                                accountDetails.innerHTML += `
-                            <p><%= account.vbAccountNumber %></p>
-                            <p><%= account.routingNumber %></p>
-                            <p><%= account.accountType %></p>
-                            <p><%= account.bankName %></p>
-                          `;
-                            }
-                      <% }); %>
+                      <% if (user && user.bankAccounts) { %>
+                        <% user.bankAccounts.forEach(function (account) { %>
+                            if ("<%= account.country %>" === selectedCountry) {
+                                    accountDetails.innerHTML += `
+                                <p><%= account.vbAccountNumber %></p>
+                                <p><%= account.routingNumber %></p>
+                                <p><%= account.accountType %></p>
+                                <p><%= account.bankName %></p>
+                            `;
+                                }
+                        <% }); %>
+                      <% } %>
                     }
             </script>
             <div class="payment_overview">
@@ -222,15 +226,15 @@
 
                         <div class="payment_number" id="completed">
                             <p>Completed</p>
-                            <big id="completed_ammount">₹ 50,000</big>
+                            <big id="completed_ammount">₹ N/A</big>
                         </div>
                         <div class="payment_number" id="outstanding">
                             <p>Outstanding</p>
-                            <big id="outstanding_amount">₹ 30,000</big>
+                            <big id="outstanding_amount">₹ N/A</big>
                         </div>
                         <div class="payment_number" id="in_progress">
                             <p>In Progress</p>
-                            <big id="in_progress_amount">₹ 20,000</big>
+                            <big id="in_progress_amount">₹ N/A</big>
                         </div>
 
                     </div>
@@ -563,11 +567,13 @@
                     </script>
                     <select id="countrySelect" onchange="displayAccountDetails()">
                         <option value="">Select Country</option>
-                        <% user.bankAccounts.forEach(function(account) { %>
-                            <option value="<%= account.country %>">
-                                <%= account.country %>
-                            </option>
-                            <% }); %>
+                        <% if (user && user.bankAccounts) { %>
+                            <% user.bankAccounts.forEach(function(account) { %>
+                                <option value="<%= account.country %>">
+                                    <%= account.country %>
+                                </option>
+                                <% }); %>
+                        <% } %>
                     </select>
                     <br>
                     <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code"
@@ -660,6 +666,7 @@
             accountDetails.innerHTML = '';
 
           // Find the selected account details
+          <% if (user && user.bankAccounts) { %>
           <% user.bankAccounts.forEach(function (account) { %>
             if ("<%= account.country %>" === selectedCountry) {
                     accountDetails.innerHTML += `
@@ -670,6 +677,7 @@
               `;
                 }
           <% }); %>
+          <% } %>
         }
 
         function setDraftStatus(isDraft) {
@@ -707,14 +715,26 @@
             <h3 class="heading_company_details">Company Details</h3>
             <div class="container-inner11">
                 <p class="first_con_para">
-                    <%= user.name %><br>
-                </p>
-                <p class="second_con_para">
-                    <%= user.email %>>
-                </p>
-                <p class="third_con_para">
-                    <%= user.mobile %>
-                </p>
+                    <% if (user && user.name) { %>
+                      <%= user.name %>
+                    <% } else { %>
+                      Guest
+                    <% } %>
+                  </p>
+                  <p class="second_con_para">
+                    <% if (user && user.email) { %>
+                      <%= user.email %>
+                    <% } else { %>
+                      N/A
+                    <% } %>
+                  </p>
+                  <p class="third_con_para">
+                    <% if (user && user.mobile) { %>
+                      <%= user.mobile %>
+                    <% } else { %>
+                      N/A
+                    <% } %>
+                  </p>                  
             </div>
         </div>
 
