@@ -22,13 +22,22 @@ function close_invoice_popup(){
     document.querySelector('.overlay0').style.display = "none";
     document.getElementById("new_transaction").style.display = "none";
     document.getElementById("payment_request").style.display = "none";
-    document.getElementById("container_outer1").style.display = "none"; 
+    document.getElementById("container_outer1").style.display = "none";
+    closePopup(); 
 }
 
-function payment_request(){
+// function payment_request(){
+//     document.body.classList.add('popup-open');
+//     document.getElementById("new_transaction").style.display = "none";
+//     document.getElementById("payment_request").style.display = "block";     
+// }
+function payment_request() {
+    var popup = document.querySelector('.popup');
+    // var overlay3 = document.querySelector('overlay3');
+    // overlay3.style.display = "block";
     document.body.classList.add('popup-open');
     document.getElementById("new_transaction").style.display = "none";
-    document.getElementById("payment_request").style.display = "block";     
+    document.getElementById("payment_request").style.display = "block";
 }
 
 function generate_invoice(){
@@ -41,7 +50,7 @@ function generate_invoice(){
 function main_click(){
     document.getElementById("sidebar").style.opacity="1";
     document.getElementById("main_body").style.opacity="1";
-    document.getElementById("sharepop").style.display='none';
+    document.getElementById("popup2").style.display='none';
     document.getElementById("rbi_code_pop").style.display='none';
     document.getElementById("onepop").style.display='none';
     document.getElementById("twopop").style.display='none';
@@ -65,7 +74,7 @@ function close_popup(){
     document.getElementById("rbi_code_pop2").style.display='none';
     document.getElementById("threepop2").style.display='none';
     document.getElementById("payment_request").style.display='none';
-    document.getElementById("sharepop").style.display='none';
+    document.getElementById("popup2").style.display='none';
     document.getElementById("container_outer1").style.display='none';
    /* document.getElementById("sidebar").style.opacity="1"; 
     document.getElementById("main_body").style.opacity="1";*/
@@ -78,22 +87,22 @@ function share(){
     document.querySelector(".overlay1").style.display = "block";
     document.getElementById("sidebar").style.opacity="0.1";
     document.getElementById("main_body").style.opacity="0.1";
-    document.getElementById("sharepop").style.display="block";
+    document.getElementById("popup2").style.display="block";
     document.getElementById("payment_request").style.opacity = "0.5";
     document.getElementById("close_image").style.opacity = "1";
     document.getElementById("container_outer1").style.opacity='0.6';
     
 }
 
-function close_share_popup(){
-    document.querySelector(".overlay1").style.display = "none";
-    document.getElementById("sharepop").style.display="none"
-    document.getElementById("sidebar").style.opacity="1";
-    document.getElementById("main_body").style.opacity="1";
-    document.getElementById("payment_request").style.opacity = "1";
-    document.getElementById("close_image").style.opacity = "1";
-    document.getElementById("container_outer1").style.opacity='1';
-}
+// function close_share_popup(){
+//     document.querySelector(".overlay1").style.display = "none";
+//     document.getElementById("popup2").style.display="none"
+//     document.getElementById("sidebar").style.opacity="1";
+//     document.getElementById("main_body").style.opacity="1";
+//     document.getElementById("payment_request").style.opacity = "1";
+//     document.getElementById("close_image").style.opacity = "1";
+//     document.getElementById("container_outer1").style.opacity='1';
+// }
 
 
 function rbi_code_popup(){
@@ -160,8 +169,8 @@ function arise4(){
 function change(){
     document.getElementById("rec_pay_pop").style.left = "40%";
     document.getElementById("rec_pay_pop").style.top = "70%";
-    document.getElementById("sharepop").style.left = "40%";
-    document.getElementById("sharepop").style.top = "70%";
+    document.getElementById("popup2").style.left = "40%";
+    document.getElementById("popup2").style.top = "70%";
 }
 
 function popup(){
@@ -207,3 +216,82 @@ function rate_hide(){
     document.getElementById("container_2").style.opacity="1";
 }
 
+window.addEventListener('DOMContentLoaded', function() {
+    var popupState = localStorage.getItem('popupState');
+    if (popupState === 'open') {
+      payment_request();
+      var inputValue = localStorage.getItem('popupInputValue');
+      var input = document.getElementById('popupInput');
+      input.value = inputValue;
+    }
+    
+    var popup2State = sessionStorage.getItem('popup2State');
+    if (popup2State === 'open') {
+      openPopup2();
+    }
+  });
+  
+ 
+  
+  function closePopup() {
+    var overlay0 = document.querySelector('.overlay');
+    var popup = document.querySelector('.popup');
+    var input = document.getElementById('popupInput');
+    
+    overlay0.style.display = 'none';
+    popup.style.display = 'none';
+    
+    input.value = '';
+    localStorage.removeItem('popupState');
+    localStorage.removeItem('popupInputValue');
+  }
+  
+  function shareForm(event) {
+    event.preventDefault();
+    var input = document.getElementById('popupInput');
+    // console.log('Submitted value:', input.value);
+    
+    localStorage.setItem('popupState', 'close');
+    localStorage.setItem('popupInputValue', input.value);
+    
+    sessionStorage.setItem('popup2State', 'open');
+    location.reload(); // Refresh the page
+  }
+  
+  function closePopup2() {
+    var popup2 = document.querySelector('.popup2');
+    var popup = document.querySelector('.popup');
+    popup2.style.display = 'none';
+    popup.style.display = 'none';
+    sessionStorage.removeItem('popup2State');
+    document.querySelector(".overlay1").style.display = "none";
+    document.querySelector(".overlay0").style.display = "none";
+    document.getElementById("popup2").style.display="none"
+    document.getElementById("sidebar").style.opacity="1";
+    document.getElementById("main_body").style.opacity="1";
+    document.getElementById("payment_request").style.opacity = "1";
+    document.getElementById("close_image").style.opacity = "1";
+    document.getElementById("container_outer1").style.opacity='1';
+  }
+  
+  function openPopup2() {
+    var popup2 = document.querySelector('.popup2');
+    popup2.style.display = 'block';
+    document.querySelector(".overlay1").style.display = "block";
+    // document.querySelector(".overlay1").style.display = "block";
+    // document.getElementById("sidebar").style.opacity="0.1";
+    // document.getElementById("main_body").style.opacity="0.1";
+    // document.getElementById("popup2").style.display="block";
+    // document.getElementById("payment_request").style.opacity = "0.5";
+    // document.getElementById("close_image").style.opacity = "1";
+    // document.getElementById("container_outer1").style.opacity='0.6';
+}
+
+function open_dot_popup_ra(){
+    document.querySelector('.overlay-ra').style.display = "block";
+    document.querySelector('.ra-popup').style.display = "block";
+}
+function close_dot_popup_ra(){
+    document.querySelector('.overlay-ra').style.display = "none";
+    document.querySelector('.ra-popup').style.display = "none";
+}

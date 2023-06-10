@@ -435,7 +435,7 @@
                     <div class="grid_item" id="grid_item_11">11</div>
                     <div class="grid_item" id="grid_item_12">12</div>
                     <div class="grid_item" id="grid_item_13">Completed</div>
-                    <div class="grid_item" id="grid_item_14"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    <div class="grid_item" id="grid_item_14"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span> <!--{cursor: context-menu;}-->
                     </div>
                     <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_16">16</div>
@@ -443,7 +443,7 @@
                     <div class="grid_item" id="grid_item_18">18</div>
                     <div class="grid_item" id="grid_item_19">19</div>
                     <div class="grid_item" id="grid_item_20">20</div>
-                    <div class="grid_item" id="grid_item_21"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    <div class="grid_item" id="grid_item_21"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
                     </div>
                     <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_23">23</div>
@@ -451,7 +451,7 @@
                     <div class="grid_item" id="grid_item_25">25</div>
                     <div class="grid_item" id="grid_item_26">26</div>
                     <div class="grid_item" id="grid_item_27">Completed</div>
-                    <div class="grid_item" id="grid_item_28"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    <div class="grid_item" id="grid_item_28"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
                     </div>
                     <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_30">30</div>
@@ -459,7 +459,7 @@
                     <div class="grid_item" id="grid_item_32">32</div>
                     <div class="grid_item" id="grid_item_33">33</div>
                     <div class="grid_item" id="grid_item_34">34</div>
-                    <div class="grid_item" id="grid_item_35"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    <div class="grid_item" id="grid_item_35"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
                     </div>
                     <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
                     <div class="grid_item" id="grid_item_37">37</div>
@@ -467,7 +467,7 @@
                     <div class="grid_item" id="grid_item_39">39</div>
                     <div class="grid_item" id="grid_item_40">40</div>
                     <div class="grid_item" id="grid_item_41">41</div>
-                    <div class="grid_item" id="grid_item_42"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+                    <div class="grid_item" id="grid_item_42"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
                     </div>
                 </div>
             </div>
@@ -479,8 +479,15 @@
                 <button class="button" onclick="invoice_popup()"> New transaction</button>
             </div>
         </div>
-
-
+        <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
+        <div class="ra-popup">
+            <li>Send follow up via Email</li>
+            <li>Send FIRA via email</li>
+            <li>Download FIRA</li>
+            <li>Download Invoice</li>
+            <li>Share via email</li>
+            <li>Share via Whatsapp</li>
+        </div>
 
         <div class="drafts" id="drafts" onclick="main_click()">
             <h1>Drafts</h1>
@@ -519,18 +526,24 @@
         <!--sidebar popups-->
     </div>
     <!-- <div class="overlay0" onclick="closePopup()"></div> -->
-    <div class="overlay0" onclick="close_invoice_popup()"></div>
-    <div class="overlay1" onclick="close_share_popup()"></div>
+    <div class="overlay0" onclick="close_invoice_popup(); closePopup();"></div>
+    <div class="overlay1" onclick="closePopup2()"></div>
+    <div class="overlay3"></div>
     <div class="new_transaction" id="new_transaction" onclick="main_click()">
         <img src="/Exports\generate_invoice.jpg" alt="" onclick="generate_invoice()">
         <img src="/Exports\payment request.png" alt="" onclick="payment_request()">
     </div>
 
+    <div class="overlay-dr" onclick="close_dot_popup_dr()"></div>
+        <div class="dr-popup">
+            <li>edit</li>
+        </div>
+
     <!--payment request-->
 
     
     
-    <div class="payment_request" id="payment_request">
+    <div class="payment_request popup" id="payment_request">
         <h1 onclick= "close_share_popup()">
             <div class="h1con">Payment Request</div>
             <img src="./Exports\close.jpg" alt="" onclick="close_popup()" id="close_image">
@@ -538,7 +551,7 @@
         <form action="/dashboard/users" method="post" id="paymentRequest" enctype="multipart/form-data" onclick= "close_share_popup()">
             <div class="form">
                 <div class="left">
-                    <input type="text" name="companyName" placeholder="Company Name"> <br>
+                    <input type="text" name="companyName" placeholder="Company Name" id="popupInput" class="popupInput"> <br>
                     <input type="text" name="companyContact" placeholder="Company Contact Number"><br>
 
                     <script>
@@ -609,7 +622,7 @@
                 </div>
                 <div class="right">
                     <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
-                    <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
+                    <input type="date" name="expectedDate" placeholder="Expected Date"> <br>
                     <input type="number" name="amount" placeholder="Enter Amount"> <br>
                     <div class="description">
                         <input type="text" name="description" placeholder="Description">
@@ -631,17 +644,17 @@
             </div>
 
             <div class="buttons_2">
-                <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share(); ">
+                <button class="button_21" onclick="">
                     Share
                 </button>
-                <button class="button_22" onclick="setDraftStatus(false); submitForm()">
+                <!-- <button class="button_22" onclick="setDraftStatus(false); submitForm()">
                     Save
+                </button> -->
+                <button class="open-share-popup button_22" id=" open-share-popup" onclick="shareForm(event)">
+                    save
                 </button>
             </div>
         </form>
-        <button class="open-share-popup" id="open-share-popup" onclick="share(); share2();">
-            Share
-        </button>
     </div>
     <script>
 
@@ -942,8 +955,12 @@
                             Payment</button>
                     </div>
                     <div class="container-inner26">
-                        <button id="share" onclick="share(),change()">Share</button>
-                        <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
+                        <button id="share" onclick="change()">Share</button>
+                        <!-- <button id="share" onclick="share(),change()">Share</button> -->
+                        <!-- <button id="save" onclick="draftStat(false); saveInvoice()">Save</button> -->
+                        <button class="open-share-popup" id="save" onclick="shareForm(event)">
+                            save
+                        </button>
                     </div>
                 </div>
             </form>
@@ -1017,12 +1034,13 @@
         });
     </script>
     <div id="overlay"></div>
-    <div class="sharepop" id="sharepop">
+    <div class="popup2" id="popup2">
+        <button onclick="closePopup2()">X</button>
         <div class="one">
-            Share details via mail
+            <button>share details-mail</button>
         </div>
         <div class="two">
-            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button>
+            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details-What</button>
         </div>
     </div>
 
