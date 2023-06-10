@@ -9,26 +9,36 @@ function click_drafts(){
     document.getElementById("drafts").style.display = "block";
 }
 function invoice_popup(){
-
+    document.querySelector('.overlay0').style.display = "block";
+    document.body.classList.add('popup-open');
     document.getElementById("new_transaction").style.display = "flex";
     document.getElementById("new_transaction").style.border="2px solid gray";
     document.getElementById("sidebar").style.opacity="0.6";
     document.getElementById("main_body").style.opacity="0.6";
 }
 
+function close_invoice_popup(){
+    document.body.classList.remove('popup-open');
+    document.querySelector('.overlay0').style.display = "none";
+    document.getElementById("new_transaction").style.display = "none";
+    document.getElementById("payment_request").style.display = "none";
+    document.getElementById("container_outer1").style.display = "none"; 
+}
+
 function payment_request(){
+    document.body.classList.add('popup-open');
     document.getElementById("new_transaction").style.display = "none";
     document.getElementById("payment_request").style.display = "block";     
 }
 
 function generate_invoice(){
+    document.body.classList.remove('popup-open');
     document.getElementById("new_transaction").style.display = "none";
     document.getElementById("container_outer1").style.display = "block";
     
 }
 
 function main_click(){
-  /*  document.getElementById("new_transaction").style.display='none'; */
     document.getElementById("sidebar").style.opacity="1";
     document.getElementById("main_body").style.opacity="1";
     document.getElementById("sharepop").style.display='none';
@@ -65,14 +75,26 @@ function close_popup(){
 
 function share(){
     // document.getElementById("button_21")
+    document.querySelector(".overlay1").style.display = "block";
     document.getElementById("sidebar").style.opacity="0.1";
     document.getElementById("main_body").style.opacity="0.1";
     document.getElementById("sharepop").style.display="block";
-    document.getElementById("payment_request").style.opacity = "0.6";
+    document.getElementById("payment_request").style.opacity = "0.5";
     document.getElementById("close_image").style.opacity = "1";
     document.getElementById("container_outer1").style.opacity='0.6';
     
 }
+
+function close_share_popup(){
+    document.querySelector(".overlay1").style.display = "none";
+    document.getElementById("sharepop").style.display="none"
+    document.getElementById("sidebar").style.opacity="1";
+    document.getElementById("main_body").style.opacity="1";
+    document.getElementById("payment_request").style.opacity = "1";
+    document.getElementById("close_image").style.opacity = "1";
+    document.getElementById("container_outer1").style.opacity='1';
+}
+
 
 function rbi_code_popup(){
     document.getElementById("sidebar").style.opacity="0";
@@ -184,3 +206,4 @@ function rate_hide(){
     document.getElementById("main_body").style.opacity="1";
     document.getElementById("container_2").style.opacity="1";
 }
+

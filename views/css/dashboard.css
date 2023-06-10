@@ -16,6 +16,28 @@ body {
 
 }
 
+.overlay0{
+  position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+}
+.overlay1{
+  position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+}
+body.popup-open {
+  overflow: hidden;
+}
+
 .sidebar {
   width: 15%;
   height: 100%;
@@ -945,10 +967,10 @@ h1 img {
 .buttons_1 {
   position: relative;
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: center;
-  height: 15%;
-  left: 5%;
+  height: 18%;
+  left: 0%;
   top: 4%;
 }
 
@@ -991,10 +1013,10 @@ h1 img {
 .buttons_2 {
   position: relative;
   display: flex;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   height: 10%;
-  left: 5%;
+  left: 0%;
 }
 
 .button_21 {
