@@ -143,10 +143,10 @@ const verifyLogin = async (req, res) => {
           }
         }
       } else {
-        res.render("login", { message: "Incorrect password" });
+        res.render("login1", { error: "Incorrect credentials" });
       }
     } else {
-      res.render("login", { message: "Incorrect credentials" });
+      res.render("login1", { error: "Incorrect credentials" });
     }
   } catch (error) {
     console.log(error);
@@ -350,6 +350,9 @@ const submitPasswordForm = async (req, res) => {
         })
         const userData = await user.save()
 
+        //Clear session data
+        req.session.destroy();
+
         if(userData){
             res.redirect('/login')
         }
@@ -361,7 +364,57 @@ const submitPasswordForm = async (req, res) => {
     }
 }
 
+const loadForgotPass = async (req, res) => {
+    try {
+        res.render('forget_password')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
+const loadSettings = async (req, res) => {
+    try {
+        res.render('settings')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+const loadChangePassword = async (req, res) => {
+    try {
+        res.render('changepassword')
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const changePassword = async (req, res) => {
+    try {
+        const userId = req.session.user_id
+        const user = await User.findById(userId)
+        const newPass = req.body.newPassword
+        const oldPass = req.body.oldPassword
+
+        const passMatch = await bcrypt.compare(oldPass, user.password);
+        if(!user){
+            return res.status(404).json({ message: "User not found" });
+        }
+        else if(!passMatch){
+            console.log('incorrect oldpass: ', oldPass)
+            res.render('changepassword', {error:"Incorrect password"})
+        }
+        else{
+            const hashedNewPass = await hashPass(newPass)
+            user.password = hashedNewPass
+            
+            await user.save();
+            console.log('password changed!')
+            res.redirect('/dashboard/users')
+        }
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json({ message: "Internal server error" });
+    }
+}
 
 module.exports = {
   loadRegister,
@@ -387,4 +440,8 @@ module.exports = {
   submitMobileOTP,
   showPasswordForm,
   submitPasswordForm,
+  loadForgotPass,
+  loadSettings,
+  loadChangePassword,
+  changePassword
 };

@@ -5,7 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const RecurringPayment = require("../models/recurringModel");
-
+const puppeteer = require('puppeteer')
 const ejs = require("ejs");
 const pdf = require("html-pdf");
 const { response } = require("../routes/userRoutes");
@@ -119,10 +119,15 @@ const loadDashboard = async (req, res) => {
     const lastYearPaymentStatusTotals =
       calculatePaymentStatusTotals(lastYearTransactions);
 
-    console.log(lastWeekPaymentStatusTotals)
+    console.log("last week payment totals: ", lastWeekPaymentStatusTotals);
 
-    res.render("dashboard", { user: user, transactions: transactions, lastWeekStatus: lastWeekPaymentStatusTotals,
-       lastMonthStatus: lastMonthPaymentStatusTotals, lastYearStatus: lastYearPaymentStatusTotals  });
+    res.render("dashboard", {
+      user: user,
+      transactions: transactions,
+      lastWeekStatus: lastWeekPaymentStatusTotals,
+      lastMonthStatus: lastMonthPaymentStatusTotals,
+      lastYearStatus: lastYearPaymentStatusTotals,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred" });
@@ -155,12 +160,12 @@ const downloadInvoice = async (req, res) => {
     });
 
     // Save the transaction data to the database
-    // try {
-    //   await txn.save();
-    // } catch (error) {
-    //   console.error('Error saving transaction:', error);
-    //   return res.status(500).send('Error saving transaction');
-    // }
+    try {
+      await txn.save();
+    } catch (error) {
+      console.error('Error saving transaction:', error);
+      return res.status(500).send('Error saving transaction');
+    }
 
     // Generate the PDF
     // inv.generatePdf(txn, (pdfBuffer) => {
@@ -182,34 +187,62 @@ const downloadInvoice = async (req, res) => {
     let option = {
       format: "A4",
     };
-    const ejsdata = ejs.render(htmlstring, { txn: txn });
-    pdf
-      .create(ejsdata, option)
-      .toFile(
-        `./public/invoice/${txn.txnId}/invoice_${txn.txnId}.pdf`,
-        (err, response) => {
-          if (err) console.log(err.message);
-          console.log("file generated");
-          const filepath = path.resolve(
-            __dirname,
-            `../public/invoice/${txn.txnId}/invoice_${txn.txnId}.pdf`
-          );
-          fs.readFile(filepath, (err, file) => {
-            if (err) {
-              console.log(err.message);
-              return res.status(500).send("download failed");
-            }
+    const ejsdata = ejs.render(htmlstring, { req });
+    // pdf.create(ejsdata, option)
+    //   .toFile(
+    //     `./public/invoice/${txn.txnId}/invoice_${txn.txnId}.pdf`,
+    //     (err, response) => {
+    //       if (err) console.log(err.message);
+    //       console.log("file generated");
+    //       const filepath = path.resolve(
+    //         __dirname,
+    //         `../public/invoice/${txn.txnId}/invoice_${txn.txnId}.pdf`
+    //       );
+    //       fs.readFile(filepath, (err, file) => {
+    //         if (err) {
+    //           console.log(err.message);
+    //           return res.status(500).send("download failed");
+    //         }
 
-            res.setHeader("Content-Type", "application/pdf");
-            res.setHeader(
-              "Content-Disposition",
-              `attachment;filename="invoice_${txn.txnId}.pdf"`
-            );
+    //         res.setHeader("Content-Type", "application/pdf");
+    //         res.setHeader(
+    //           "Content-Disposition",
+    //           `attachment;filename="invoice_${txn.txnId}.pdf"`
+    //         );
 
-            res.send(file);
-          });
-        }
-      );
+    //         res.send(file);
+    //       });
+    //     }
+    //   );
+    // pdf.create(ejsdata, option).toBuffer((err, pdfBuffer) => {
+    //   if (err) {
+    //     console.log('Error generating PDF:', err);
+    //     return res.status(500).send('Error generating PDF');
+    //   }
+
+    //   // Set the response headers for downloading the PDF
+    //   res.setHeader('Content-Type', 'application/pdf');
+    //   res.setHeader('Content-Disposition', `attachment; filename=invoice.pdf`);
+    //   // Send the PDF buffer as the response
+    //   res.send(pdfBuffer);
+    //   console.log('pdf sent successfully!')
+    // });
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.setContent(ejsdata, { waitUntil: 'networkidle0' });
+
+    const pdfBuffer = await page.pdf({ format: 'A4' });
+
+    await browser.close();
+
+    // Set the response headers for downloading the PDF
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename=invoice.pdf`);
+
+    // Send the PDF buffer as the response
+    res.send(pdfBuffer);
+    console.log('PDF sent successfully!');
   } catch (error) {
     console.log(error.message);
   }
@@ -254,10 +287,17 @@ const saveInvoice = async (req, res) => {
       additionalDocumentsFiles.forEach((file) => {
         // Handle each additionalDocuments file
         // For example, move the file to the desired directory
-        const additionalDocumentsPath = path.join(
+        const additionalDocumentsDirectory = path.join(
           __dirname,
           "../public/additionalDocuments",
           transactionId,
+        );
+        // Create the directory if it doesn't exist
+        if (!fs.existsSync(additionalDocumentsDirectory)) {
+          fs.mkdirSync(additionalDocumentsDirectory, { recursive: true });
+        }
+        const additionalDocumentsPath = path.join(
+          additionalDocumentsDirectory,
           file.filename
         );
         fs.renameSync(file.path, additionalDocumentsPath);
@@ -266,15 +306,15 @@ const saveInvoice = async (req, res) => {
     }
 
     // Generate PDF and store it in the public/invoice directory
-    inv.generateInvoicePdf(txnData, (pdfPath) => {
+    inv.generateInvoicePdf(req, (pdfPath) => {
       if (pdfPath) {
         console.log("PDF saved:", pdfPath);
         // You can also save the PDF path to the database if needed
       } else {
         console.error("Error generating PDF");
       }
-      res.redirect("/dashboard/users");
     });
+    res.redirect("/dashboard/users");
   } catch (error) {
     console.log(error.message);
     res.send("An error occured, Save invoice failed");
@@ -353,8 +393,7 @@ const newTxn = async (req, res) => {
     }
     // Rest of the code to respond to the client or redirect to a different page
     // ...
-    const user = await User.findById(userId);
-    res.render("dashboard", { user: user });
+    res.redirect("/dashboard/users");
     // res.send('Files uploaded successfully.');
   } catch (error) {
     console.log(error);

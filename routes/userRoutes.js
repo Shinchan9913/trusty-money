@@ -56,6 +56,8 @@ user_route.get('/signup/password', auth.isLogout, userController.showPasswordFor
 user_route.post('/signup/password', userController.submitPasswordForm)
 // user_route.post('/signup', userController)
 
+user_route.get('/forgot-password', auth.isLogout, userController.loadForgotPass)
+
 
 user_route.get('/dashboard', auth.isLogin, userController.loadHome)
 
@@ -84,6 +86,9 @@ user_route.post('/auth/KYC/1', (req, res) => {
 });
 
 user_route.get('/myAccount', userController.loadmyAccount)
+user_route.get('/settings', auth.isLogin, userController.loadSettings)
+user_route.get('/settings/change-password', auth.isLogin, userController.loadChangePassword)
+user_route.post('/settings/change-password', userController.changePassword)
 
 user_route.get('/logout', auth.isLogin, userController.userLogout)
 

@@ -2,696 +2,639 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/css/dashboard.css">
-    <script src="/js/dashboard.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <script src="/js/dashboard.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar" onclick="main_click()">
-        <div id="logo"><a href="#">TRUSTY</a></div>
-        <hr class="hr0">
-        <p>POWERING MONEY</p>
-        <hr id="hr1">
-        <div class="container_1">
-            <ul>
-                <li class="c_11">
-                    <a href="index.html" id="home">
-                        <img width="26" src="/Exports/icons/home.png">
-                        Home</a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="notif_li" onmouseenter="notif_display()" onmouseout="notif_hide()">
-                        <img width="26" src="/Exports/icons/notif.png" alt="">
-                        Notifiations
-                    </a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="exc_rate_li" onmouseenter="exchange_display()" onmouseout="exchange_hide()">
-                        <img width="26" src="/Exports/icons/exc rate.png" alt="">
-                        Check Exchange Rate</a>
-                </li><br>
-                <li class="c_11">
-                    <a href="#" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()"">
+  <div class="sidebar" id="sidebar" onclick="main_click()">
+    <div id="logo"><a href="#">TRUSTY</a></div>
+    <hr class="hr0">
+    <p>POWERING MONEY</p>
+    <hr id="hr1">
+    <div class="container_1">
+      <ul>
+        <li class="c_11">
+          <a href="index.html" id="home">
+            <img width="26" src="/Exports/icons/home.png">
+            Home</a>
+        </li><br>
+        <li class="c_11">
+          <a href="#" id="notif_li" onmouseenter="notif_display()" onmouseout="notif_hide()">
+            <img width="26" src="/Exports/icons/notif.png" alt="">
+            Notifiations
+          </a>
+        </li><br>
+        <li class="c_11">
+          <a href="#" id="exc_rate_li" onmouseenter="exchange_display()" onmouseout="exchange_hide()">
+            <img width="26" src="/Exports/icons/exc rate.png" alt="">
+            Check Exchange Rate</a>
+        </li><br>
+        <li class="c_11">
+          <a href="#" id="rate_alert_li" onmouseenter="rate_display()" onmouseout="rate_hide()"">
                        <img width=" 26" src="/Exports/icons/rate alert.png" alt="">
-                        Rate Alert</a>
-                </li><br>
+            Rate Alert</a>
+        </li><br>
 
-            </ul>
-        </div>
+      </ul>
     </div>
-    <div class="container_2" id="container_2">
-        <hr id="hr2">
-        <ul>
-            <li><a href="name_c2" id="name_c2">
-                    <img width="40" src="/Exports/icons/account image.png" alt="">
-                    <h2>Lily Lewis</h2>
-                    <p>lilylewis@gmail.com</p>
-                </a></li> <br>
-            <li class="c_22">
-                <a href="/myAccount" id="accounts">
-                    <img width="26" src="/Exports/icons/acc.png" alt="">
-                    Account</a>
-            </li><br>
-            <li class="c_22">
-                <a href="/settings" id="Setting">
-                    <img width="26" src="/Exports/icons/settings.png" alt="">
-                    Settings</a>
-            </li><br>
-            <li class="c_22">
-                <a href="/logout" id="Logout">
-                    <img width="26" src="/Exports/icons/log out.png" alt="">
-                    Logout</a>
-            </li><br>
+  </div>
+  <div class="container_2" id="container_2">
+    <hr id="hr2">
+    <ul>
+      <li><a href="name_c2" id="name_c2">
+          <img width="40" src="/Exports/icons/account image.png" alt="">
+          <h2>Lily Lewis</h2>
+          <p>lilylewis@gmail.com</p>
+        </a></li> <br>
+      <li class="c_22">
+        <a href="/myAccount" id="accounts">
+          <img width="26" src="/Exports/icons/acc.png" alt="">
+          Account</a>
+      </li><br>
+      <li class="c_22">
+        <a href="/settings" id="Setting">
+          <img width="26" src="/Exports/icons/settings.png" alt="">
+          Settings</a>
+      </li><br>
+      <li class="c_22">
+        <a href="/logout" id="Logout">
+          <img width="26" src="/Exports/icons/log out.png" alt="">
+          Logout</a>
+      </li><br>
 
-        </ul>
-    </div>
-    </div>
+    </ul>
+  </div>
+  </div>
 
-    <div class="main_body" id="main_body">
-        <div class="main_body_info" id="main_body_info" onclick="main_click()">
-            <!-- <img src=".//Exports/images.png" alt="" srcset=""> -->
-            <div class="account">
-                <h1>Account</h1>
-                <div class="box_1">
-                    <img src="" alt="">
-                    <h2>Company Name</h2>
+  <div class="main_body" id="main_body">
+    <div class="main_body_info" id="main_body_info" onclick="main_click()">
+      <!-- <img src=".//Exports/images.png" alt="" srcset=""> -->
+      <div class="account">
+        <h1>Account</h1>
+        <div class="box_1">
+          <img src="" alt="">
+          <h2>Company Name</h2>
 
-                    <script>
-                        // Get the select element
-                        var selectElement = document.getElementById("country");
+          <script>
+            // Get the select element
+            var selectElement = document.getElementById("country");
 
-                        // Add an event listener for the change event
-                        selectElement.addEventListener("change", function () {
-                            // Store the selected value
-                            var selectedValue = selectElement.value;
+            // Add an event listener for the change event
+            selectElement.addEventListener("change", function() {
+              // Store the selected value
+              var selectedValue = selectElement.value;
 
-                            // Set the selected value as a query parameter in the URL
-                            var url = new URL(window.location.href);
-                            url.searchParams.set("country", selectedValue);
+              // Set the selected value as a query parameter in the URL
+              var url = new URL(window.location.href);
+              url.searchParams.set("country", selectedValue);
 
-                            // Reload the page with the updated URL
-                            window.location.href = url.toString();
-                        });
+              // Reload the page with the updated URL
+              window.location.href = url.toString();
+            });
 
-                        // Set the selected option based on the query parameter when the page loads
-                        window.addEventListener("load", function () {
-                            var url = new URL(window.location.href);
-                            var selectedValue = url.searchParams.get("country");
-                            if (selectedValue) {
-                                selectElement.value = selectedValue;
-                            }
-                        });
-                    </script>
-                    <select id="countrySelectDash" onchange="displayAccountDetailsDash()">
-                        <option value="">Select Country</option>
-                        <% if (user && user.bankAccounts) { %>
-                            <% user.bankAccounts.forEach(function(account) { %>
-                              <option value="<%= account.country %>">
-                                <%= account.country %>
-                              </option>
-                            <% }) %>
-                          <% } %>                        
-                    </select>
-                    <div class="box_11">
-                        <div class="formgroup">
-                            <div class="label">
-                                <label for="account_no">Account Number</label> <br>
-                                <label for="account_no">Routing Number</label><br>
-                                <label for="account_no">Account Type</label><br>
-                                <label for="account_no">Bank Name</label><br>
-                            </div>
+            // Set the selected option based on the query parameter when the page loads
+            window.addEventListener("load", function() {
+              var url = new URL(window.location.href);
+              var selectedValue = url.searchParams.get("country");
+              if (selectedValue) {
+                selectElement.value = selectedValue;
+              }
+            });
+          </script>
+          <select id="countrySelectDash" onchange="displayAccountDetailsDash()">
+            <option value="">Select Country</option>
+            <% if (user && user.bankAccounts) { %>
+            <% user.bankAccounts.forEach(function(account) { %>
+            <option value="<%= account.country %>">
+              <%= account.country %>
+            </option>
+            <% }) %>
+            <% } %>
+          </select>
+          <div class="box_11">
+            <div class="formgroup">
+              <div class="label">
+                <label for="account_no">Account Number</label> <br>
+                <label for="account_no">Routing Number</label><br>
+                <label for="account_no">Account Type</label><br>
+                <label for="account_no">Bank Name</label><br>
+              </div>
 
-                            <div class="input" id="accountDetailsDash">
-                            </div>
-                        </div>
-                        <a href="accounts.html">View more details >></a>
-                    </div>
-                </div>
+              <div class="input" id="accountDetailsDash">
+              </div>
             </div>
-            <script>
-                const user = <%- user %>
-                    function displayAccountDetailsDash() {
-                        console.log("Fun called!!")
-                        const countrySelect = document.getElementById('countrySelectDash');
-                        const accountDetails = document.getElementById('accountDetailsDash');
-                        const selectedCountry = countrySelect.value;
+            <a href="accounts.html">View more details >></a>
+          </div>
+        </div>
+      </div>
+      <script>
+        const user = '<%- user %>'
 
-                        // Clear previous account details
-                        accountDetails.innerHTML = '';
+        function displayAccountDetailsDash() {
+          console.log("Fun called!!")
+          const countrySelect = document.getElementById('countrySelectDash');
+          const accountDetails = document.getElementById('accountDetailsDash');
+          const selectedCountry = countrySelect.value;
 
-                      // Find the selected account details
-                      <% if (user && user.bankAccounts) { %>
-                        <% user.bankAccounts.forEach(function (account) { %>
-                            if ("<%= account.country %>" === selectedCountry) {
-                                    accountDetails.innerHTML += `
+          // Clear previous account details
+          accountDetails.innerHTML = '';
+
+          // Find the selected account details
+          <% if (user && user.bankAccounts) { %>
+          <% user.bankAccounts.forEach(function (account) { %>
+          if ("<%= account.country %>" === selectedCountry) {
+            accountDetails.innerHTML += `
                                 <p><%= account.vbAccountNumber %></p>
                                 <p><%= account.routingNumber %></p>
                                 <p><%= account.accountType %></p>
                                 <p><%= account.bankName %></p>
                             `;
-                                }
-                        <% }); %>
-                      <% } %>
-                    }
-            </script>
-            <div class="payment_overview">
-                <h1>Payment Overview</h1>
-                <div class="options_payment_overview">
-                    <select name="we-mo-ye" id="we-mo-ye" onchange="changeGraph()">
-                        <option value="week">Weekly</option>
-                        <option value="month">Monthly</option>
-                        <option value="year">Yearly</option>
-                    </select>
-                    <script>
-                        // window.addEventListener('load', function() {
-                        //     const select = document.getElementById('we-mo-ye');
-                        //     select.value = "month"; 
-                        //     changeGraph(); 
-                        // });
-                        // let com_acc, outs, inpro, total, outer_ammount;
-                        // function changeGraph(){
-                        //     const occation = document.getElementById('we-mo-ye').value;
-                        //     if(occation === 'week'){
-                        //         com_acc = 70000;
-                        //         outs = 80000;
-                        //         inpro = 50000;
-                        //         total = com_acc + outs + inpro;
-                        //         outer_ammount = total*0.025;
-                        //     }
-                        //     else if(occation === 'month'){
-                        //         com_acc = 80000;
-                        //         outs = 75000;
-                        //         inpro = 53000;
-                        //         total = com_acc + outs + inpro;
-                        //         outer_ammount = total*0.025;
-                        //     }
-                        //     else if(occation === 'year'){
-                        //         com_acc = 45000;
-                        //         outs = 25000;
-                        //         inpro = 75000;
-                        //         total = com_acc + outs + inpro;
-                        //         outer_ammount = total*0.025;
-                        //     }
-                        //     com_acc = formatCurrency(com_acc);
-                        //     outs = formatCurrency(outs);
-                        //     inpro = formatCurrency(inpro);
-                        //     total = formatCurrency(total);
-                        //     outer_ammount =formatCurrency(outer_ammount);
-                        //     document.getElementById('completed_ammount').innerHTML = com_acc;
-                        //     document.getElementById('outstanding_amount').innerHTML = outs;
-                        //     document.getElementById('in_progress_amount').innerHTML =inpro;
-                        //     document.getElementById('graph-inner-total').innerHTML = total;
-                        //     document.getElementById('you-save-upto-ammount').innerHTML= outer_ammount;
-                        // }   
-                        // function formatCurrency(value) {
-                        //     const formattedValue = value.toLocaleString('en-IN', {
-                        //         style: 'currency',
-                        //         currency: 'INR',
-                        //         minimumFractionDigits: 0,
-                        //         maximumFractionDigits: 0,
-                        //     });
-                        //     return formattedValue.replace(/^(\D+)/, '₹ ');
-                        // }
-                    </script>
-                    <!-- <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/> -->
-                </div>
-                <div class="payment">
-                    <div class="display">
+          }
+          <% }); %>
+          <% } %>
+        }
+      </script>
+      <div class="payment_overview">
+        <h1>Payment Overview</h1>
+        <div class="options_payment_overview">
+          <select name="we-mo-ye" id="we-mo-ye" onchange="changeGraph()">
+            <option value="week">Weekly</option>
+            <option value="month">Monthly</option>
+            <option value="year">Yearly</option>
+          </select>
+          <script>
+            // window.addEventListener('load', function() {
+            //     const select = document.getElementById('we-mo-ye');
+            //     select.value = "month";
+            //     changeGraph();
+            // });
+            // let com_acc, outs, inpro, total, outer_ammount;
+            // function changeGraph(){
+            //     const occation = document.getElementById('we-mo-ye').value;
+            //     if(occation === 'week'){
+            //         com_acc = 70000;
+            //         outs = 80000;
+            //         inpro = 50000;
+            //         total = com_acc + outs + inpro;
+            //         outer_ammount = total*0.025;
+            //     }
+            //     else if(occation === 'month'){
+            //         com_acc = 80000;
+            //         outs = 75000;
+            //         inpro = 53000;
+            //         total = com_acc + outs + inpro;
+            //         outer_ammount = total*0.025;
+            //     }
+            //     else if(occation === 'year'){
+            //         com_acc = 45000;
+            //         outs = 25000;
+            //         inpro = 75000;
+            //         total = com_acc + outs + inpro;
+            //         outer_ammount = total*0.025;
+            //     }
+            //     com_acc = formatCurrency(com_acc);
+            //     outs = formatCurrency(outs);
+            //     inpro = formatCurrency(inpro);
+            //     total = formatCurrency(total);
+            //     outer_ammount =formatCurrency(outer_ammount);
+            //     document.getElementById('completed_ammount').innerHTML = com_acc;
+            //     document.getElementById('outstanding_amount').innerHTML = outs;
+            //     document.getElementById('in_progress_amount').innerHTML =inpro;
+            //     document.getElementById('graph-inner-total').innerHTML = total;
+            //     document.getElementById('you-save-upto-ammount').innerHTML= outer_ammount;
+            // }
+            // function formatCurrency(value) {
+            //     const formattedValue = value.toLocaleString('en-IN', {
+            //         style: 'currency',
+            //         currency: 'INR',
+            //         minimumFractionDigits: 0,
+            //         maximumFractionDigits: 0,
+            //     });
+            //     return formattedValue.replace(/^(\D+)/, '₹ ');
+            // }
+          </script>
+          <!-- <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/expand-arrow--v1.png" alt="expand-arrow--v1"/> -->
+        </div>
+        <div class="payment">
+          <div class="display">
 
-                        <div class="payment_number" id="completed">
-                            <p>Completed</p>
-                            <big id="completed_ammount">₹ N/A</big>
-                        </div>
-                        <div class="payment_number" id="outstanding">
-                            <p>Outstanding</p>
-                            <big id="outstanding_amount">₹ N/A</big>
-                        </div>
-                        <div class="payment_number" id="in_progress">
-                            <p>In Progress</p>
-                            <big id="in_progress_amount">₹ N/A</big>
-                        </div>
-
-                    </div>
-                    <div class="graph">
-                        <script
-                            src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
-                        <link rel="stylesheet" href="CSS/chart.min.css">
-                        <div style="width: 185px; height: 185px;">
-                            <div class="graph-inner">
-                                <p>Total</p>
-                                <p id="graph-inner-total">₹1,00,000</p>
-                            </div>
-                            <canvas id="usersChart" width="1" height="1"></canvas>
-                        </div>
-                        <p class="graph-outer">You saved upto </p><p id="you-save-upto-ammount">₹ 1980.00</p>
-                        <script>
-                            window.addEventListener('load', function () {
-                                const select = document.getElementById('we-mo-ye');
-                                select.value = "month";
-                                changeGraph();
-                            });
-
-                            let com_acc, outs, inpro, total, outer_ammount;
-                            var x, y, z;
-
-                            function changeGraph() {
-                                const occation = document.getElementById('we-mo-ye').value;
-                                if (occation === 'week') {
-                                com_acc = 70000;
-                                outs = 80000;
-                                inpro = 50000;
-                                } else if (occation === 'month') {
-                                com_acc = 10000;
-                                outs = 75000;
-                                inpro = 53000;
-                                } else if (occation === 'year') {
-                                com_acc = 45000;
-                                outs = 25000;
-                                inpro = 75000;
-                                }
-                                total = com_acc + outs + inpro;
-                                outer_ammount = total * 0.025;
-
-                                x = (com_acc / total) * 100;
-                                y = (outs / total) * 100;
-                                z = (inpro / total) * 100;
-
-                                com_acc = formatCurrency(com_acc);
-                                outs = formatCurrency(outs);
-                                inpro = formatCurrency(inpro);
-                                total = formatCurrency(total);
-                                outer_ammount = formatCurrency(outer_ammount);
-
-                                document.getElementById('completed_ammount').innerHTML = com_acc;
-                                document.getElementById('outstanding_amount').innerHTML = outs;
-                                document.getElementById('in_progress_amount').innerHTML = inpro;
-                                document.getElementById('graph-inner-total').innerHTML = total;
-                                document.getElementById('you-save-upto-ammount').innerHTML = outer_ammount;
-
-                                updateChart(x, y, z);
-                            }
-
-                            function formatCurrency(value) {
-                                const formattedValue = value.toLocaleString('en-IN', {
-                                style: 'currency',
-                                currency: 'INR',
-                                minimumFractionDigits: 0,
-                                maximumFractionDigits: 0,
-                                });
-                                return formattedValue.replace(/^(\D+)/, '₹ ');
-                            }
-
-                            Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
-                            Chart.controllers.RoundedDoughnut = Chart.controllers.doughnut.extend({
-                                draw: function (ease) {
-                                var ctx = this.chart.ctx;
-                                var easingDecimal = ease || 1;
-                                var arcs = this.getMeta().data;
-                                Chart.helpers.each(arcs, function (arc, i) {
-                                    arc.transition(easingDecimal).draw();
-
-                                    var pArc = arcs[i === 0 ? arcs.length - 1 : i - 1];
-                                    var pColor = pArc._view.backgroundColor;
-
-                                    var vm = arc._view;
-                                    var radius = (vm.outerRadius + vm.innerRadius) / 2;
-                                    var thickness = (vm.outerRadius - vm.innerRadius) / 2;
-                                    var startAngle = Math.PI - vm.startAngle - Math.PI / 2;
-                                    var angle = Math.PI - vm.endAngle - Math.PI / 2;
-
-                                    ctx.save();
-                                    ctx.translate(vm.x, vm.y);
-
-                                    ctx.fillStyle = i === 0 ? vm.backgroundColor : pColor;
-                                    ctx.beginPath();
-                                    ctx.arc(radius * Math.sin(startAngle), radius * Math.cos(startAngle), thickness, 0, 2 * Math.PI);
-                                    ctx.fill();
-
-                                    ctx.fillStyle = vm.backgroundColor;
-                                    ctx.beginPath();
-                                    ctx.arc(radius * Math.sin(angle), radius * Math.cos(angle), thickness, 0, 2 * Math.PI);
-                                    ctx.fill();
-
-                                    ctx.restore();
-                                });
-                                }
-                            });
-                            let chart = null;
-
-                            function updateChart(x, y, z) {
-                            var data = [x, y, z];
-
-                            if (chart !== null) {
-                                // If a chart already exists, destroy it before creating a new one
-                                chart.destroy();
-                            }
-
-                            chart = new Chart(document.getElementById('usersChart'), {
-                                type: 'RoundedDoughnut',
-                                data: {
-                                    labels: [
-                                        'Completed',
-                                        'Outstanding',
-                                        'In Progress'
-                                    ],
-                                datasets: [
-                                    {
-                                    data: data,
-                                    backgroundColor: [
-                                        '#1B7737',
-                                        '#1B00A4',
-                                        '#E26714',
-                                    ],
-                                    // label: [
-                                    //     "Completed",
-                                    //     "Outstanding",
-                                    //     "In Progress"
-                                    // ],
-                                    borderWidth: 0
-                                    },
-                                ]
-                                },
-                                options: {
-                                cutoutPercentage: 70,
-                                legend:{
-                                    labels:{
-                                        fontSize:0,
-                                        padding:0,
-                                    }
-                                }
-                                },
-                            });
-                            }
-                            document.getElementById('we-mo-ye').addEventListener('change', function () {
-                                changeGraph();
-                            });
-                        </script>
-                    </div>
-                </div>
-
+            <div class="payment_number" id="completed">
+              <p>Completed</p>
+              <big id="completed_ammount">₹ N/A</big>
             </div>
-            <!-- <script>
+            <div class="payment_number" id="outstanding">
+              <p>Outstanding</p>
+              <big id="outstanding_amount">₹ N/A</big>
+            </div>
+            <div class="payment_number" id="in_progress">
+              <p>In Progress</p>
+              <big id="in_progress_amount">₹ N/A</big>
+            </div>
+
+          </div>
+          <div class="graph">
+            <script src="https://github.com/chartjs/Chart.js/releases/download/v2.9.3/Chart.min.js"></script>
+            <link rel="stylesheet" href="CSS/chart.min.css">
+            <div style="width: 185px; height: 185px;">
+              <div class="graph-inner">
+                <p>Total</p>
+                <p id="graph-inner-total">₹ N/A</p>
+              </div>
+              <canvas id="usersChart" width="1" height="1"></canvas>
+            </div>
+            <p class="graph-outer">You saved upto </p>
+            <p id="you-save-upto-ammount">₹ 1980.00</p>
+            <script>
+              window.addEventListener('load', function() {
+                const select = document.getElementById('we-mo-ye');
+                select.value = "month";
+                changeGraph();
+              });
+
+              let com_acc, outs, inpro, total, outer_ammount;
+              var x, y, z;
+              const lastWeek = <%- JSON.stringify(lastWeekStatus) %>
+              const lastMonth = <%- JSON.stringify(lastMonthStatus) %>
+              const lastYear = <%- JSON.stringify(lastYearStatus) %>
+
+              function changeGraph() {
+                const occation = document.getElementById('we-mo-ye').value;
+                if (occation === 'week') {
+                  com_acc = lastWeek.completed;
+                  outs = lastWeek.outstanding;
+                  inpro = lastWeek.inProgress;
+                } else if (occation === 'month') {
+                  com_acc = lastMonth.completed;
+                  outs = lastMonth.outstanding;
+                  inpro = lastMonth.inProgress;
+                } else if (occation === 'year') {
+                  com_acc = lastYear.completed;
+                  outs = lastYear.outstanding;
+                  inpro = lastYear.inProgress;
+                }
+                total = com_acc + outs + inpro;
+                outer_ammount = total * 0.025;
+
+                x = (com_acc / total) * 100;
+                y = (outs / total) * 100;
+                z = (inpro / total) * 100;
+
+                com_acc = formatCurrency(com_acc);
+                outs = formatCurrency(outs);
+                inpro = formatCurrency(inpro);
+                total = formatCurrency(total);
+                outer_ammount = formatCurrency(outer_ammount);
+
+                document.getElementById('completed_ammount').innerHTML = com_acc;
+                document.getElementById('outstanding_amount').innerHTML = outs;
+                document.getElementById('in_progress_amount').innerHTML = inpro;
+                document.getElementById('graph-inner-total').innerHTML = total;
+                document.getElementById('you-save-upto-ammount').innerHTML = outer_ammount;
+
+                updateChart(x, y, z);
+              }
+
+              function formatCurrency(value) {
+                const formattedValue = value.toLocaleString('en-IN', {
+                  style: 'currency',
+                  currency: 'INR',
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                });
+                return formattedValue.replace(/^(\D+)/, '₹ ');
+              }
+
+              Chart.defaults.RoundedDoughnut = Chart.helpers.clone(Chart.defaults.doughnut);
+              Chart.controllers.RoundedDoughnut = Chart.controllers.doughnut.extend({
+                draw: function(ease) {
+                  var ctx = this.chart.ctx;
+                  var easingDecimal = ease || 1;
+                  var arcs = this.getMeta().data;
+                  Chart.helpers.each(arcs, function(arc, i) {
+                    arc.transition(easingDecimal).draw();
+
+                    var pArc = arcs[i === 0 ? arcs.length - 1 : i - 1];
+                    var pColor = pArc._view.backgroundColor;
+
+                    var vm = arc._view;
+                    var radius = (vm.outerRadius + vm.innerRadius) / 2;
+                    var thickness = (vm.outerRadius - vm.innerRadius) / 2;
+                    var startAngle = Math.PI - vm.startAngle - Math.PI / 2;
+                    var angle = Math.PI - vm.endAngle - Math.PI / 2;
+
+                    ctx.save();
+                    ctx.translate(vm.x, vm.y);
+
+                    ctx.fillStyle = i === 0 ? vm.backgroundColor : pColor;
+                    ctx.beginPath();
+                    ctx.arc(radius * Math.sin(startAngle), radius * Math.cos(startAngle), thickness, 0, 2 * Math.PI);
+                    ctx.fill();
+
+                    ctx.fillStyle = vm.backgroundColor;
+                    ctx.beginPath();
+                    ctx.arc(radius * Math.sin(angle), radius * Math.cos(angle), thickness, 0, 2 * Math.PI);
+                    ctx.fill();
+
+                    ctx.restore();
+                  });
+                }
+              });
+              let chart = null;
+
+              function updateChart(x, y, z) {
+                var data = [x, y, z];
+
+                if (chart !== null) {
+                  // If a chart already exists, destroy it before creating a new one
+                  chart.destroy();
+                }
+
+                chart = new Chart(document.getElementById('usersChart'), {
+                  type: 'RoundedDoughnut',
+                  data: {
+                    labels: [
+                      'Completed',
+                      'Outstanding',
+                      'In Progress'
+                    ],
+                    datasets: [{
+                      data: data,
+                      backgroundColor: [
+                        '#1B7737',
+                        '#1B00A4',
+                        '#E26714',
+                      ],
+                      // label: [
+                      //     "Completed",
+                      //     "Outstanding",
+                      //     "In Progress"
+                      // ],
+                      borderWidth: 0
+                    }, ]
+                  },
+                  options: {
+                    cutoutPercentage: 70,
+                    legend: {
+                      labels: {
+                        fontSize: 0,
+                        padding: 0,
+                      }
+                    }
+                  },
+                });
+              }
+              document.getElementById('we-mo-ye').addEventListener('change', function() {
+                changeGraph();
+              });
+            </script>
+          </div>
+        </div>
+
+      </div>
+      <!-- <script>
                 var inner_total = document.getElementById('graph-inner-total').innerHTML;
                 var numericalValue = Number(inner_total.replace(/[^0-9.-]+/g, ""));
                 var outer_ammount = document.getElementById('you-save-upto-ammount');
                 outer_ammount.innerHTML = 0.025 * numericalValue;
                 console.log(inner_total)
             </script> -->
-        </div>
-
-        <div class="main_body_status" id="main_body_status" onclick="main_click()">
-            <h1>
-                Recent Activity
-            </h1>
-            <div class="search_sort">
-                <div class="search">
-                    <input type=" text" placeholder="Search...">
-                </div>
-
-                <div class="sort">
-                    <input type="text" placeholder="Sort by">
-                </div>
-
-            </div>
-            <div class="transaction_drafts">
-                <div class="hr1"></div>
-                <div class="grid_container">
-                    <div class="grid_item" id="grid_item_1"> <input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_2">Transaction ID</div>
-                    <div class="grid_item" id="grid_item_3">Costumer Name</div>
-                    <div class="grid_item" id="grid_item_4">Transaction Initiation Date</div>
-                    <div class="grid_item" id="grid_item_5">Amount</div>
-                    <div class="grid_item" id="grid_item_6">Payment Status</div>
-                    <div class="grid_item" id="grid_item_7"></div>
-                    <div class="grid_item" id="grid_item_8"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_9">9</div>
-                    <div class="grid_item" id="grid_item_10">10</div>
-                    <div class="grid_item" id="grid_item_11">11</div>
-                    <div class="grid_item" id="grid_item_12">12</div>
-                    <div class="grid_item" id="grid_item_13">Completed</div>
-                    <div class="grid_item" id="grid_item_14"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
-                    </div>
-                    <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_16">16</div>
-                    <div class="grid_item" id="grid_item_17">17</div>
-                    <div class="grid_item" id="grid_item_18">18</div>
-                    <div class="grid_item" id="grid_item_19">19</div>
-                    <div class="grid_item" id="grid_item_20">20</div>
-                    <div class="grid_item" id="grid_item_21"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
-                    </div>
-                    <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_23">23</div>
-                    <div class="grid_item" id="grid_item_24">24</div>
-                    <div class="grid_item" id="grid_item_25">25</div>
-                    <div class="grid_item" id="grid_item_26">26</div>
-                    <div class="grid_item" id="grid_item_27">Completed</div>
-                    <div class="grid_item" id="grid_item_28"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
-                    </div>
-                    <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_30">30</div>
-                    <div class="grid_item" id="grid_item_31">31</div>
-                    <div class="grid_item" id="grid_item_32">32</div>
-                    <div class="grid_item" id="grid_item_33">33</div>
-                    <div class="grid_item" id="grid_item_34">34</div>
-                    <div class="grid_item" id="grid_item_35"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
-                    </div>
-                    <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
-                    <div class="grid_item" id="grid_item_37">37</div>
-                    <div class="grid_item" id="grid_item_38">38</div>
-                    <div class="grid_item" id="grid_item_39">39</div>
-                    <div class="grid_item" id="grid_item_40">40</div>
-                    <div class="grid_item" id="grid_item_41">41</div>
-                    <div class="grid_item" id="grid_item_42"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <div class="links">
-                    <a href="#" onclick="click_drafts()">View all Transactions</a> <br>
-                    <a href="#" onclick="click_drafts()">Show Dafts</a>
-                </div>
-                <button class="button" onclick="invoice_popup()"> New transaction</button>
-            </div>
-        </div>
-
-
-
-        <div class="drafts" id="drafts" onclick="main_click()">
-            <h1>Drafts</h1>
-            <div class="transaction_drafts_1">
-                <div class="grid_container_drafts">
-
-                    <div class="grid_item"></div>
-                    <div class="grid_item">Transaction ID</div>
-                    <div class="grid_item">Costumer Name</div>
-                    <div class="grid_item">Transaction InitiaStion Date</div>
-                    <div class="grid_item">Amount</div>
-                    <div class="grid_item">Payment Status</div>
-                    <div class="grid_item">7</div>
-                    <div class="grid_item">8</div>
-                    <div class="grid_item">9</div>
-                    <div class="grid_item">10</div>
-                    <div class="grid_item">11</div>
-                    <div class="grid_item">12</div>
-                    <div class="grid_item">13</div>
-                    <div class="grid_item">14</div>
-                    <div class="grid_item">15</div>
-                    <div class="grid_item">16</div>
-                    <div class="grid_item">17</div>
-                    <div class="grid_item">18</div>
-                    <div class="grid_item">19</div>
-                    <div class="grid_item">20</div>
-                    <div class="grid_item">21</div>
-                    <div class="grid_item">22</div>
-                    <div class="grid_item">23</div>
-                    <div class="grid_item">24</div>
-                </div>
-            </div>
-        </div>
-
-
-        <!--sidebar popups-->
     </div>
 
-    <div class="new_transaction" id="new_transaction" onclick="main_click()">
-        <img src="/Exports\generate_invoice.jpg" alt="" onclick="generate_invoice()">
-        <img src="/Exports\payment request.png" alt="" onclick="payment_request()">
+    <div class="main_body_status" id="main_body_status" onclick="main_click()">
+      <h1>
+        Recent Activity
+      </h1>
+      <div class="search_sort">
+        <div class="search">
+          <input type=" text" placeholder="Search...">
+        </div>
+
+        <div class="sort">
+          <input type="text" placeholder="Sort by">
+        </div>
+
+      </div>
+      <div class="transaction_drafts">
+        <div class="hr1"></div>
+        <div class="grid_container">
+          <div class="grid_item" id="grid_item_1"> <input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_2">Transaction ID</div>
+          <div class="grid_item" id="grid_item_3">Costumer Name</div>
+          <div class="grid_item" id="grid_item_4">Transaction Initiation Date</div>
+          <div class="grid_item" id="grid_item_5">Amount</div>
+          <div class="grid_item" id="grid_item_6">Payment Status</div>
+          <div class="grid_item" id="grid_item_7"></div>
+          <div class="grid_item" id="grid_item_8"><input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_9">9</div>
+          <div class="grid_item" id="grid_item_10">10</div>
+          <div class="grid_item" id="grid_item_11">11</div>
+          <div class="grid_item" id="grid_item_12">12</div>
+          <div class="grid_item" id="grid_item_13">Completed</div>
+          <div class="grid_item" id="grid_item_14"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+          </div>
+          <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_16">16</div>
+          <div class="grid_item" id="grid_item_17">17</div>
+          <div class="grid_item" id="grid_item_18">18</div>
+          <div class="grid_item" id="grid_item_19">19</div>
+          <div class="grid_item" id="grid_item_20">20</div>
+          <div class="grid_item" id="grid_item_21"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+          </div>
+          <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_23">23</div>
+          <div class="grid_item" id="grid_item_24">24</div>
+          <div class="grid_item" id="grid_item_25">25</div>
+          <div class="grid_item" id="grid_item_26">26</div>
+          <div class="grid_item" id="grid_item_27">Completed</div>
+          <div class="grid_item" id="grid_item_28"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+          </div>
+          <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_30">30</div>
+          <div class="grid_item" id="grid_item_31">31</div>
+          <div class="grid_item" id="grid_item_32">32</div>
+          <div class="grid_item" id="grid_item_33">33</div>
+          <div class="grid_item" id="grid_item_34">34</div>
+          <div class="grid_item" id="grid_item_35"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+          </div>
+          <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
+          <div class="grid_item" id="grid_item_37">37</div>
+          <div class="grid_item" id="grid_item_38">38</div>
+          <div class="grid_item" id="grid_item_39">39</div>
+          <div class="grid_item" id="grid_item_40">40</div>
+          <div class="grid_item" id="grid_item_41">41</div>
+          <div class="grid_item" id="grid_item_42"><img src="/Exports\icons\three-dots-vertical.svg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="links">
+          <a href="#" onclick="click_drafts()">View all Transactions</a> <br>
+          <a href="#" onclick="click_drafts()">Show Dafts</a>
+        </div>
+        <button class="button" onclick="invoice_popup()"> New transaction</button>
+      </div>
     </div>
 
-    <!--payment request-->
 
-    <div class="payment_request" id="payment_request">
-        <h1>
-            <div class="h1con">Payment Request</div>
-            <img src="./Exports\close.jpg" alt="" onclick="close_popup()" id="close_image">
-        </h1>
-        <form action="/dashboard/users" method="post" id="paymentRequest" enctype="multipart/form-data">
-            <div class="form">
-                <div class="left">
-                    <input type="text" name="companyName" placeholder="Company Name"> <br>
-                    <input type="text" name="companyContact" placeholder="Company Contact Number"><br>
 
-                    <script>
-                        // Get the select element
-                        var selectElement = document.getElementById("country_1");
+    <div class="drafts" id="drafts" onclick="main_click()">
+      <h1>Drafts</h1>
+      <div class="transaction_drafts_1">
+        <div class="grid_container_drafts">
 
-                        // Add an event listener for the change event
-                        selectElement.addEventListener("change", function () {
-                            // Store the selected value
-                            var selectedValue = selectElement.value;
+          <div class="grid_item"></div>
+          <div class="grid_item">Transaction ID</div>
+          <div class="grid_item">Costumer Name</div>
+          <div class="grid_item">Transaction InitiaStion Date</div>
+          <div class="grid_item">Amount</div>
+          <div class="grid_item">Payment Status</div>
+          <div class="grid_item">7</div>
+          <div class="grid_item">8</div>
+          <div class="grid_item">9</div>
+          <div class="grid_item">10</div>
+          <div class="grid_item">11</div>
+          <div class="grid_item">12</div>
+          <div class="grid_item">13</div>
+          <div class="grid_item">14</div>
+          <div class="grid_item">15</div>
+          <div class="grid_item">16</div>
+          <div class="grid_item">17</div>
+          <div class="grid_item">18</div>
+          <div class="grid_item">19</div>
+          <div class="grid_item">20</div>
+          <div class="grid_item">21</div>
+          <div class="grid_item">22</div>
+          <div class="grid_item">23</div>
+          <div class="grid_item">24</div>
+        </div>
+      </div>
+    </div>
 
-                            // Set the selected value as a query parameter in the URL
-                            var url = new URL(window.location.href);
-                            url.searchParams.set("country_1", selectedValue);
 
-                            // Reload the page with the updated URL
-                            window.location.href = url.toString();
-                        });
+    <!--sidebar popups-->
+  </div>
 
-                        // Set the selected option based on the query parameter when the page loads
-                        window.addEventListener("load", function () {
-                            var url = new URL(window.location.href);
-                            var selectedValue = url.searchParams.get("country_1");
-                            if (selectedValue) {
-                                selectElement.value = selectedValue;
-                            }
-                        });
-                    </script>
-                    <select id="countrySelect" onchange="displayAccountDetails()">
-                        <option value="">Select Country</option>
-                        <% if (user && user.bankAccounts) { %>
-                            <% user.bankAccounts.forEach(function(account) { %>
-                                <option value="<%= account.country %>">
-                                    <%= account.country %>
-                                </option>
-                                <% }); %>
-                        <% } %>
-                    </select>
-                    <br>
-                    <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code"
-                        onclick="rbi_code_popup()">
-                        <!-- <option value="1">1</option>
+  <div class="new_transaction" id="new_transaction" onclick="main_click()">
+    <img src="/Exports\generate_invoice.jpg" alt="" onclick="generate_invoice()">
+    <img src="/Exports\payment request.png" alt="" onclick="payment_request()">
+  </div>
+
+  <!--payment request-->
+
+  <div class="payment_request" id="payment_request">
+    <h1>
+      <div class="h1con">Payment Request</div>
+      <img src="./Exports\close.jpg" alt="" onclick="close_popup()" id="close_image">
+    </h1>
+    <form action="/dashboard/users/newTxn" method="post" id="paymentRequest" enctype="multipart/form-data">
+      <div class="form">
+        <div class="left">
+          <input type="text" name="companyName" placeholder="Company Name"> <br>
+          <input type="text" name="companyContact" placeholder="Company Contact Number"><br>
+
+          <script>
+            // Get the select element
+            var selectElement = document.getElementById("country_1");
+
+            // Add an event listener for the change event
+            selectElement.addEventListener("change", function() {
+              // Store the selected value
+              var selectedValue = selectElement.value;
+
+              // Set the selected value as a query parameter in the URL
+              var url = new URL(window.location.href);
+              url.searchParams.set("country_1", selectedValue);
+
+              // Reload the page with the updated URL
+              window.location.href = url.toString();
+            });
+
+            // Set the selected option based on the query parameter when the page loads
+            window.addEventListener("load", function() {
+              var url = new URL(window.location.href);
+              var selectedValue = url.searchParams.get("country_1");
+              if (selectedValue) {
+                selectElement.value = selectedValue;
+              }
+            });
+          </script>
+          <select id="countrySelect" name="countrySelect" onchange="displayAccountDetails()">
+            <option value="">Select Country</option>
+            <% if (user && user.bankAccounts) { %>
+            <% user.bankAccounts.forEach(function(account) { %>
+            <option value="<%= account.country %>">
+              <%= account.country %>
+            </option>
+            <% }); %>
+            <% } %>
+          </select>
+          <br>
+          <select name="RBI" id="RBI" name="RBIpurposeCode" aria-placeholder="RBI Purpose Code" onclick="rbi_code_popup()">
+            <!-- <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option> -->
-                    </select> <br>
+          </select> <br>
 
-                    <div class="virtual_bank_account">
+          <div class="virtual_bank_account">
 
-                        <div class="box_11">
-                            <div class="formgroup">
-                                <div class="label_1">
-                                    <label for="account_no">Account Number</label><br>
-                                    <label for="account_no">Routing Number</label><br>
-                                    <label for="account_no">Account Type</label><br>
-                                    <label for="account_no">Bank Name</label><br>
-                                </div>
-
-                                <div class="input" id="accountDetails"></div>
-
-                            </div>
-
-                            <a href="accounts.html">View more details >></a>
-                        </div>
-
-                    </div>
-
+            <div class="box_11">
+              <div class="formgroup">
+                <div class="label_1">
+                  <label for="account_no">Account Number</label><br>
+                  <label for="account_no">Routing Number</label><br>
+                  <label for="account_no">Account Type</label><br>
+                  <label for="account_no">Bank Name</label><br>
                 </div>
-                <div class="right">
-                    <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
-                    <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
-                    <input type="number" name="amount" placeholder="Enter Amount"> <br>
-                    <div class="description">
-                        <input type="text" name="description" placeholder="Description">
-                    </div>
-                </div>
-            </div>
-            <input type="hidden" name="isDraft" id="isDraft" value="true">
-            <div class="save_drafts">
-                <button onclick="setDraftStatus(true); submitForm()">Save Drafts</button>
+
+                <div class="input" name="accountDetails" id="accountDetails"></div>
+
+              </div>
+
+              <a href="accounts.html">View more details >></a>
             </div>
 
-            <div class="buttons_1">
-                <input type="file" name="uploadInvoice" value="Upload Invoice">
-                <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
-                <select name="frequency" id="frequencySelect">
-                    <option value="">Set as Recurring payment</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="custom">Custom</option>
-                </select>
-                <div id="customFrequencyInput" style="display: none;">
-                    <label for="customDays">Custom Days:</label>
-                    <input type="number" name="customDays" id="customDays">
-                </div>
-            </div>
+          </div>
 
-            <div class="buttons_2">
-                <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share() ">
-                    Share
-                </button>
-                <button class="button_22" onclick="setDraftStatus(false); submitForm()">
-                    Save
-                </button>
-            </div>
-        </form>
-    </div>
-    <script>
+        </div>
+        <div class="right">
+          <input type="email" name="companyEmail" placeholder="Company E-Mail"> <br>
+          <input type="date" name="expectedDate" placeholder="Expected Date" onclick="ja"> <br>
+          <input type="number" name="amount" placeholder="Enter Amount"> <br>
+          <div class="description">
+            <input type="text" name="description" placeholder="Description">
+          </div>
+        </div>
+      </div>
+      <input type="hidden" name="isDraft" id="isDraft" value="true">
+      <div class="save_drafts">
+        <button onclick="setDraftStatus(true); submitForm()">Save Drafts</button>
+      </div>
 
-        const frequencySelect = document.getElementById('frequencySelect');
-        const customFrequencyInput = document.getElementById('customFrequencyInput');
-        
-        frequencySelect.addEventListener('change', () => {
-            if (frequencySelect.value === 'custom') {
-            customFrequencyInput.style.display = 'block';
-            } else {
-            customFrequencyInput.style.display = 'none';
-            }
-        });
-        function displayAccountDetails() {
-            const countrySelect = document.getElementById('countrySelect');
-            const accountDetails = document.getElementById('accountDetails');
-            const selectedCountry = countrySelect.value;
+      <div class="buttons_1">
+        <input type="file" name="uploadInvoice" value="Upload Invoice">
+        <input type="file" name="additionalDocuments" value="Additional Documents" multiple>
+      </div>
 
-            // Clear previous account details
-            accountDetails.innerHTML = '';
+      <div class="buttons_2">
+        <button class="button_21" id="button_21" onclick="submitFormWhatsApp(); share() ">
+          Share
+        </button>
+        <button class="button_22" onclick="setDraftStatus(false); submitForm()">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
 
-          // Find the selected account details
-          <% if (user && user.bankAccounts) { %>
-          <% user.bankAccounts.forEach(function (account) { %>
-            if ("<%= account.country %>" === selectedCountry) {
-                    accountDetails.innerHTML += `
-                <p><%= account.vbAccountNumber %></p>
-                <p><%= account.routingNumber %></p>
-                <p><%= account.accountType %></p>
-                <p><%= account.bankName %></p>
-              `;
-                }
-          <% }); %>
-          <% } %>
-        }
-
-        function setDraftStatus(isDraft) {
-            const draftInput = document.getElementById('isDraft')
-            draftInput.value = isDraft.toString();
-        }
-        function submitForm() {
-            document.getElementById('paymentRequest').submit();
-        }
-        function submitFormWhatsApp() {
-            document.getElementById('paymentRequest').action = "/dashboard/users/shareViaWhatsApp"
-            document.getElementById('paymentRequest').submit();
-        }
-    </script>
-
-    <!--<div class="share" id="share">
+  <!--<div class="share" id="share">
         <button class="button_email">
             Share via Email
         </button> <br>
@@ -702,429 +645,582 @@
 
 
 
-    <!--generate invoive-->
+  <!--generate invoive-->
 
-    <div class="container_outer1" id="container_outer1">
-        <div class="container-inner-invoice">
-            <h1 class="heading_invoice">
-                <img src="./Exports/close.jpg" alt="" onclick="close_popup()">
-                <div class="h1con2">Invoice</div>
-            </h1>
-            <div class="container-inner01">
-                <h3 class="heading_company_details">Company Details</h3>
-                <div class="container-inner11">
-                    <p class="first_con_para">
-                    <% if (user && user.name) { %>
-                          <%= user.name %>
-                    <% } else { %>
-                      Guest
-                    <% } %>
-                      </p>
-                      <p class="second_con_para">
-                    <% if (user && user.email) { %>
-                          <%= user.email %>
-                    <% } else { %>
-                      N/A
-                    <% } %>
-                      </p>
-                      <p class="third_con_para">
-                    <% if (user && user.mobile) { %>
-                          <%= user.mobile %>
-                    <% } else { %>
-                      N/A
-                    <% } %>
-                      </p>                  
-                </div>
-            </div>
-    
-            <form id="invoiceForm" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
-                <div class="container-inner02">
-                    <label for="invoice_no" id="l_invoice_no">Invoice No.:</label>
-                    <input type="text" id="inovice_no" name="invoiceNo">
-                    <br>
-                    <label for="rbi_purpose_code" id="l_rbi_purpose_code">RBI Purpose Code:</label>
-                        <label for="options" class="select-container"></label>
-                        <select id="options" class="select-box" onclick="rbi_code_popup2()">
-                    <!-- <option value="option1">Option 1</option>
+  <div class="container_outer1" id="container_outer1">
+    <div class="container-inner-invoice">
+      <h1 class="heading_invoice">
+        <img src="./Exports/close.jpg" alt="" onclick="close_popup()">
+        <div class="h1con2">Invoice</div>
+      </h1>
+      <div class="container-inner01">
+        <h3 class="heading_company_details">Company Details</h3>
+        <div class="container-inner11">
+          <p class="first_con_para">
+            <% if (user && user.name) { %>
+            <%= user.name %>
+            <% } else { %>
+            Guest
+            <% } %>
+          </p>
+          <p class="second_con_para">
+            <% if (user && user.email) { %>
+            <%= user.email %>
+            <% } else { %>
+            N/A
+            <% } %>
+          </p>
+          <p class="third_con_para">
+            <% if (user && user.mobile) { %>
+            <%= user.mobile %>
+            <% } else { %>
+            N/A
+            <% } %>
+          </p>
+        </div>
+      </div>
+
+      <div class="container-inner02">
+        <form id="invoiceForm1" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+          <label for="invoice_no" id="l_invoice_no">Invoice No.:</label>
+          <input type="text" id="inovice_no" name="invoiceNo">
+          <br>
+          <label for="rbi_purpose_code" id="l_rbi_purpose_code">RBI Purpose Code:</label>
+          <label for="options" class="select-container"></label>
+          <select id="options" class="select-box" onclick="rbi_code_popup2()">
+            <!-- <option value="option1">Option 1</option>
                             <option value="option2">Option 2</option>
                             <option value="option3">Option 3</option> -->
-                    </select>
-                        <i class="fa fa-asterisk" id="fa-asterisk1"></i>
-                        <div class="icon-container">
-                            <i class="fa fa-caret-down" id="fa-caret-down1" onclick="rbi_code_popup2()"></i>
-                        </div>    
-                    <label for="inovice_date" id="invoice_date">Invoice Date:</label>
-                    <input type="date" id="invoiceDate" name="invoiceDate" class="select-date-input">
-                    <i class="fa fa-asterisk" id="fa-asterisk2"></i>
-                    <br>
-                    <label for="due_date" id="due_date">Due Date:</label>
-                    <input type="date" id="dueDate" name="dueDate" class="select-date-input2">
-                    <i class="fa fa-asterisk" id="fa-asterisk3"></i>
-                    <br>
-                    </form>
+          </select>
+          <i class="fa fa-asterisk" id="fa-asterisk1"></i>
+          <div class="icon-container">
+            <i class="fa fa-caret-down" id="fa-caret-down1" onclick="rbi_code_popup2()"></i>
+          </div>
+          <label for="inovice_date" id="invoice_date">Invoice Date:</label>
+          <input type="date" id="invoiceDate" name="invoiceDate" class="select-date-input">
+          <i class="fa fa-asterisk" id="fa-asterisk2"></i>
+          <br>
+          <label for="due_date" id="due_date">Due Date:</label>
+          <input type="date" id="dueDate" name="dueDate" class="select-date-input2">
+          <i class="fa fa-asterisk" id="fa-asterisk3"></i>
+          <br>
+        </form>
+      </div>
+      <div class="container-inner03">
+        <form id="invoiceForm2" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+          <h3 class="heading_bill">Bill to</h3>
+          <!-- <form class="bill-form-cont" id="billForm"> -->
+          <input type="text" id="name" name="name" placeholder="Name">
+          <i class="fa fa-asterisk" id="fa-asterisk4"></i>
+          <br>
+          <input type="text" id="company_name" name="companyName" placeholder="Company Name">
+          <i class="fa fa-asterisk" id="fa-asterisk5"></i>
+          <br>
+          <input type="text" id="address" name="amount" placeholder="amount temporary">
+          <i class="fa fa-asterisk" id="fa-asterisk6"></i>
+          <br>
+          <input type="text" id="phone" name="companyContact" placeholder="Phone">
+          <i class="fa fa-asterisk" id="fa-asterisk7"></i>
+          <br>
+          <input type="email" id="bill_to_email" name="companyEmail" placeholder="Email">
+          <i class="fa fa-asterisk" id="fa-asterisk8"></i>
+          <br>
+        </form>
+      </div>
+      <div class="container-inner04">
+        <form id="invoiceForm3" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+          <label for="options" class="select-country-container"></label>
+
+          <select id="countrySelect2" name="countrySelect" onchange="displayAccountDetails2()">
+            <option value="">Select Country</option>
+            <% if (user && user.bankAccounts) { %>
+            <% user.bankAccounts.forEach(function(account) { %>
+            <option value="<%= account.country %>">
+              <%= account.country %>
+            </option>
+            <% }); %>
+            <% } %>
+          </select>
+          <div class="icon-container">
+            <i class="fa fa-caret-down" id="fa-caret-down2"></i>
+          </div>
+          <div class="container-inner14">
+            <p>virtual Bank Account</p>
+            <!--A copy button needs to be added-->
+            <div class="box_11">
+              <div class="formgroup">
+                <div class="label_1">
+                  <label for="account_no">Account Number</label> <br>
+                  <label for="account_no">Routing Number</label><br>
+                  <label for="account_no">Account Type</label><br>
+                  <label for="account_no">Bank Name</label><br>
                 </div>
-                <div class="container-inner03">
-                    <h3 class="heading_bill">Bill to</h3>
-                    <!-- <form class="bill-form-cont" id="billForm"> -->
-                    <input type="text" id="name" name="name" placeholder="Name">
-                    <i class="fa fa-asterisk" id="fa-asterisk4"></i>
-                    <br>
-                    <input type="text" id="company_name" name="companyName" placeholder="Company Name">
-                    <i class="fa fa-asterisk" id="fa-asterisk5"></i>
-                    <br>
-                    <input type="text" id="address" name="amount" placeholder="amount temporary">
-                    <i class="fa fa-asterisk" id="fa-asterisk6"></i>
-                    <br>
-                    <input type="text" id="phone" name="companyContact" placeholder="Phone">
-                    <i class="fa fa-asterisk" id="fa-asterisk7"></i>
-                    <br>
-                    <input type="email" id="bill_to_email" name="companyEmail" placeholder="Email">
-                    <i class="fa fa-asterisk" id="fa-asterisk8"></i>
-                    <br>
-                </div>
-                <div class="container-inner04">
-                    <label for="options" class="select-country-container"></label>
-    
-                    <select class="select-country-box" name="country" id="country_2">
-                        <option value="">USA</option>
-                        <option value="0">Britain</option>
-                        <option value="1">India</option>
-                        <option value="2">France</option>
-                        <option value="2">Japan</option>
-                    </select>
-                    <div class="icon-container">
-                        <i class="fa fa-caret-down" id="fa-caret-down2"></i>
-                    </div>
-                    <div class="container-inner14">
-                        <p>virtual Bank Account</p> <!--A copy button needs to be added-->
-                        <div class="box_11">
-                            <div class="formgroup">
-                                <div class="label_1">
-                                    <label for="account_no">Account Number</label> <br>
-                                    <label for="account_no">Routing Number</label><br>
-                                    <label for="account_no">Account Type</label><br>
-                                    <label for="account_no">Bank Name</label><br>
-                                </div>
-    
-                                <div class="input">
-                                    <input type="number">
-                                    <input type="number">
-                                    <input type="text">
-                                    <input type="text">
-                                </div>
-    
-                            </div>
-    
-                            <a href="accounts.html">View more details >></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-inner05">
-                    <script>
-                        updateRemoveButtonVisibility();
-                        function addRow() {
-                        var table = document.getElementById("myTable");
-                        var row = table.insertRow(-1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        cell1.innerHTML = "<input type='text' name='data1[]' class='discrpition_value'>";
-                        cell2.innerHTML = "<input type='number' name='data2[]' class='quantity_value'>";
-                        cell3.innerHTML = "<p class='rupee2'>&#8377</p><input type='number' name='data3[]' class='amount_value' oninput='updateTotal()'>";
-                        var removeRowBtn = document.getElementById("removeRowBtn");
-                        removeRowBtn.style.display = "block";
-                        adjustContainerHeight();
-                        updateRemoveButtonVisibility();
-                        updateTotal();
-                        addValueChangeListener(cell3);
-                        }
-                        
-                        function removeRow() {
-                        var table = document.getElementById("myTable");
-                        if (table.rows.length > 3) {
-                            table.deleteRow(-1);
-                            updateTotal();
-                            adjustContainerHeight();
-                            updateRemoveButtonVisibility();
-                            // var removeRowBtn = document.getElementById("removeRowBtn");
-                            // removeRowBtn.style.display = "block";
-                        }
-                        else if(table.rows.length === 3){
-                            table.deleteRow(-1);
-                            updateTotal();
-                            var removeRowBtn = document.getElementById("removeRowBtn");
-                            removeRowBtn.style.display = "none";
-                        }
-                        // else{
-                        //     var removeRowBtn = document.getElementById("removeRowBtn");
-                        //     removeRowBtn.style.display = "none";
-                        // }
-                        updateTotal();
-                        }
-                        
-                        function adjustContainerHeight() {
-                        var table = document.getElementById("myTable");
-                        var container = document.getElementById("container");
-                        
-                        var tableHeight = table.offsetHeight;
-                        var containerHeight = container.offsetHeight;
-                        
-                        if (tableHeight > containerHeight) {
-                            container.style.height = tableHeight + "px";
-                        }
-                        }
-                        
-                        function updateRemoveButtonVisibility() {
-                        var table = document.getElementById("myTable");
-                        var removeRowBtn = document.getElementById("removeRowBtn");
-                        
-                        removeRowBtn.style.display = (table.rows.length > 2) ? "block" : "none";
-                        }
-    
-                        function updateTotal() {
-                            var table = document.getElementById("myTable");
-                            var total = 0;
-                            
-                            for (var i = 1; i < table.rows.length; i++) {
-                                var inputField = table.rows[i].cells[2].querySelector("input");
-                                total += parseFloat(inputField.value) || 0;
-                            }
-                            
-                            document.getElementById("rupee_amount").innerHTML = total.toFixed(2);
-                        }
-                        
-                        function submitData() {
-                        // Code for submitting the data to the backend
-                        }
-                        function addValueChangeListener(cell) {
-                        var inputField = cell.querySelector("input");
-                        inputField.addEventListener("input", updateTotal);
-                        }
-                        window.addEventListener("DOMContentLoaded", function() {
-                        var initialRow = document.getElementById("myTable").rows[1];
-                        addValueChangeListener(initialRow.cells[2]);
-                        updateTotal();
-                        });
-                    </script>
-                    <table id="myTable">
-                        <tr>
-                            <th id="th1">Description</th>
-                            <th id="th2">Quantity</th>
-                            <th id="th3">Amount</th>
-                        </tr>
-                        <tr>
-                            <td class="td1"><input type="text" class="discrpition_value"></td>
-                            <td class="td2"><input type="number" class="quantity_value"></td>
-                            <td class="td3"><p class="rupee2">&#8377</p><input type="number" class="amount_value" oninput="updateTotal()"></td>
-                        </tr>
-                    </table>
-                    <div class="container-inner15">
-                        <p class="para_total">Total</p>
-                        <p class="rupee">&#8377</p>
-                        <p class="rupee-amount" id="rupee_amount">0.00</p>
-                    </div>
-                    <input type="hidden" name="is_draft" id="is_draft" value="true">
-    
-                    <button class="add_new_entry" id="addRowBtn" onclick="addRow()">Add new entry</button>
-                    <button class="remove_entry" id="removeRowBtn" onclick="removeRow()">Remove entry</button>
-                    <a href="" class="save_a_draft">Save as Draft</a>
-                    <script>
-                        updateRemoveButtonVisibility();
-                        updateTotal();
-                   </script>
-                </div>
-                <hr id="hr-after-table">
-                <div class="container-inner06">
-                    <div class="container-inner16">
-                        <button id="download_invoice" onclick="downloadInvoice(event)"><a href="/dashboard/users">Download Invoice</a></button>
-                        <input class="additional_documents" type="file" name="additionalDocuments" value="Additional Documents" multiple>
-                        <button id="set_as_recurring_payment" onclick="arise4() , change()">Set as Recurring
-                            Payment</button>
-                    </div>
-                    <div class="container-inner26">
-                        <button id="share" onclick="share(),change()">Share</button>
-                        <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <script>
-        // const user = %- user %>
-            function draftStat(isDraft) {
-                const draftInput = document.getElementById('is_draft')
-                draftInput.value = isDraft.toString();
+
+                <div class="input" name="accountDetails" id="accountDetails2"></div>
+
+              </div>
+
+              <a href="accounts.html">View more details >></a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container-inner05">
+        <script>
+          function displayAccountDetails() {
+            const countrySelect = document.getElementById('countrySelect');
+            const accountDetails = document.getElementById('accountDetails');
+            const selectedCountry = countrySelect.value;
+
+            // Clear previous account details
+            accountDetails.innerHTML = '';
+
+            // Find the selected account details
+            <% if (user && user.bankAccounts) { %>
+            <% user.bankAccounts.forEach(function (account) { %>
+            if ("<%= account.country %>" === selectedCountry) {
+              accountDetails.innerHTML += `
+                                <p><%= account.vbAccountNumber %></p>
+                                <p><%= account.routingNumber %></p>
+                                <p><%= account.accountType %></p>
+                                <p><%= account.bankName %></p>
+                              `;
             }
-        function saveInvoice() {
-            console.log("saveinvoice called")
-            // event.preventDefault();
-            const invoiceForm = document.getElementById('invoiceForm');
-            // const billForm = document.getElementById('billForm');
-            invoiceForm.action = '/dashboard/users/save-invoice'
-            invoiceForm.submit();
+            <% }); %>
+            <% } %>
+          }
 
-        }
+          function displayAccountDetails2() {
+            const countrySelect = document.getElementById('countrySelect2');
+            const accountDetails = document.getElementById('accountDetails2');
+            const selectedCountry = countrySelect.value;
 
-        function downloadInvoice(event) {
-            console.log("Download invoice called!")
-            event.preventDefault()
-            const invoiceForm = document.getElementById('invoiceForm')
-            const formData = new FormData(invoiceForm)
-            // invoiceForm.action = '/dashboard/users/download-invoice'
-            // invoiceForm.submit();
+            // Clear previous account details
+            accountDetails.innerHTML = '';
 
-            fetch('/dashboard/users/download-invoice', {
-                method: 'POST',
-                body: formData
-            }).then(response => {
-                if (response.ok) {
-                    // Handle successful response
-                    console.log('Form data submitted successfully');
-                } else {
-                    // Handle error response
-                    console.error('Error submitting form data');
-                }
-            })
-                .catch(error => {
-                    // Handle network or fetch API errors
-                    console.error('Error submitting form data:', error);
-                });
-        }
-
-        // Get the select element
-        var selectElement = document.getElementById("country_2");
-
-        // Add an event listener for the change event
-        selectElement.addEventListener("change", function () {
-            // Store the selected value
-            var selectedValue = selectElement.value;
-
-            // Set the selected value as a query parameter in the URL
-            var url = new URL(window.location.href);
-            url.searchParams.set("country_2", selectedValue);
-
-            // Reload the page with the updated URL
-            window.location.href = url.toString();
-        });
-
-        // Set the selected option based on the query parameter when the page loads
-        window.addEventListener("load", function () {
-            var url = new URL(window.location.href);
-            var selectedValue = url.searchParams.get("country_2");
-            if (selectedValue) {
-                selectElement.value = selectedValue;
+            // Find the selected account details
+            <% if (user && user.bankAccounts) { %>
+            <% user.bankAccounts.forEach(function (account) { %>
+            if ("<%= account.country %>" === selectedCountry) {
+              accountDetails.innerHTML += `
+                                <p><%= account.vbAccountNumber %></p>
+                                <p><%= account.routingNumber %></p>
+                                <p><%= account.accountType %></p>
+                                <p><%= account.bankName %></p>
+                              `;
             }
+            <% }); %>
+            <% } %>
+          }
+
+          function setDraftStatus(isDraft) {
+            const draftInput = document.getElementById('isDraft')
+            draftInput.value = isDraft.toString();
+          }
+
+          function submitForm() {
+            document.getElementById('paymentRequest').submit();
+          }
+
+          function submitFormWhatsApp() {
+            document.getElementById('paymentRequest').action = "/dashboard/users/shareViaWhatsApp"
+            document.getElementById('paymentRequest').submit();
+          }
+          updateRemoveButtonVisibility();
+
+          function addRow() {
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = "<input type='text' name='data1[]' class='discrpition_value'>";
+            cell2.innerHTML = "<input type='number' name='data2[]' class='quantity_value'>";
+            cell3.innerHTML = "<p class='rupee2'>&#8377</p><input type='number' name='data3[]' class='amount_value' oninput='updateTotal()'>";
+            var removeRowBtn = document.getElementById("removeRowBtn");
+            removeRowBtn.style.display = "block";
+            adjustContainerHeight();
+            updateRemoveButtonVisibility();
+            updateTotal();
+            addValueChangeListener(cell3);
+          }
+
+          function removeRow() {
+            var table = document.getElementById("myTable");
+            if (table.rows.length > 3) {
+              table.deleteRow(-1);
+              updateTotal();
+              adjustContainerHeight();
+              updateRemoveButtonVisibility();
+              // var removeRowBtn = document.getElementById("removeRowBtn");
+              // removeRowBtn.style.display = "block";
+            } else if (table.rows.length === 3) {
+              table.deleteRow(-1);
+              updateTotal();
+              var removeRowBtn = document.getElementById("removeRowBtn");
+              removeRowBtn.style.display = "none";
+            }
+            // else{
+            //     var removeRowBtn = document.getElementById("removeRowBtn");
+            //     removeRowBtn.style.display = "none";
+            // }
+            updateTotal();
+          }
+
+          function adjustContainerHeight() {
+            var table = document.getElementById("myTable");
+            var container = document.getElementById("container");
+
+            var tableHeight = table.offsetHeight;
+            var containerHeight = container.offsetHeight;
+
+            if (tableHeight > containerHeight) {
+              container.style.height = tableHeight + "px";
+            }
+          }
+
+          function updateRemoveButtonVisibility() {
+            var table = document.getElementById("myTable");
+            var removeRowBtn = document.getElementById("removeRowBtn");
+
+            removeRowBtn.style.display = (table.rows.length > 2) ? "block" : "none";
+          }
+
+          function updateTotal() {
+            var table = document.getElementById("myTable");
+            var total = 0;
+
+            for (var i = 1; i < table.rows.length; i++) {
+              var inputField = table.rows[i].cells[2].querySelector("input");
+              total += parseFloat(inputField.value) || 0;
+            }
+
+            document.getElementById("rupee_amount").innerHTML = total.toFixed(2);
+          }
+
+          function submitData() {
+            // Code for submitting the data to the backend
+          }
+
+          function addValueChangeListener(cell) {
+            var inputField = cell.querySelector("input");
+            inputField.addEventListener("input", updateTotal);
+          }
+          window.addEventListener("DOMContentLoaded", function() {
+            var initialRow = document.getElementById("myTable").rows[1];
+            addValueChangeListener(initialRow.cells[2]);
+            updateTotal();
+          });
+        </script>
+        <form id="invoiceForm4" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+          <table id="myTable">
+            <tr>
+              <th id="th1">Description</th>
+              <th id="th2">Quantity</th>
+              <th id="th3">Amount</th>
+            </tr>
+            <tr>
+              <td class="td1"><input type="text" name="data1[]" class="discrpition_value"></td>
+              <td class="td2"><input type="number" name="data2[]" class="quantity_value"></td>
+              <td class="td3">
+                <p class="rupee2">&#8377</p><input type="number" name="data3[]" class="amount_value" oninput="updateTotal()">
+              </td>
+            </tr>
+          </table>
+          <div class="container-inner15">
+            <p class="para_total">Total</p>
+            <p class="rupee">&#8377</p>
+            <p class="rupee-amount" id="rupee_amount">0.00</p>
+          </div>
+          <input type="hidden" name="is_draft" id="is_draft" value="true">
+        </form>
+        <button class="add_new_entry" id="addRowBtn" onclick="addRow()">Add new entry</button>
+        <button class="remove_entry" id="removeRowBtn" onclick="removeRow()">Remove entry</button>
+        <a href="" class="save_a_draft">Save as Draft</a>
+        <script>
+          updateRemoveButtonVisibility();
+          updateTotal();
+        </script>
+      </div>
+      <hr id="hr-after-table">
+      <div class="container-inner06">
+        <div class="container-inner16">
+          <button id="download_invoice" onclick="downloadInvoice(event)"><a href="/dashboard/users">Download
+              Invoice</a></button>
+          <form id="invoiceForm5" name="invoiceForm" action="" method="post" enctype="multipart/form-data">
+            <input class="additional_documents" type="file" name="additionalDocuments" value="Additional Documents" multiple>
+            <select name="frequency" id="frequencySelect">
+              <option value="">Set as Recurring payment</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="custom">Custom</option>
+            </select>
+            <div id="customFrequencyInput" style="display: none;">
+              <label for="customDays">Custom Days:</label>
+              <input type="number" name="customDays" id="customDays">
+            </div>
+          </form>
+        </div>
+        <div class="container-inner26">
+          <button id="share" onclick="share(),change()">Share</button>
+          <button id="save" onclick="draftStat(false); saveInvoice()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const frequencySelect = document.getElementById('frequencySelect');
+    const customFrequencyInput = document.getElementById('customFrequencyInput');
+
+    frequencySelect.addEventListener('change', () => {
+      if (frequencySelect.value === 'custom') {
+        customFrequencyInput.style.display = 'block';
+      } else {
+        customFrequencyInput.style.display = 'none';
+      }
+    });
+    // const user = %- user %>
+    function draftStat(isDraft) {
+      const draftInput = document.getElementById('is_draft')
+      draftInput.value = isDraft.toString();
+    }
+
+    function saveInvoice() {
+      console.log("saveinvoice called");
+
+      var combinedFormData = new FormData();
+
+      var invoiceForm1Data = new FormData(document.getElementById("invoiceForm1"));
+      var invoiceForm2Data = new FormData(document.getElementById("invoiceForm2"));
+      var invoiceForm3Data = new FormData(document.getElementById("invoiceForm3"));
+      var invoiceForm4Data = new FormData(document.getElementById("invoiceForm4"));
+      var invoiceForm5Data = new FormData(document.getElementById("invoiceForm5"));
+
+      // Append each form data to the combinedFormData
+      appendFormData(combinedFormData, invoiceForm1Data);
+      appendFormData(combinedFormData, invoiceForm2Data);
+      appendFormData(combinedFormData, invoiceForm3Data);
+      appendFormData(combinedFormData, invoiceForm4Data);
+      appendFormData(combinedFormData, invoiceForm5Data);
+
+      // Send combined form data to server
+      fetch("/dashboard/users/save-invoice", {
+          method: "POST",
+          body: combinedFormData,
+        })
+        .then((response) => {
+          if (response.ok) {
+            // Handle successful response
+            console.log("Form data submitted successfully");
+          } else {
+            // Handle error response
+            console.error("Error submitting form data");
+          }
+        })
+        .catch((error) => {
+          // Handle network or fetch API errors
+          console.error("Error submitting form data:", error);
         });
-    </script>
-    <div id="overlay"></div>
-    <div class="sharepop" id="sharepop">
-        <div class="one">
-            Share details via mail
-        </div>
-        <div class="two">
-            <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button>
-        </div>
+    }
+
+    function appendFormData(targetFormData, sourceFormData) {
+      for (var pair of sourceFormData.entries()) {
+        targetFormData.append(pair[0], pair[1]);
+      }
+    }
+
+    function downloadInvoice(event) {
+      console.log("Download invoice called!")
+      event.preventDefault()
+      // const invoiceForm = document.getElementById('invoiceForm')
+      // const formData = new FormData(invoiceForm)
+      var invoiceForm = new FormData();
+
+      var invoiceForm1Data = new FormData(document.getElementById("invoiceForm1"));
+      var invoiceForm2Data = new FormData(document.getElementById("invoiceForm2"));
+      var invoiceForm3Data = new FormData(document.getElementById("invoiceForm3"));
+      var invoiceForm4Data = new FormData(document.getElementById("invoiceForm4"));
+      var invoiceForm5Data = new FormData(document.getElementById("invoiceForm5"));
+
+      // Append each form data to the invoiceForm
+      appendFormData(invoiceForm, invoiceForm1Data);
+      appendFormData(invoiceForm, invoiceForm2Data);
+      appendFormData(invoiceForm, invoiceForm3Data);
+      appendFormData(invoiceForm, invoiceForm4Data);
+      appendFormData(invoiceForm, invoiceForm5Data);
+
+      // invoiceForm.action = '/dashboard/users/download-invoice'
+      // invoiceForm.submit();
+
+      fetch('/dashboard/users/download-invoice', {
+          method: 'POST',
+          body: invoiceForm
+        }).then((response) => {
+          if (response.ok) {
+            // Convert the response to blob
+            console.log('form submitted successfully!')
+            return response.blob();
+          } else {
+            throw new Error('Error submitting form data');
+          }
+        })
+        .then((blob) => {
+          // Create a temporary URL for the blob
+          const url = URL.createObjectURL(blob);
+
+          // Create a temporary anchor element
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'invoice.pdf';
+
+          // Programmatically click the link to trigger the download
+          link.click();
+
+          // Cleanup the temporary URL and element
+          URL.revokeObjectURL(url);
+          link.remove();
+        })
+        .catch(error => {
+          // Handle network or fetch API errors
+          console.error('Error submitting form data:', error);
+        });
+    }
+
+    // Get the select element
+    var selectElement = document.getElementById("country_2");
+
+    // Add an event listener for the change event
+    selectElement.addEventListener("change", function() {
+      // Store the selected value
+      var selectedValue = selectElement.value;
+
+      // Set the selected value as a query parameter in the URL
+      var url = new URL(window.location.href);
+      url.searchParams.set("country_2", selectedValue);
+
+      // Reload the page with the updated URL
+      window.location.href = url.toString();
+    });
+
+    // Set the selected option based on the query parameter when the page loads
+    window.addEventListener("load", function() {
+      var url = new URL(window.location.href);
+      var selectedValue = url.searchParams.get("country_2");
+      if (selectedValue) {
+        selectElement.value = selectedValue;
+      }
+    });
+  </script>
+  <div id="overlay"></div>
+  <div class="sharepop" id="sharepop">
+    <div class="one">
+      Share details via mail
+    </div>
+    <div class="two">
+      <button onclick="setDraftStatus(false); submitFormWhatsApp()">Share details via Whatsapp</button>
+    </div>
+  </div>
+
+  <div class="rbi_code_pop" id="rbi_code_pop">
+    <div class="one" id="rbi_pop_div1" onclick="arise1()">
+      P00: Capital Amount
+    </div>
+    <div class="two" id="rbi_pop_div2" onclick="arise2()">
+      P07: Financial Services
+    </div>
+    <div class="three" id="rbi_pop_div3" onclick="arise3()">
+      P15: Others
     </div>
 
-    <div class="rbi_code_pop" id="rbi_code_pop">
-        <div class="one" id="rbi_pop_div1" onclick="arise1()">
-            P00: Capital Amount
-        </div>
-        <div class="two" id="rbi_pop_div2" onclick="arise2()">
-            P07: Financial Services
-        </div>
-        <div class="three" id="rbi_pop_div3" onclick="arise3()">
-            P15: Others
-        </div>
+  </div>
 
+  <div class="onepop" id="onepop">
+    <div class="one">
+      1: Repatreation of Indian investment abroad in equity capital(shares)
     </div>
-
-    <div class="onepop" id="onepop">
-        <div class="one">
-            1: Repatreation of Indian investment abroad in equity capital(shares)
-        </div>
-        <div class="two">
-            12: Loans from Non-Residents to India
-        </div>
-        <div class="three">
-            18: Other capital recipts not included elsewhere
-        </div>
+    <div class="two">
+      12: Loans from Non-Residents to India
     </div>
-    <div class="twopop" id="twopop">
-        <div class="one">
-            1: Financial intermediation except investment banking - bank charges, collection charges, LC charges,
-            commission of financial leasing, etc
-        </div>
-        <div class="two">
-            2: Investment Banking - Brokerage, underwriting commission, etc
-        </div>
-        <div class="three">
-            3: Auxiliary services- charges on operation and regulation fees, etc
-        </div>
+    <div class="three">
+      18: Other capital recipts not included elsewhere
     </div>
-    <div class="threepop" id="threepop">
-        <div class="one">
-            Refunds/rebates on account of imports
-        </div>
-        <div class="two">
-            Reversal of wrong entries, refunds of amount remitted for non imports
-        </div>
-        <div class="three">
-            Remittences (recipts) by residents under international bidding process
-        </div>
+  </div>
+  <div class="twopop" id="twopop">
+    <div class="one">
+      1: Financial intermediation except investment banking - bank charges, collection charges, LC charges,
+      commission of financial leasing, etc
     </div>
+    <div class="two">
+      2: Investment Banking - Brokerage, underwriting commission, etc
+    </div>
+    <div class="three">
+      3: Auxiliary services- charges on operation and regulation fees, etc
+    </div>
+  </div>
+  <div class="threepop" id="threepop">
+    <div class="one">
+      Refunds/rebates on account of imports
+    </div>
+    <div class="two">
+      Reversal of wrong entries, refunds of amount remitted for non imports
+    </div>
+    <div class="three">
+      Remittences (recipts) by residents under international bidding process
+    </div>
+  </div>
 
-    <!-- for invoice rbi popup -->
+  <!-- for invoice rbi popup -->
 
-    <div class="rbi_code_pop2" id="rbi_code_pop2">
-        <div class="one" id="rbi_pop_div1" onclick="arise1_2()">
-            P00: Capital Amount
-        </div>
-        <div class="two" id="rbi_pop_div2" onclick="arise2_2()">
-            P07: Financial Services
-        </div>
-        <div class="three" id="rbi_pop_div3" onclick="arise3_2()">
-            P15: Others
-        </div>
-
+  <div class="rbi_code_pop2" id="rbi_code_pop2">
+    <div class="one" id="rbi_pop_div1" onclick="arise1_2()">
+      P00: Capital Amount
+    </div>
+    <div class="two" id="rbi_pop_div2" onclick="arise2_2()">
+      P07: Financial Services
+    </div>
+    <div class="three" id="rbi_pop_div3" onclick="arise3_2()">
+      P15: Others
     </div>
 
-    <div class="onepop2" id="onepop2">
-        <div class="one">
-            1: Repatreation of Indian investment abroad in equity capital(shares)
-        </div>
-        <div class="two">
-            12: Loans from Non-Residents to India
-        </div>
-        <div class="three">
-            18: Other capital recipts not included elsewhere
-        </div>
+  </div>
+
+  <div class="onepop2" id="onepop2">
+    <div class="one">
+      1: Repatreation of Indian investment abroad in equity capital(shares)
     </div>
-    <div class="twopop2" id="twopop2">
-        <div class="one">
-            1: Financial intermediation except investment banking - bank charges, collection charges, LC charges,
-            commission of financial leasing, etc
-        </div>
-        <div class="two">
-            2: Investment Banking - Brokerage, underwriting commission, etc
-        </div>
-        <div class="three">
-            3: Auxiliary services- charges on operation and regulation fees, etc
-        </div>
+    <div class="two">
+      12: Loans from Non-Residents to India
     </div>
-    <div class="threepop2" id="threepop2">
-        <div class="one">
-            Refunds/rebates on account of imports
-        </div>
-        <div class="two">
-            Reversal of wrong entries, refunds of amount remitted for non imports
-        </div>
-        <div class="three">
-            Remittences (recipts) by residents under international bidding process
-        </div>
+    <div class="three">
+      18: Other capital recipts not included elsewhere
     </div>
-    
-    <!-- <div class="rec_pay_pop" id="rec_pay_pop">
+  </div>
+  <div class="twopop2" id="twopop2">
+    <div class="one">
+      1: Financial intermediation except investment banking - bank charges, collection charges, LC charges,
+      commission of financial leasing, etc
+    </div>
+    <div class="two">
+      2: Investment Banking - Brokerage, underwriting commission, etc
+    </div>
+    <div class="three">
+      3: Auxiliary services- charges on operation and regulation fees, etc
+    </div>
+  </div>
+  <div class="threepop2" id="threepop2">
+    <div class="one">
+      Refunds/rebates on account of imports
+    </div>
+    <div class="two">
+      Reversal of wrong entries, refunds of amount remitted for non imports
+    </div>
+    <div class="three">
+      Remittences (recipts) by residents under international bidding process
+    </div>
+  </div>
+
+  <!-- <div class="rec_pay_pop" id="rec_pay_pop">
         <h3>Set Recurring Payment</h3>
         <div class="items">
             <div class="one">Everyday</div>
@@ -1142,82 +1238,82 @@
         </div>
     </div> -->
 
-    <!--sidebar popups-->
+  <!--sidebar popups-->
 
-    <div class="notification" id="notification_popup">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-    </div>
+  <div class="notification" id="notification_popup">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+  </div>
 
-    <div class="check_exc_rate" id="check_exc_rate_popup">
-        <div class="exc_rate">
-            <div class="symbol">
-                <div class="symbol_1">
-                    <select name="symbol_1" id="symbol_1">
-                        <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
-                        <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
-                    </select>
-                </div>
-
-                <div class="eqn">
-                    <img src="/Exports\Sidebar_icons\Screenshot_1.png" alt="">
-                </div>
-
-                <div class="symbol_2">
-                    <select name="symbol_2" id="symbol_2">
-                        <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
-                        <option value="USD"><img src="/Exports\Sidebar_icons\usa.png" alt=""> USD</option>
-                    </select>
-                </div>
-            </div>
-            <div class="rate">
-                <div class="symbol_1">
-                    $ 01.00
-                </div>
-
-                <div class="eqn" id="rate">
-                    <img src="/Exports\Sidebar_icons\Group 48107.png" alt="">
-                </div>
-
-                <div class="symbol_2">
-                    ₹ 83.40
-                </div>
-            </div>
-
-        </div>
-    </div>
-    </div>
-
-    <div class="rate_alert" id="rate_alert_popup">
-        <div class="rate_alert_in">
-            <div class="rate_1">
-                <input type="number" placeholder="1.00">
-            </div>
-            <div class="select">
-                <select name="select_1" id="select_1">
-                    <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
-                    <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
-                </select>
-            </div>
-
-            <div class="eqn_1">
-                <img src="/Exports\Sidebar_icons\Group 48107.png" alt="">
-            </div>
-            <div class="select">
-                <select name="select__2" id="select_2">
-                    <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
-                    <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
-                </select>
-            </div>
-            <div class="rate_1">
-                <input type="number" placeholder="83.00">
-            </div>
+  <div class="check_exc_rate" id="check_exc_rate_popup">
+    <div class="exc_rate">
+      <div class="symbol">
+        <div class="symbol_1">
+          <select name="symbol_1" id="symbol_1">
+            <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
+            <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
+          </select>
         </div>
 
-        <div class="img">
-            <img id="plus" src="/Exports\Sidebar_icons\plus.png" alt="">
+        <div class="eqn">
+          <img src="/Exports\Sidebar_icons\Screenshot_1.png" alt="">
         </div>
 
+        <div class="symbol_2">
+          <select name="symbol_2" id="symbol_2">
+            <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
+            <option value="USD"><img src="/Exports\Sidebar_icons\usa.png" alt=""> USD</option>
+          </select>
+        </div>
+      </div>
+      <div class="rate">
+        <div class="symbol_1">
+          $ 01.00
+        </div>
+
+        <div class="eqn" id="rate">
+          <img src="/Exports\Sidebar_icons\Group 48107.png" alt="">
+        </div>
+
+        <div class="symbol_2">
+          ₹ 83.40
+        </div>
+      </div>
+
     </div>
+  </div>
+  </div>
+
+  <div class="rate_alert" id="rate_alert_popup">
+    <div class="rate_alert_in">
+      <div class="rate_1">
+        <input type="number" placeholder="1.00">
+      </div>
+      <div class="select">
+        <select name="select_1" id="select_1">
+          <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
+          <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
+        </select>
+      </div>
+
+      <div class="eqn_1">
+        <img src="/Exports\Sidebar_icons\Group 48107.png" alt="">
+      </div>
+      <div class="select">
+        <select name="select__2" id="select_2">
+          <option value="USD"> <img src="/Exports\Sidebar_icons\usa.png" alt="">USD</option>
+          <option value="INR"><img src="/Exports\Sidebar_icons\india.png" alt=""> INR</option>
+        </select>
+      </div>
+      <div class="rate_1">
+        <input type="number" placeholder="83.00">
+      </div>
+    </div>
+
+    <div class="img">
+      <img id="plus" src="/Exports\Sidebar_icons\plus.png" alt="">
+    </div>
+
+  </div>
 
 
 </body>

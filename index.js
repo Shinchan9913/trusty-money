@@ -5,7 +5,9 @@ const session = require('express-session')
 const express = require("express")
 const app = express();
 const axios = require("axios")
+const startRecurringPaymentScheduler = require('./schedulers/recurringPayment')
 
+startRecurringPaymentScheduler();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));

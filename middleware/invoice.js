@@ -37,15 +37,15 @@ async function generatePdf(transaction, callback) {
   }
 }
 
-async function generateInvoicePdf(transaction, callback) {
-  const { txnId, amount } = transaction;
-  const date = transaction.expectedDate;
+async function generateInvoicePdf(req, callback) {
+  // const { txnId, amount } = transaction;
+  // const date = transaction.expectedDate;
   // Read the EJS template file
   const templatePath = path.resolve('./views/layouts/invoice.ejs');
   const templateContent = fs.readFileSync(templatePath, 'utf8');
 
   // Compile the EJS template with data
-  const html = ejs.render(templateContent, { txnId, amount, date });
+  const html = ejs.render(templateContent, { req });
 
   try {
     const browser = await puppeteer.launch();
@@ -58,7 +58,7 @@ async function generateInvoicePdf(transaction, callback) {
     await browser.close();
 
     // Specify the directory path to save the PDF
-    const directoryPath = path.join(__dirname, '../public/invoice', txnId);
+    const directoryPath = path.join(__dirname, '../public/invoice', req.transactionId);
 
     // Create the directory if it doesn't exist
     if (!fs.existsSync(directoryPath)) {

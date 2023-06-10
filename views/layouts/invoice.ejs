@@ -13,9 +13,9 @@
     </header>
     <main>
         <div class="invoice-details">
-            <p><strong>Transaction ID:</strong> <%= txn.txnId %></p>
-            <p><strong>Date:</strong> <%= txn.initiationDate %></p>
-            <p><strong>Amount:</strong> <%= txn.amount %></p>
+            <p><strong>Transaction ID:</strong> <%= req.transactionId %></p>
+            <p><strong>Date:</strong> <%= req.body.dueDate %></p>
+            <p><strong>Amount:</strong> <%= req.body.amount %></p>
         </div>
     </main>
     <footer>

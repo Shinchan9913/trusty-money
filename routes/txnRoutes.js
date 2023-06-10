@@ -47,7 +47,7 @@ router.set('view engine', 'ejs')
 router.set('views', './views/users')
 // Map the transactionController.getTransactionsByUserId method to a specific route
 router.get('/users', auth.isLogin, txnController.loadDashboard)
-router.post('/users', upload.fields([
+router.post('/users/newTxn', upload.fields([
     { name: 'uploadInvoice', maxCount: 1 },
     { name: 'additionalDocuments'}
   ]), txnController.newTxn)
