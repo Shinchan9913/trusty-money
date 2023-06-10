@@ -13,7 +13,7 @@
             document.getElementById("create").style.display= "flex";
             document.getElementById("create_form").style.display="none";
             document.getElementById("create_footer").style.display="none";
-            document.getElementById("forgot_password").style.display= "block";
+            document.getElementById("enter_email").style.display= "block";
         })
     </script>
 </head>
@@ -56,8 +56,7 @@
                 <div class="content" id="content">
                     <a href="#">Trusty</a>
                     <p>Powering Money</p>
-                    <h1 id="h1" style="text-align: center; width: 50%; left: 25%;" >Enter OTP</h1>
-                    <!-- <h2 id="h2">Please fill the Required Fields</h2> -->
+                    <h1 id="h1">Enter Your Email Id</h1>
                     <div class="form" id="create_form">
                         <form action="">
                             <input type="text" placeholder="Name"> <br> <br>
@@ -76,10 +75,9 @@
                         <p>Already Registered? <a href="#"> Login Now</a></p>
                     </div>
     
-                    <div class="forgot_password" id="forgot_password">
-                        <p> An OTP is sent to your Email Id</p>
-                        <input type="number" placeholder="Enter OTP">
-                        <a href="changepassword.html"><button class="button_2">Next</button></a>
+                    <div class="enter_email" id="enter_email">
+                        <input type="email" placeholder="Enter Email Id">
+                        <a href=""><button class="button_2" onclick="head_to_otp()">  Send OTP  </button></a>
                     </div>
             </div>
             
