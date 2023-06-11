@@ -13,7 +13,6 @@
 
 body {
   background-color: #f3f5f9;
-
 }
 
 .overlay0{
@@ -54,15 +53,17 @@ body {
 }
 
 .ra-popup{
-      position: fixed;
-      top: 60%;
-      left: 78%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      top: -38%;
+      left: 68%;
+      transform: translate(-15%, -50%);
       background-color: #fff;
       padding: 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       display: none;
+      width: 20%;
+      height: 23%;
 }
 
 body.popup-open {
@@ -268,7 +269,7 @@ color: #FFFFFF;
 .main_body {
   position: absolute;
   display: block;
-  width: 81%;
+  width: 80%;
   height: 100%;
   left: 15%;
 }
