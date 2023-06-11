@@ -3,6 +3,8 @@ function redirectToAccount() {
 }
 
 //rasi
+
+
 function click_drafts() {
   document.getElementById("main_body_info").style.display = "none";
   document.getElementById("drafts").style.display = "block";
@@ -277,7 +279,7 @@ function openPopup2() {
   // document.getElementById("container_outer1").style.opacity='0.6';
 }
 
-function open_dot_popup_ra(transactionId) {
+function open_dot_popup_ra(spanIdtransactionId) {
   fetch("/dashboard/extras", {
     method: "POST",
     headers: {
@@ -311,13 +313,64 @@ function open_dot_popup_ra(transactionId) {
         shareViaWhatsapp;
 
       document.querySelector(".overlay-ra").style.display = "block";
-      document.querySelector(".ra-popup").style.display = "block";
+      document.body.classList.add('popup-open');
+    document.querySelector(".ra-popup").style.display = "block";
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+    document.getElementById("main_body").style.opacity="0.6";
+
+        var ra_popup = document.querySelector('.ra-popup');
+  
+        // Change the position based on the button ID
+        switch (spanId) {
+          case "ra-popup-1":
+            ra_popup.style.top = "420px";
+            break;
+          case "ra-popup-2":
+            ra_popup.style.top = "450px";
+            break;
+          case "ra-popup-3":
+            ra_popup.style.top = "480px";
+            break;
+          case "ra-popup-4":
+            ra_popup.style.top = "510px";
+            break;
+          case "ra-popup-5":
+            ra_popup.style.top = "540px";
+            break;
+          default:
+            // If an unknown button is clicked, reset the position
+            ra_popup.style.top = "-38%";
+            break;
+        }
+        if(document.getElementById("drafts").style.display === "block"){
+            switch (spanId) {
+                case "ra-popup-1":
+                  ra_popup.style.top = "85px";
+                  break;
+                case "ra-popup-2":
+                  ra_popup.style.top = "115px";
+                  break;
+                case "ra-popup-3":
+                  ra_popup.style.top = "145px";
+                  break;
+                case "ra-popup-4":
+                  ra_popup.style.top = "175px";
+                  break;
+                case "ra-popup-5":
+                  ra_popup.style.top = "205px";
+                  break;
+                default:
+                  // If an unknown button is clicked, reset the position
+                  ra_popup.style.top = "-500%";
+                  break;
+              }
+        }
 }
-function close_dot_popup_ra() {
-  document.querySelector(".overlay-ra").style.display = "none";
-  document.querySelector(".ra-popup").style.display = "none";
+function close_dot_popup_ra(){
+    document.body.classList.remove('popup-open');
+    document.querySelector('.overlay-ra').style.display = "none";
+    document.querySelector('.ra-popup').style.display = "none";
 }

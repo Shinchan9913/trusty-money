@@ -454,7 +454,7 @@
         <button class="button" onclick="invoice_popup()"> New transaction</button>
       </div>
     </div>
-        <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
+        <!-- <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
         <div class="ra-popup">
           <ul>
             <li id="followUpEmail"><a href="#">Send follow up via Email</a></li>
@@ -498,15 +498,25 @@
     <div class="overlay0" onclick="close_invoice_popup(); closePopup();"></div>
     <div class="overlay1" onclick="closePopup2()"></div>
     <div class="overlay3"></div>
+    <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
+        <div class="ra-popup">
+            <li>Send follow up via Email</li>
+            <li>Send FIRA via email</li>
+            <li>Download FIRA</li>
+            <li>Download Invoice</li>
+            <li>Share via email</li>
+            <li>Share via Whatsapp</li>
+        </div>
+    <div class="overlay-dr" onclick="close_dot_popup_dr()"></div>
+        <div class="dr-popup">
+            <li>edit</li>
+        </div>
   <div class="new_transaction" id="new_transaction" onclick="main_click()">
     <img src="/Exports\generate_invoice.jpg" alt="" onclick="generate_invoice()">
     <img src="/Exports\payment request.png" alt="" onclick="payment_request()">
   </div>
 
-    <div class="overlay-dr" onclick="close_dot_popup_dr()"></div>
-        <div class="dr-popup">
-            <li>edit</li>
-        </div>
+    
 
   <!--payment request-->
 
