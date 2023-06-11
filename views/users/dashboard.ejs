@@ -431,46 +431,19 @@
           <div class="grid_item" id="grid_item_5">Amount</div>
           <div class="grid_item" id="grid_item_6">Payment Status</div>
           <div class="grid_item" id="grid_item_7"></div>
-          <div class="grid_item" id="grid_item_8"><input type="checkbox" name="" id=""></div>
-          <div class="grid_item" id="grid_item_9">9</div>
-          <div class="grid_item" id="grid_item_10">10</div>
-          <div class="grid_item" id="grid_item_11">11</div>
-          <div class="grid_item" id="grid_item_12">12</div>
-          <div class="grid_item" id="grid_item_13">Completed</div>
-          <div class="grid_item" id="grid_item_14"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span> <!--{cursor: context-menu;}-->
-          </div>
-          <div class="grid_item" id="grid_item_15"><input type="checkbox" name="" id=""></div>
-          <div class="grid_item" id="grid_item_16">16</div>
-          <div class="grid_item" id="grid_item_17">17</div>
-          <div class="grid_item" id="grid_item_18">18</div>
-          <div class="grid_item" id="grid_item_19">19</div>
-          <div class="grid_item" id="grid_item_20">20</div>
-          <div class="grid_item" id="grid_item_21"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
-          </div>
-          <div class="grid_item" id="grid_item_22"><input type="checkbox" name="" id=""></div>
-          <div class="grid_item" id="grid_item_23">23</div>
-          <div class="grid_item" id="grid_item_24">24</div>
-          <div class="grid_item" id="grid_item_25">25</div>
-          <div class="grid_item" id="grid_item_26">26</div>
-          <div class="grid_item" id="grid_item_27">Completed</div>
-          <div class="grid_item" id="grid_item_28"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
-          </div>
-          <div class="grid_item" id="grid_item_29"><input type="checkbox" name="" id=""></div>
-          <div class="grid_item" id="grid_item_30">30</div>
-          <div class="grid_item" id="grid_item_31">31</div>
-          <div class="grid_item" id="grid_item_32">32</div>
-          <div class="grid_item" id="grid_item_33">33</div>
-          <div class="grid_item" id="grid_item_34">34</div>
-          <div class="grid_item" id="grid_item_35"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
-          </div>
-          <div class="grid_item" id="grid_item_36"><input type="checkbox" name="" id=""></div>
-          <div class="grid_item" id="grid_item_37">37</div>
-          <div class="grid_item" id="grid_item_38">38</div>
-          <div class="grid_item" id="grid_item_39">39</div>
-          <div class="grid_item" id="grid_item_40">40</div>
-          <div class="grid_item" id="grid_item_41">41</div>
-          <div class="grid_item" id="grid_item_42"><span style="cursor: pointer;" onclick="open_dot_popup_ra()">&#8942;</span>
-          </div>
+          <% transactions.slice(0, 5).forEach(transaction => { %>
+            <div class="grid_item">
+              <input type="checkbox" name="" id="">
+            </div>
+            <div class="grid_item"><%= transaction.txnId %></div>
+            <div class="grid_item"><%= transaction.companyName %></div>
+            <div class="grid_item"><%= transaction.initiationDate %></div>
+            <div class="grid_item"><%= transaction.amount %></div>
+            <div class="grid_item"><%= transaction.paymentStatus %></div>
+            <div class="grid_item">
+              <span style="cursor: pointer;" onclick="open_dot_popup_ra('<%= transaction.txnId %>')">&#8942;</span>
+            </div>
+          <% }) %>
         </div>
       </div>
       <div class="footer">
@@ -483,12 +456,14 @@
     </div>
         <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
         <div class="ra-popup">
-            <li>Send follow up via Email</li>
-            <li>Send FIRA via email</li>
-            <li>Download FIRA</li>
-            <li>Download Invoice</li>
-            <li>Share via email</li>
-            <li>Share via Whatsapp</li>
+          <ul>
+            <li id="followUpEmail"><a href="#">Send follow up via Email</a></li>
+            <li id="firaEmail"><a href="#">Send FIRA via email</a></li>
+            <li id="firaDownload"><a href="#">Download FIRA</a></li>
+            <li id="invoiceDownload"><a href="#">Download Invoice</a></li>
+            <li id="shareViaEmail"><a href="#">Share via email</a></li>
+            <li id="shareViaWhatsapp"><a href="#">Share via Whatsapp</a></li>
+          </ul>
         </div>
 
     <div class="drafts" id="drafts" onclick="main_click()">
@@ -502,24 +477,16 @@
           <div class="grid_item">Transaction InitiaStion Date</div>
           <div class="grid_item">Amount</div>
           <div class="grid_item">Payment Status</div>
-          <div class="grid_item">7</div>
-          <div class="grid_item">8</div>
-          <div class="grid_item">9</div>
-          <div class="grid_item">10</div>
-          <div class="grid_item">11</div>
-          <div class="grid_item">12</div>
-          <div class="grid_item">13</div>
-          <div class="grid_item">14</div>
-          <div class="grid_item">15</div>
-          <div class="grid_item">16</div>
-          <div class="grid_item">17</div>
-          <div class="grid_item">18</div>
-          <div class="grid_item">19</div>
-          <div class="grid_item">20</div>
-          <div class="grid_item">21</div>
-          <div class="grid_item">22</div>
-          <div class="grid_item">23</div>
-          <div class="grid_item">24</div>
+          <% drafts.slice(0, 3).forEach(draft => { %>
+          <div class="grid_item">
+            <input type="checkbox" name="" id="">
+          </div>
+          <div class="grid_item"><%= draft.txnId %></div>
+          <div class="grid_item"><%= draft.companyName %></div>
+          <div class="grid_item"><%= draft.initiationDate %></div>
+          <div class="grid_item"><%= draft.amount %></div>
+          <div class="grid_item"><%= draft.paymentStatus %></div>
+          <% }) %>
         </div>
       </div>
     </div>
@@ -555,7 +522,7 @@
         <div class="left">
           <input type="text" name="companyName" placeholder="Company Name" id="popupInput" class="popupInput"> <br>
           <input type="text" name="companyContact" placeholder="Company Contact Number"><br>
-
+          <input type="hidden" name="frequency" value="">
           <script>
             // Get the select element
             var selectElement = document.getElementById("country_1");
@@ -648,11 +615,11 @@
         <button class="button_21" onclick="">
           Share
         </button>
-        <!-- <button class="button_22" onclick="setDraftStatus(false); submitForm()">
+        <button class="button_22" onclick="setDraftStatus(false); submitForm()">
           Save
-                </button> -->
-                <button class="open-share-popup button_22" id=" open-share-popup" onclick="shareForm(event)">
-                    save
+        </button>
+        <button class="open-share-popup button_22" id=" open-share-popup" onclick="shareForm(event)">
+          save
         </button>
       </div>
     </form>

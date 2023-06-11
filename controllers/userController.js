@@ -124,7 +124,7 @@ const verifyLogin = async (req, res) => {
     const pass = req.body.password;
     console.log("post req successful", email, pass);
     const userData = await User.findOne({ email: email });
-
+    
     if (userData) {
       console.log("user found");
       const passMatch = await bcrypt.compare(pass, userData.password);

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const encrypt = require('mongoose-encryption')
+const config = require('../config/config')
 
 const kycSchema = new Schema({
   userId: {
@@ -48,5 +50,7 @@ const kycSchema = new Schema({
     type:String,
   }
 });
+
+// kycSchema.plugin(encrypt, { secret: config.secret })
 
 module.exports = mongoose.model('kyc', kycSchema);

@@ -1,4 +1,7 @@
 const mongoose = require("mongoose")
+const encrypt = require('mongoose-encryption')
+const config = require('../config/config')
+
 
 const userSchema = new mongoose.Schema({
 
@@ -41,5 +44,7 @@ const userSchema = new mongoose.Schema({
         bankName: String,
     }],
 });
+
+// userSchema.plugin(encrypt, { secret: config.secret, encryptedFields: ['name', 'mobile', 'password', 'is_verified', 'is_admin', 'kycVerificationStatus', 'bankAccounts'] })
 
 module.exports = mongoose.model('User', userSchema)

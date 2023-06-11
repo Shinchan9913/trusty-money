@@ -40,7 +40,7 @@ app.set('views', './views/users')
 
 app.get('/trialRoute', (req, res) => {
   try {
-    res.render('trial')
+    res.render('login=enter_email')
   } catch (error) {
     console.log(error.message)
   }

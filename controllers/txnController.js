@@ -63,8 +63,11 @@ const loadDashboard = async (req, res) => {
     const userId = req.session.user_id;
     const user = await User.findById(userId);
 
-    const transactions = await Transaction.find({ userId: userId }).sort({
-      date: -1,
+    const transactions = await Transaction.find({ userId: userId, isDraft: false }).sort({
+      initiationDate: -1,
+    }); // Sort by date in descending order (most recent first)
+    const drafts = await Transaction.find({ userId: userId, isDraft: true }).sort({
+      initiationDate: -1,
     }); // Sort by date in descending order (most recent first)
     // console.log(transactions);
     // Calculate the total amount for transactions in the last week
@@ -127,6 +130,7 @@ const loadDashboard = async (req, res) => {
       lastWeekStatus: lastWeekPaymentStatusTotals,
       lastMonthStatus: lastMonthPaymentStatusTotals,
       lastYearStatus: lastYearPaymentStatusTotals,
+      drafts: drafts
     });
   } catch (error) {
     console.error(error);
@@ -326,6 +330,11 @@ const newTxn = async (req, res) => {
   try {
     const userId = req.session.user_id;
     console.log(userId);
+    if (!req.transactionId) {
+      const transactionId = uuidv4(); // Generate a UUID for the transaction
+      console.log("Generated transactionId:", transactionId);
+      req.transactionId = transactionId;
+    }
     // Store transaction data in the database
     const txn = new Transaction({
       userId: userId,
@@ -536,6 +545,14 @@ const generateInvoice = async (req, res) => {
   });
 };
 
+const extraFeatures = async (req, res) => {
+  try {
+    const transaction = await Transaction.findOne({txnId: })
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 module.exports = {
   getTransactionsByUserId,
   loadDashboard,
@@ -545,4 +562,5 @@ module.exports = {
   newTxnWhatsApp,
   saveInvoice,
   downloadInvoice,
+  extraFeatures,
 };

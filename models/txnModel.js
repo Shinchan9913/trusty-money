@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const encrypt = require('mongoose-encryption')
+const config = require('../config/config')
 
 const TransactionSchema = new Schema({
   userId: {
@@ -49,5 +51,7 @@ const TransactionSchema = new Schema({
   }
 
 });
+
+// TransactionSchema.plugin(encrypt, { secret: config.secret })
 
 module.exports = mongoose.model('Transaction', TransactionSchema);
