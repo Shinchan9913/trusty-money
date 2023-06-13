@@ -285,27 +285,21 @@ const saveInvoice = async (req, res) => {
     const files = req.files;
     const transactionId = req.transactionId;
 
+    // Check if additionalDocuments file exists
     if (files && files["additionalDocuments"]) {
       const additionalDocumentsFiles = files["additionalDocuments"];
 
+          
       additionalDocumentsFiles.forEach((file) => {
-        // Handle each additionalDocuments file
-        // For example, move the file to the desired directory
-        const additionalDocumentsDirectory = path.join(
-          __dirname,
-          "../public/additionalDocuments",
-          transactionId,
-        );
-        // Create the directory if it doesn't exist
+        const additionalDocumentsDirectory = path.join(__dirname, "../views/public/additionalDocuments", transactionId);
+
+        // Create the destination directory if it doesn't exist
         if (!fs.existsSync(additionalDocumentsDirectory)) {
           fs.mkdirSync(additionalDocumentsDirectory, { recursive: true });
         }
-        const additionalDocumentsPath = path.join(
-          additionalDocumentsDirectory,
-          file.filename
-        );
+
+        const additionalDocumentsPath = path.join(additionalDocumentsDirectory, file.filename);
         fs.renameSync(file.path, additionalDocumentsPath);
-        // You can also save the file path to the database if needed
       });
     }
 
@@ -362,12 +356,15 @@ const newTxn = async (req, res) => {
       const uploadInvoiceFile = files["uploadInvoice"][0];
       // Handle the uploadInvoice file
       // For example, move the file to the desired directory
-      const uploadInvoicePath = path.join(
+      const uploadInvoiceDirectory = path.join(
         __dirname,
-        "../public/invoice",
-        transactionId,
-        uploadInvoiceFile.filename
+        "../views/public/invoice",
+        transactionId
       );
+      if (!fs.existsSync(uploadInvoiceDirectory)) {
+        fs.mkdirSync(uploadInvoiceDirectory, { recursive: true });
+      }
+      const uploadInvoicePath = path.join(uploadInvoiceDirectory, uploadInvoiceFile.filename);
       fs.renameSync(uploadInvoiceFile.path, uploadInvoicePath);
       // You can also save the file path to the database if needed
     }
@@ -376,17 +373,17 @@ const newTxn = async (req, res) => {
     if (files && files["additionalDocuments"]) {
       const additionalDocumentsFiles = files["additionalDocuments"];
 
+          
       additionalDocumentsFiles.forEach((file) => {
-        // Handle each additionalDocuments file
-        // For example, move the file to the desired directory
-        const additionalDocumentsPath = path.join(
-          __dirname,
-          "../public/additionalDocuments",
-          transactionId,
-          file.filename
-        );
+        const additionalDocumentsDirectory = path.join(__dirname, "../views/public/additionalDocuments", transactionId);
+
+        // Create the destination directory if it doesn't exist
+        if (!fs.existsSync(additionalDocumentsDirectory)) {
+          fs.mkdirSync(additionalDocumentsDirectory, { recursive: true });
+        }
+
+        const additionalDocumentsPath = path.join(additionalDocumentsDirectory, file.filename);
         fs.renameSync(file.path, additionalDocumentsPath);
-        // You can also save the file path to the database if needed
       });
     }
 
@@ -402,7 +399,7 @@ const newTxn = async (req, res) => {
     }
     // Rest of the code to respond to the client or redirect to a different page
     // ...
-    res.redirect("/dashboard/users");
+    res.redirect("/dashboard/users?reloadFlag=true");
     // res.send('Files uploaded successfully.');
   } catch (error) {
     console.log(error);
@@ -446,12 +443,15 @@ const newTxnWhatsApp = async (req, res) => {
       const uploadInvoiceFile = files["uploadInvoice"][0];
       // Handle the uploadInvoice file
       // For example, move the file to the desired directory
-      const uploadInvoicePath = path.join(
+      const uploadInvoiceDirectory = path.join(
         __dirname,
-        "../public/invoice",
-        transactionId,
-        uploadInvoiceFile.filename
+        "../views/public/invoice",
+        transactionId
       );
+      if (!fs.existsSync(uploadInvoiceDirectory)) {
+        fs.mkdirSync(uploadInvoiceDirectory, { recursive: true });
+      }
+      const uploadInvoicePath = path.join(uploadInvoiceDirectory, uploadInvoiceFile.filename);
       fs.renameSync(uploadInvoiceFile.path, uploadInvoicePath);
       // You can also save the file path to the database if needed
     }
@@ -460,17 +460,17 @@ const newTxnWhatsApp = async (req, res) => {
     if (files && files["additionalDocuments"]) {
       const additionalDocumentsFiles = files["additionalDocuments"];
 
+          
       additionalDocumentsFiles.forEach((file) => {
-        // Handle each additionalDocuments file
-        // For example, move the file to the desired directory
-        const additionalDocumentsPath = path.join(
-          __dirname,
-          "../public/additionalDocuments",
-          transactionId,
-          file.filename
-        );
+        const additionalDocumentsDirectory = path.join(__dirname, "../views/public/additionalDocuments", transactionId);
+
+        // Create the destination directory if it doesn't exist
+        if (!fs.existsSync(additionalDocumentsDirectory)) {
+          fs.mkdirSync(additionalDocumentsDirectory, { recursive: true });
+        }
+
+        const additionalDocumentsPath = path.join(additionalDocumentsDirectory, file.filename);
         fs.renameSync(file.path, additionalDocumentsPath);
-        // You can also save the file path to the database if needed
       });
     }
     // Rest of the code to respond to the client or redirect to a different page
@@ -489,30 +489,59 @@ const newTxnWhatsApp = async (req, res) => {
 };
 
 // Function to generate the WhatsApp message with transaction data
-const generateWhatsAppMessage = (txnData) => {
-  // Extract the desired fields from the transaction data
-  const {
-    amount,
-    companyName,
-    companyContact,
-    companyEmail,
-    expectedDate,
-    country,
-    description,
-  } = txnData;
+// const generateWhatsAppMessage = (txnData) => {
+//   // Extract the desired fields from the transaction data
+//   const {
+//     amount,
+//     companyName,
+//     companyContact,
+//     companyEmail,
+//     expectedDate,
+//     country,
+//     description,
+//   } = txnData;
 
-  // Construct the message using the extracted fields
-  const message = `New Transaction:\n\nAmount: ${amount}\nCompany: ${companyName}\nContact: ${companyContact}\nEmail: ${companyEmail}\nExpected Date: ${expectedDate}\nCountry: ${country}\nDescription: ${description}`;
+//   // Construct the message using the extracted fields
+//   const message = `New Transaction:\n\nAmount: ${amount}\nCompany: ${companyName}\nContact: ${companyContact}\nEmail: ${companyEmail}\nExpected Date: ${expectedDate}\nCountry: ${country}\nDescription: ${description}`;
 
-  return message;
-};
+//   return message;
+// };
 
+// const shareViaEmail = (transaction, attachmentFilePaths) => {
+//   let url = `mailto:?`;
+
+//   const body = `Transaction Details:%0D%0A%0D%0A` +
+//     `Transaction ID: ${transaction.txnId}%0D%0A` +
+//     `Company Name: ${transaction.companyName}%0D%0A` +
+//     `Initiation Date: ${transaction.initiationDate}%0D%0A` +
+//     `Amount: ${transaction.amount}%0D%0A` +
+//     `Payment Status: ${transaction.paymentStatus}%0D%0A%0D%0A` +
+//     `Please find attached the files for the transaction.`;
+
+//   url += `body=${encodeURIComponent(body)}&`;
+
+//   if (attachmentFilePaths && attachmentFilePaths.length > 0) {
+//     for (const filePath of attachmentFilePaths) {
+//       url += `attachment=${encodeURIComponent(filePath)}&`;
+//     }
+//   }
+
+//   // Remove the trailing '&' character
+//   url = url.slice(0, -1);
+
+//   return url;
+// };
+
+// const generateEmailShareUrl = (filePath) => {
+//   const emailSubject = "Shared File";
+//   const emailBody = "Please find the shared file attached.";
+//   const emailUrl = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+//   const attachmentUrl = `attachment:${filePath}`;
+//   return `${emailUrl}&${attachmentUrl}`;
+// };
 const shareViaEmail = (message) => {
-  const emailUrl = `mailto:?subject=New Transaction&body=${encodeURIComponent(
-    message
-  )}`;
-  return emailUrl;
-};
+  return `mailto:?subject=${encodeURIComponent("Please find transaction details")}&body=${encodeURIComponent(message)}`
+}
 
 // Function to open a new WhatsApp window with the message
 const shareViaWhatsApp = (message) => {
@@ -545,9 +574,118 @@ const generateInvoice = async (req, res) => {
   });
 };
 
+const generateWhatsAppMessage = (transaction, invoiceFiles, additionalDocumentsFiles) => {
+  // Construct the message content
+  let message = `Transaction ID: ${transaction.txnId}\n`;
+  message += `Company Name: ${transaction.companyName}\n`;
+  message += `Initiation Date: ${transaction.initiationDate}\n`;
+  message += `Amount: ${transaction.amount}\n`;
+  message += `Payment Status: ${transaction.paymentStatus}\n\n`;
+
+  // Add invoice file URLs to the message
+  if (invoiceFiles.length > 0) {
+    message += 'Invoice Files:\n';
+    invoiceFiles.forEach((file, index) => {
+      const fileUrl = `http://localhost:5000/public/invoice/${encodeURIComponent(transaction.txnId)}/${encodeURIComponent(file)}`;
+      message += `${index + 1}. ${fileUrl}\n`;
+    });
+    message += '\n';
+  }
+
+  // Add additional documents file URLs to the message
+  if (additionalDocumentsFiles.length > 0) {
+    message += 'Additional Documents:\n';
+    additionalDocumentsFiles.forEach((file, index) => {
+      const fileUrl = `http://localhost:5000/public/additionalDocuments/${transaction.txnId}/${file}`;
+      message += `${index + 1}. ${fileUrl}\n`;
+    });
+    message += '\n';
+  }
+
+  // Return the generated message
+  return message;
+};
+
+
+
 const extraFeatures = async (req, res) => {
   try {
-    const transaction = await Transaction.findOne({txnId: })
+    const transactionId = req.body.transactionId
+    const transaction = await Transaction.findOne({txnId: req.body.transactionId})
+    console.log(transaction._doc)
+
+    // Invoice directory path
+const invoiceDirectoryPath = path.join(__dirname, '../views/public/invoice', transactionId);
+fs.readdir(invoiceDirectoryPath, (err, invoiceFiles) => {
+  if (!err) {
+    const invoiceFilePaths = invoiceFiles.map((file) => path.join(invoiceDirectoryPath, file));
+    console.log('Invoice file paths:', invoiceFilePaths);
+
+    // Additional documents directory path
+    const additionalDocumentsDirectoryPath = path.join(__dirname, '../views/public/additionalDocuments', transactionId);
+
+    const invoiceFileUrls = invoiceFiles.map((file, index) => {
+      const fileUrl = `http://localhost:5000/public/invoice/${encodeURIComponent(transaction.txnId)}/${encodeURIComponent(file)}`;
+      return fileUrl;
+    });
+    // Check if the invoice directory exists
+    if (fs.existsSync(additionalDocumentsDirectoryPath)) {
+      fs.readdir(additionalDocumentsDirectoryPath, (err, additionalDocumentsFiles) => {
+        if (!err) {
+          const additionalDocumentsFilePaths = additionalDocumentsFiles.map((file) => path.join(additionalDocumentsDirectoryPath, file));
+          console.log('Additional documents file paths:', additionalDocumentsFilePaths);
+
+          // Generate the WhatsApp message
+          const whatsappMessage = generateWhatsAppMessage(transaction._doc, invoiceFiles, additionalDocumentsFiles);
+
+          // Generate the WhatsApp URL
+          const whatsappUrl = shareViaWhatsApp(whatsappMessage);
+          // Print the generated URL
+          console.log('WhatsApp URL:', whatsappUrl);
+
+          // Generate the email URL
+          const emailUrl = shareViaEmail(whatsappMessage, [...invoiceFilePaths, ...additionalDocumentsFilePaths]);
+          // Print the generated email URL
+          console.log('Email URL:', emailUrl);
+
+          // Send the URLs as a response
+          res.json({
+            whatsappUrl,
+            emailUrl,
+            invoiceFileUrls
+          });
+        } else {
+          console.error('Error reading additional documents directory:', err);
+          res.status(500).json({ error: 'Error reading additional documents directory' });
+        }
+      });
+    } else {
+      // Invoice directory doesn't exist, skip the additional documents part
+      console.log('Invoice directory does not exist');
+      // Generate the WhatsApp message
+      const whatsappMessage = generateWhatsAppMessage(transaction._doc, invoiceFiles, []);
+      // Generate the WhatsApp URL
+      const whatsappUrl = shareViaWhatsApp(whatsappMessage);
+      // Print the generated URL
+      console.log('WhatsApp URL:', whatsappUrl);
+
+      // Generate the email URL without attachments
+      const emailUrl = shareViaEmail(whatsappMessage, []);
+      // Print the generated email URL
+      console.log('Email URL:', emailUrl);
+
+      // Send the URLs as a response
+      res.json({
+        whatsappUrl,
+        emailUrl,
+      });
+    }
+  } else {
+    console.error('Error reading invoice directory:', err);
+    res.status(500).json({ error: 'Error reading invoice directory' });
+  }
+});
+
   } catch (error) {
     console.log(error.message)
   }

@@ -57,6 +57,11 @@ user_route.post('/signup/password', userController.submitPasswordForm)
 // user_route.post('/signup', userController)
 
 user_route.get('/forgot-password', auth.isLogout, userController.loadForgotPass)
+user_route.post('/forgot-password', userController.getUserEmail)
+user_route.get('/forgot-password/verifyOTP', auth.isLogout, userController.loadOTP)
+user_route.post('/forgot-password/verifyOTP', upload.none(), userController.verifyOTP)
+user_route.get('/forgot-password/set-password', auth.isLogout, userController.loadSetPass)
+user_route.post('/forgot-password/set-password', upload.none(), userController.setPass)
 
 
 user_route.get('/dashboard', auth.isLogin, userController.loadHome)

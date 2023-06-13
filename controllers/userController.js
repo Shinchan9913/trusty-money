@@ -124,7 +124,7 @@ const verifyLogin = async (req, res) => {
     const pass = req.body.password;
     console.log("post req successful", email, pass);
     const userData = await User.findOne({ email: email });
-    
+
     if (userData) {
       console.log("user found");
       const passMatch = await bcrypt.compare(pass, userData.password);
@@ -366,7 +366,7 @@ const submitPasswordForm = async (req, res) => {
 
 const loadForgotPass = async (req, res) => {
     try {
-        res.render('forget_password')
+        res.render('login=enter_email')
     } catch (error) {
         console.log(error.message)
     }
@@ -416,6 +416,65 @@ const changePassword = async (req, res) => {
     }
 }
 
+const getUserEmail = async (req, res) => {
+  try {
+      const email = req.body.email;
+      const user = await User.findOne({email: email})
+
+      if(user){
+        sendVerificationMail(req, user.name, email)
+        res.redirect('/forgot-password/verifyOTP')
+      }else{
+        res.render('login=enter_email', {message: "User doesn't exist"})
+      }
+      // res.render('changepassword')
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+
+const loadOTP = async (req, res) => {
+  try {
+      res.render("forgot-pass-otp")
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+const verifyOTP = async (req, res) => {
+  try {
+      const savedOTP = req.session.otp
+      console.log(savedOTP)
+      if(req.body.otp === savedOTP){
+        res.redirect('/forgot-password/set-password')
+      }else{
+        res.render('login=otpverificationbyemail', {message: "Invalid OTP"})
+      }
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+
+const loadSetPass = async (req, res) => {
+  try {
+      res.render("forget_password")
+  } catch (error) {
+      console.log(error.message)
+  }
+}
+
+
+const setPass = async (req, res) => {
+  try {
+      const newPass = req.body.pass
+      
+      // res.render("login=otpverificationbyemail")
+  } catch (error) {
+      console.log(error.message)
+  }
+}
 module.exports = {
   loadRegister,
   // addUser,
@@ -443,5 +502,10 @@ module.exports = {
   loadForgotPass,
   loadSettings,
   loadChangePassword,
-  changePassword
+  changePassword,
+  getUserEmail,
+  loadOTP,
+  verifyOTP,
+  loadSetPass,
+  setPass
 };

@@ -431,7 +431,7 @@
           <div class="grid_item" id="grid_item_5">Amount</div>
           <div class="grid_item" id="grid_item_6">Payment Status</div>
           <div class="grid_item" id="grid_item_7"></div>
-          <% transactions.slice(0, 5).forEach(transaction => { %>
+          <% transactions.slice(0, 5).forEach((transaction,index) => { %>
             <div class="grid_item">
               <input type="checkbox" name="" id="">
             </div>
@@ -441,7 +441,7 @@
             <div class="grid_item"><%= transaction.amount %></div>
             <div class="grid_item"><%= transaction.paymentStatus %></div>
             <div class="grid_item">
-              <span style="cursor: pointer;" onclick="open_dot_popup_ra('<%= transaction.txnId %>')">&#8942;</span>
+              <span style="cursor: pointer;"  onclick="open_dot_popup_ra('<%= transaction.txnId %>', 'ra-popup-<%= index + 1 %>')">&#8942;</span>
             </div>
           <% }) %>
         </div>
@@ -464,7 +464,7 @@
             <li id="shareViaEmail"><a href="#">Share via email</a></li>
             <li id="shareViaWhatsapp"><a href="#">Share via Whatsapp</a></li>
           </ul>
-        </div>
+        </div> -->
 
     <div class="drafts" id="drafts" onclick="main_click()">
       <h1>Drafts</h1>
@@ -500,12 +500,14 @@
     <div class="overlay3"></div>
     <div class="overlay-ra" onclick="close_dot_popup_ra()"></div>
         <div class="ra-popup">
-            <li>Send follow up via Email</li>
-            <li>Send FIRA via email</li>
-            <li>Download FIRA</li>
-            <li>Download Invoice</li>
-            <li>Share via email</li>
-            <li>Share via Whatsapp</li>
+          <ul>
+            <li id="followUpEmail"><a href="#" target="_blank">Send follow up via Email</a></li>
+            <li id="firaEmail"><a href="#" target="_blank">Send FIRA via email</a></li>
+            <li id="firaDownload"><a href="#" target="_blank">Download FIRA</a></li>
+            <li id="invoiceDownload"><a href="#" target="_blank">Download Invoice</a></li>
+            <li id="shareViaEmail"><a href="#" target="_blank">Share via email</a></li>
+            <li id="shareViaWhatsapp"><a href="#" target="_blank">Share via Whatsapp</a></li>
+          </ul>
         </div>
     <div class="overlay-dr" onclick="close_dot_popup_dr()"></div>
         <div class="dr-popup">

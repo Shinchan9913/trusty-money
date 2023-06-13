@@ -58,7 +58,7 @@ async function generateInvoicePdf(req, callback) {
     await browser.close();
 
     // Specify the directory path to save the PDF
-    const directoryPath = path.join(__dirname, '../public/invoice', req.transactionId);
+    const directoryPath = path.join(__dirname, '../views/public/invoice', req.transactionId);
 
     // Create the directory if it doesn't exist
     if (!fs.existsSync(directoryPath)) {
